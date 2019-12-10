@@ -9,14 +9,15 @@
 </head>
 <body>
     
-    <form action="cadastro.php" method="POST" enctype="multipart/form-data" onsubmit="return validaFormulario();">
+    <form action="../PHP/cadastro.php" method="POST" enctype="multipart/form-data" onsubmit="return validaFormulario();">
         <div>
             <label for="nome">Nome: </label>
             <input type="text" name="nome" id="nome" required>
         </div>
         <div>
             <label for="email">Email: </label>
-            <input type="email" name="email" id="email" required>
+            <input type="email" name="email" id="email" onblur="confirmaEmail()">
+            <label for="email" id="erroEmail"></label>
         </div>
         <div>
             <label for="senha">Senha: </label>
@@ -54,7 +55,7 @@
         </div>
         <div>
             <label for="altura">Altura: </label>
-            <input type="number" name="altura" id="altura" required>
+            <input type="number" name="altura" id="altura" min="0" max="3" step="any" required>
         </div>
         <div>
             <label for="tipo-sanguineo">Tipo Sanguineo: </label>
