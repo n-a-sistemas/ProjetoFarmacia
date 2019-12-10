@@ -10,14 +10,14 @@ $datanascimento = $_POST['data'];
 $rg = $_POST['rg'];
 $sexo  = $_POST['sexo'];
 $telefone = $_POST['tel'];
-$alergiadoencas = $_POST['alergia-doencas'];
+$alergiadoencas = $_POST['alergias-doencas'];
 $tiposanguineo = $_POST['tipo-sanguineo'];
 $contatoemergencia = $_POST['contato-emergencia'];
 $planodesaude = $_POST['plano-de-saude'];
 $senha  = $_POST['senha'];
 $senha = md5($senha);
 $altura = $_POST['altura'];
-$peso = $_POST['peso'];
+
 
 $diretorio = "img/";
 $arquivo = $diretorio . basename($_FILES['perfil']['name']);
@@ -39,7 +39,6 @@ $codeContents = 'perfil.php';
 // generating
 QRcode::png($codeContents, $tempDir. $nomeqrcode, QR_ECLEVEL_L, 2);  
 // displaying
-echo '<img src="'.$tempDir.'006_4.png" />';
 
 
 $sql = "INSERT INTO pessoa (nome,email,datanascimento,rg,sexo,telefone,alergia-doencas,tipo-sanguineo,contato-emergencia,plano-saude,senha,altura,peso,qrcode,foto-de-perfil) 
