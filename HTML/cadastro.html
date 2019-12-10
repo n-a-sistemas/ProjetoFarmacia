@@ -9,7 +9,7 @@
 </head>
 <body>
     
-    <form action="cadastro.php" method="POST">
+    <form action="cadastro.php" method="POST" enctype="multipart/form-data" onsubmit="return validaFormulario();">
         <div>
             <label for="nome">Nome: </label>
             <input type="text" name="nome" id="nome" required>
@@ -24,7 +24,8 @@
         </div>
         <div>
             <label for="confirmacao">Digite novamente sua senha: </label>
-            <input type="password" name="confirmacao" id="confirmacao" required>
+            <input type="password" name="confirmacao" id="confirmacao" onblur="confirmaSenha()" required>
+            <label for="confirmacao" id="erroSenha"></label>
         </div>
         <fieldset>
             <legend>Sexo: </legend>
@@ -69,8 +70,8 @@
             </select>
         </div>
         <div>
-            <label for="Alergias-doencas">Alergias ou Doenças: </label>
-            <textarea name="Alergias-doencas" id="Alergias-doencas" cols="30" rows="10" required></textarea>
+            <label for="alergias-doencas">Alergias ou Doenças: </label>
+            <textarea name="alergias-doencas" id="alergias-doencas" cols="30" rows="10" required></textarea>
         </div>
         <div>
             <label for="plano-de-saude">Plano de saúde: </label>
