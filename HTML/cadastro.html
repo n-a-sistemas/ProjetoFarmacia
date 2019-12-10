@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cadastro</title>
+    <script src="JS/cadastro.js"></script>
+</head>
+<body>
+    
+    <form action="cadastro.php" method="POST">
+        <div>
+            <label for="nome">Nome: </label>
+            <input type="text" name="nome" id="nome" required>
+        </div>
+        <div>
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email" required>
+        </div>
+        <div>
+            <label for="senha">Senha: </label>
+            <input type="password" name="senha" id="senha" required>
+        </div>
+        <div>
+            <label for="confirmacao">Digite novamente sua senha: </label>
+            <input type="password" name="confirmacao" id="confirmacao" required>
+        </div>
+        <fieldset>
+            <legend>Sexo: </legend>
+            <input type="radio" name="sexo" id="Masculino">
+            <label for="Masculino">Masculino</label>
+            <input type="radio" name="sexo" id="Feminino" checked>
+            <label for="Feminino">Feminino</label>
+            <input type="radio" name="sexo" id="Outros">
+            <label for="Outros">Outros</label>
+        </fieldset>
+        <div>
+            <label for="data">Data de Nascimento: </label>
+            <input type="date" name="data" id="data" required>
+        </div>
+        <div>
+            <label for="rg">RG: </label>
+            <input type="text" name="rg" id="rg" required>
+        </div>
+        <div>
+            <label for="tel">Telefone: </label>
+            <input type="tel" name="tel" id="tel" required>
+        </div>
+        <div>
+            <label for="contato-emergencia">Contato de Emergência: </label>
+            <input type="tel" name="contato-emergencia" id="contato-emergencia" required>
+        </div>
+        <div>
+            <label for="altura">Altura: </label>
+            <input type="number" name="altura" id="altura" required>
+        </div>
+        <div>
+            <label for="tipo-sanguineo">Tipo Sanguineo: </label>
+            <select name="tipo-sanguineo" id="tipo-sanguineo">
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select>
+        </div>
+        <div>
+            <label for="Alergias-doencas">Alergias ou Doenças: </label>
+            <textarea name="Alergias-doencas" id="Alergias-doencas" cols="30" rows="10" required></textarea>
+        </div>
+        <div>
+            <label for="plano-de-saude">Plano de saúde: </label>
+            <input type="text" name="plano-de-saude" id="plano-de-saude" required>
+        </div>
+        <div>
+            <label for="perfil">Foto de Perfil: </label>
+            <input type="file" name="perfil" id="perfil">
+        </div>
+        <div>
+            <button type="submit">Cadastrar</button>
+        </div>
+    </form>
+
+</body>
+</html>
