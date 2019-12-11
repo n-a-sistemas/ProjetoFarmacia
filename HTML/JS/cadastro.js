@@ -1,63 +1,87 @@
-function confirmaSenha(){
+function confirmaSenha() {
     var senha = document.getElementById("senha").value;
     var confirmacao = document.getElementById("confirmacao").value;
     var erroSenha = document.getElementById("erroSenha");
     var erroText = "As senhas não se correspodem";
+    erroSenha.style.color = "red";
 
-    if(senha != confirmacao){
+    if (senha != confirmacao) {
         alert(erroText);
         erroSenha.innerHTML = erroText;
-        erroSenha.style.color = "red";
     }
-    else{
+    else {
         erroSenha.innerHTML = "";
     }
 }
 
-function confirmaEmail(){
-    var email = document.getElementById("email").value;
+function confirmaEmail() {
+    var email = document.getElementById("email");
     var erroEmail = document.getElementById("erroEmail");
-    var msg = "";
-    if(email.length < 1){
-        msg += "- Preencheu o campo email";
+    usuario = email.value.substring(0, email.value.indexOf("@"));
+    dominio = email.value.substring(email.value.indexOf("@") + 1, email.value.length);
+    if ((usuario.length >= 1) &&
+        (dominio.length >= 3) &&
+        (usuario.search("@") == -1) &&
+        (dominio.search("@") == -1) &&
+        (usuario.search(" ") == -1) &&
+        (dominio.search(" ") == -1) &&
+        (dominio.search(".") != -1) &&
+        (dominio.indexOf(".") >= 1) &&
+        (dominio.lastIndexOf(".") < dominio.length - 1)) {
+        erroEmail.innerHTML = "";
     }
-
-    var a = email.search("@");
-    if(a == -1){
-        msg += ", - Incluiu '@' no campo de email";
-    }
-    if(msg != ""){
-        erroEmail.innerHTML = "Verifique se você: " + msg;
-        erroEmail.style.color = "red";
+    else {
+        erroEmail.innerHTML = "Email inválido";
+        erroEmail.style.color = "red"; 
+        alert("E-mail invalido");
     }
 }
 
-function validaFormulario(){
+function validaFormulario() {
     var msg = "";
     var autorizacao = false;
 
     //Validação do campo nome
     var nome = document.getElementById("nome").value;
-    if(nome.length < 1){
+    if (nome.length < 1) {
         msg += "\r\n- Preencha o campo nome";
     }
 
     //Validação do campo email
     var email = document.getElementById("email").value;
-    if(nome.length < 1){
+    var erroEmail = document.getElementById("erroEmail");
+    if(email == ""){
         msg += "\r\n- Preencha o campo email";
     }
+    else if (erroEmail.innerHTML != "") {
+        msg += "\r\n- Corrija o campo email";
+    }
 
-    var a = email.search("@");
-    if(a == -1){
-        msg += "Inclua '@' no campo de email";
+    //Validação dos campos senha e confirma senha 
+    var senha = document.getElementById("senha").value;
+    var confirmacao = document.getElementById("confirmacao").value;
+    var erroSenha = document.getElementById("erroSenha");
+    if(senha == ""){
+        msg += "\r\n- Preencha o campo senha";
+    }
+    else if(confirmacao == ""){
+        msg += "\r\n- Preencha o campo de confirmação";
+    }
+    else if (erroSenha.innerHTML != "") {
+        msg += "\r\n- Corrija os campo senha e de confirmação";
+    }
+
+    //Validação do campo de data de nascimento
+    var data = document.getElementById("data_nascimento").value;
+    if(data == ""){
+        msg += "\r\n- Preencha o campo dara de nascimento";
     }
 
     //Teste final para saber se vai validar o formulário
-    if(msg == ""){
+    if (msg == "") {
         autorizacao = true;
     }
-    else{
+    else {
         alert("Verifique os seguintes campos:" + msg);
     }
     return autorizacao;
