@@ -37,6 +37,13 @@ function confirmaEmail() {
     }
 }
 
+function confirmaTelefone(){
+    var tel = document.getElementById("tel").value;
+    if(tel.length < 1 && tel.length > 14){
+
+    }
+}
+
 function validaFormulario() {
     var msg = "";
     var autorizacao = false;
@@ -74,7 +81,16 @@ function validaFormulario() {
     //Validação do campo de data de nascimento
     var data = document.getElementById("data_nascimento").value;
     if(data == ""){
-        msg += "\r\n- Preencha o campo dara de nascimento";
+        msg += "\r\n- Preencha o campo data de nascimento";
+    }
+
+    //Validação do campo telefone
+    var tel = document.getElementById("tel").value;
+    if(tel.length < 1){
+        msg += "\r\n- Preencha o campo telefone";
+    }
+    else if (tel.length > 14){
+        msg += "\r\n- Siga o exemplo no campo a frente";
     }
 
     //Teste final para saber se vai validar o formulário
