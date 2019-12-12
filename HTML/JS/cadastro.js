@@ -5,7 +5,10 @@ function confirmaSenha() {
     var erroText = "As senhas não se correspodem";
     erroSenha.style.color = "red";
 
-    if (senha != confirmacao) {
+    if(senha.length < 5){
+        erroSenha.innerHTML = "A senha deve ter no minimo 5 caracteres";
+    }
+    else if (senha != confirmacao) {
         alert(erroText);
         erroSenha.innerHTML = erroText;
     }
@@ -75,7 +78,7 @@ function validaFormulario() {
         msg += "\r\n- Preencha o campo de confirmação";
     }
     else if (erroSenha.innerHTML != "") {
-        msg += "\r\n- Corrija os campo senha e de confirmação";
+        msg += "\r\n- Corrija os campo senha e/ou de confirmação";
     }
 
     //Validação do campo de data de nascimento
@@ -89,8 +92,23 @@ function validaFormulario() {
     if(tel.length < 1){
         msg += "\r\n- Preencha o campo telefone";
     }
-    else if (tel.length > 14){
+    else if (tel.length < 14 || tel.length > 14){
         msg += "\r\n- Siga o exemplo no campo a frente";
+    }
+
+    //Validação do campo altura
+    var altura = document.getElementById("altura").value;
+    if(altura < 1){
+        msg += "\r\n- Preencha o campo altura";
+    }
+    else if(altura > 3){
+        msg += "\r\n- Preencha o campo altura com um valor abaixo de 3";
+    }
+
+    //Validação do campo tipo sanguineo
+    var sanguineo = document.getElementById("tipo_sanguineo").value;
+    if(sanguineo == "hint"){
+        msg += "\r\n- Escolha uma opção no campo tipo sanguineo";
     }
 
     //Teste final para saber se vai validar o formulário
