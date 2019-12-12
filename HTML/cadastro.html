@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cadastro</title>
-    <script src="JS/cadastro.js"></script>
 </head>
 <body>
     
-    <form action="ola.html" method="POST" enctype="multipart/form-data" onsubmit="return validaFormulario();">
+    <form action="../PHP/cadastro.php" method="POST" enctype="multipart/form-data" onsubmit="return validaFormulario();">
         <div>
             <label for="nome">Nome: </label>
             <input type="text" name="nome" id="nome" >
@@ -42,13 +41,13 @@
             <input type="date" name="data_nascimento" id="data_nascimento" >
         </div>
         <div>
-            <label for="rg">RG: </label>
-            <input type="text" name="rg" id="rg" >
+            <label for="cpf">CPF: </label>
+            <input type="text" name="cpf" id="cpf">
         </div>
         <div>
             <label for="tel">Telefone: </label>
             <input type="tel" name="tel" id="tel" maxlength="14" minlength="11">
-            <label for="tel">ex:(16)91111-4444</label>
+            <label for="tel" id="exemplo" >ex:(16)91111-4444</label>
         </div>
         <div>
             <label for="contato_emergencia">Contato de Emergência: </label>

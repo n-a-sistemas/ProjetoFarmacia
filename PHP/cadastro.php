@@ -1,13 +1,13 @@
 <?php
 
-include('conn.php');
+//include('conn.php');
 include('phpqrcode/qrlib.php');
 
 
 $nome = $_POST['nome'];
 $email =  $_POST['email'];
 $datanascimento = $_POST['data_nascimento'];
-$rg = $_POST['rg'];
+$cpf = $_POST['cpf'];
 $sexo  = $_POST['sexo'];
 $telefone = $_POST['tel'];
 $alergiadoencas = $_POST['alergias_doencas'];
@@ -32,12 +32,13 @@ else{
 // how to configure pixel "zoom" factor
 $tempDir = "qrcodes/";
 $nomeqrcode = '006_4.png';
-$codeContents = 'perfil.php';
+$codeContents = 'perfil.php?id=0';
 // generating
 QRcode::png($codeContents, $tempDir. $nomeqrcode, QR_ECLEVEL_L, 2);  
 // displaying
+echo "<img src='$tempDir . $nomeqrcode'>";
 
-
+/*
 $sql = "INSERT INTO pessoa (nome,email,data_nascimento,rg,sexo,telefone,alergia_doencas,tipo_sanguineo,contato_emergencia,plano_de_saude,senha,altura,qrcode,foto_de_perfil,adm) 
         VALUES ('$nome', '$email','$datanascimento','$rg','$sexo','$telefone','$alergiadoencas','$tiposanguineo','$contatoemergencia','$planodesaude','$senha','$altura','$tempDir . $nomeqrcode','$arquivo','$adm')";
 
@@ -49,5 +50,6 @@ if($conn->query($sql) == TRUE){
 else{
     echo "Erro : " . $conn->error;
 }
+*/
 
 
