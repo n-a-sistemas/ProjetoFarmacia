@@ -1,3 +1,17 @@
+<?php
+    $json = file_get_contents("http://localhost:8080/ProjetoFarmacia/PHP/estado.php");
+    $estados = json_decode($json);
+
+    /*
+    $json = file_get_contents("http://localhost:8080/ProjetoFarmacia/PHP/cidade.php");
+    $cidade = json_decode($json);
+    $dir = "JS/cidade.json";
+    $arquivo = fopen($dir, "a") or die("Não foi possível encontrar o arquivo");
+    fwrite($arquivo, $cidade);
+    fclose($arquivo);
+    */
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,10 +19,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cadastro</title>
+    <link rel="stylesheet" href="CSS/cadastro.css">
+    <script src="JS/jquery-3.4.1.min.js"></script>
+    <script src="JS/cadastro.js"></script>
 </head>
 <body>
     
-    <form action="../PHP/cadastro.php" method="POST" enctype="multipart/form-data" onsubmit="return validaFormulario();">
+    <form action="../PHP/insert_formulario.php" method="POST" enctype="multipart/form-data" onsubmit="return validaFormulario();">
         <div>
             <label for="nome">Nome: </label>
             <input type="text" name="nome" id="nome" >
@@ -43,6 +60,24 @@
         <div>
             <label for="cpf">CPF: </label>
             <input type="text" name="cpf" id="cpf">
+        </div>
+        <div>
+            <label for="estados">Estados: </label>
+            <select name="estados" id="estados">
+                <option value="hint_estados">Selecione Aqui</option>
+                <?php include('parts/criar_options_estados.php'); ?>
+            </select>
+        </div>
+        <div>
+            <label for="cidades">Cidades: </label>
+            <select name="cidades" id="cidades">
+                <option value="hint_cidades">Selecione Aqui</option>
+                
+            </select>
+        </div>
+        <div>
+            <label for=""></label>
+            <input type="text" name="" id="">
         </div>
         <div>
             <label for="tel">Telefone: </label>
@@ -81,13 +116,13 @@
             <input type="text" name="plano_de_saude" id="plano_de_saude" >
         </div>
         <div>
-            <label for="perfil">Foto de Perfil: </label>
+            <label for="imagemUpload">Foto de Perfil: </label>
             <input type="file" name="imagemUpload" value="Procurar..." accept="image/png ,image/jpeg">
         </div>
         <div>
             <button type="submit">Cadastrar</button>
         </div>
     </form>
-
+    <script src="JS/formulario.js"></script>
 </body>
 </html>

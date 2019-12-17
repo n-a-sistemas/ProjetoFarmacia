@@ -5,7 +5,7 @@ function confirmaSenha() {
     var erroText = "As senhas não se correspodem";
     erroSenha.style.color = "red";
 
-    if(senha.length < 5){
+    if (senha.length < 5) {
         erroSenha.innerHTML = "A senha deve ter no minimo 5 caracteres";
     }
     else if (senha != confirmacao) {
@@ -35,14 +35,14 @@ function confirmaEmail() {
     }
     else {
         erroEmail.innerHTML = "Email inválido";
-        erroEmail.style.color = "red"; 
+        erroEmail.style.color = "red";
         alert("E-mail invalido");
     }
 }
 
-function confirmaTelefone(){
+function confirmaTelefone() {
     var tel = document.getElementById("tel").value;
-    if(tel.length < 1 && tel.length > 14){
+    if (tel.length < 1 && tel.length > 14) {
 
     }
 }
@@ -60,7 +60,7 @@ function validaFormulario() {
     //Validação do campo email
     var email = document.getElementById("email").value;
     var erroEmail = document.getElementById("erroEmail");
-    if(email == ""){
+    if (email == "") {
         msg += "\r\n- Preencha o campo email";
     }
     else if (erroEmail.innerHTML != "") {
@@ -71,10 +71,10 @@ function validaFormulario() {
     var senha = document.getElementById("senha").value;
     var confirmacao = document.getElementById("confirmacao").value;
     var erroSenha = document.getElementById("erroSenha");
-    if(senha == ""){
+    if (senha == "") {
         msg += "\r\n- Preencha o campo senha";
     }
-    else if(confirmacao == ""){
+    else if (confirmacao == "") {
         msg += "\r\n- Preencha o campo de confirmação";
     }
     else if (erroSenha.innerHTML != "") {
@@ -83,31 +83,31 @@ function validaFormulario() {
 
     //Validação do campo de data de nascimento
     var data = document.getElementById("data_nascimento").value;
-    if(data == ""){
+    if (data == "") {
         msg += "\r\n- Preencha o campo data de nascimento";
     }
 
     //Validação do campo telefone
     var tel = document.getElementById("tel").value;
-    if(tel.length < 1){
+    if (tel.length < 1) {
         msg += "\r\n- Preencha o campo telefone";
     }
-    else if (tel.length < 14 || tel.length > 14){
+    else if (tel.length < 14 || tel.length > 14) {
         msg += "\r\n- Siga o exemplo no campo a frente";
     }
 
     //Validação do campo altura
     var altura = document.getElementById("altura").value;
-    if(altura < 1){
+    if (altura < 1) {
         msg += "\r\n- Preencha o campo altura";
     }
-    else if(altura > 3){
+    else if (altura > 3) {
         msg += "\r\n- Preencha o campo altura com um valor abaixo de 3";
     }
 
     //Validação do campo tipo sanguineo
     var sanguineo = document.getElementById("tipo_sanguineo").value;
-    if(sanguineo == "hint"){
+    if (sanguineo == "hint") {
         msg += "\r\n- Escolha uma opção no campo tipo sanguineo";
     }
 
