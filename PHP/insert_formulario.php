@@ -1,6 +1,6 @@
 <?php
 
-    //include('conn.php');
+    include('conn.php');
     include('phpqrcode/qrlib.php');
 
     if(isset($_POST['nome']) && isset($_POST['email'])
@@ -9,14 +9,15 @@
     && isset($_POST['contato_emergencia']) && isset($_POST['senha'])
     && isset($_POST['alergias_doencas']) && isset($_POST['tipo_sanguineo'])
     && isset($_POST['plano_de_saude']) && isset($_POST['endereco'])
-    && isset($_POST['altura']) && isset($_POST['cidade_estado'])
-    && isset($_POST['cep']) && isset($_POST['peso']) && isset($_POST['pressao'])
+    && isset($_POST['altura']) && isset($_POST['cidades'])
+    && isset($_POST['estados']) && isset($_POST['cep']) 
+    && isset($_POST['peso']) && isset($_POST['pressao'])
     ){
         $nome = $_POST['nome'];
         $email =  $_POST['email'];
         $datanascimento = $_POST['data_nascimento'];
         $cpf = $_POST['cpf'];
-        $id = hash('sha256', $cpf)
+        $id = hash('sha256', $cpf);
         $sexo  = $_POST['sexo'];
         $telefone = $_POST['tel'];
         $alergiadoencas = $_POST['alergias_doencas'];
@@ -27,8 +28,15 @@
         $senha = hash('sha256', $senha);
         $altura = $_POST['altura']; 
         $adm = false;
+        $endereco = $_POST['endereco'];
+        $cidade = $_POST['cidades'];
+        $estado = $_POST['estados'];
+        $cep = $_POST['cep'];
+        $peso = $_POST['peso'];
+        $pressao = $_POST['pressao'];
+        $data = date("Y-m-d");
         $arquivo = "";
-        if(isset($_FILES['imagemUpload'])){
+        if($_FILES['imagemUpload']['name'] != ""){
             $diretorio = "uploads/";
             $arquivo = $diretorio . basename($_FILES['imagemUpload']['name']);
 
@@ -41,33 +49,42 @@
                 $arquivo = "";
             }
         }
-        
 
         // how to configure pixel "zoom" factor
         $tempDir = "qrcodes/";
-        $nomeqrcode = '006_4.png';
+        $nomeqrcode = 'qrcode_'. $cpf.'.png';
         $codeContents = 'perfil.php?id=' . $id;
         // generating
         QRcode::png($codeContents, $tempDir. $nomeqrcode, QR_ECLEVEL_L, 2);  
         // displaying
-        echo "<img src='$tempDir . $nomeqrcode'>";
+        echo "<img src='qrcodes/" . $nomeqrcode . "'>";
 
-        /*
-        $sql = "INSERT INTO pessoa (nome,email,data_nascimento,rg,sexo,telefone,alergia_doencas,tipo_sanguineo,contato_emergencia,plano_de_saude,senha,altura,qrcode,foto_de_perfil,adm) 
-                VALUES ('$nome', '$email','$datanascimento','$rg','$sexo','$telefone','$alergiadoencas','$tiposanguineo','$contatoemergencia','$planodesaude','$senha','$altura','$tempDir . $nomeqrcode','$arquivo','$adm')";
+        $sql_pessoa = "INSERT INTO pessoa (nome,email,data_nascimento,cpf,sexo,telefone,alergia_doencas,tipo_sanguineo,telefone_emergencia,plano_saude,senha,altura,foto_qrcode,foto_perfil,adm,id_cidade,id_estado,cep,endereco) 
+                VALUES ('$nome', '$email','$datanascimento','$cpf','$sexo','$telefone','$alergiadoencas','$tiposanguineo','$contatoemergencia','$planodesaude','$senha','$altura','$tempDir . $nomeqrcode','$arquivo','$adm','$cidade','$estado','$cep','$endereco')";
 
-        if($conn->query($sql) == TRUE){
+        if($conn->query($sql_pessoa) == TRUE){
+            $sql_select = "SELECT * FROM pessoa WHERE cpf ='" . $cpf . "'";
+            $resultado = $conn->query($sql_select);
+            $id = "";
+            if($resultado->num_rows == 1){
+                while($linha = $resultado->fetch_assoc()){
+                    $id = $linha['id_nome'];
+                }
+            }
+            $sql_peso = "INSERT INTO peso (id_nome, peso, data) VALUES ('$id', '$peso','$data')";
+            $sql_pressao = "INSERT INTO pressao (id_nome, pressao, data) VALUES ('$id', '$pressao', '$data')";
+            if($conn->query($sql_peso) == TRUE && $conn->query($sql_pressao) == TRUE){
 
-            echo "$arquivo salva com sucesso";
-            echo "Dado inserido com sucesso";
+            }
+            else{
+                echo "Erro : " . $conn->error;    
+            }
         }
         else{
             echo "Erro : " . $conn->error;
         }
-        */
     }
-
-    
+    else{
+        echo "Erro ao cadastrar, volte e preencha o formulário corretamente";
+    }
 ?>
-
-

@@ -1,29 +1,28 @@
-$(document).ready(function(){
-    $.getJSON('cidade.json', function (data) {
-        $("#estados").change(function () {				
-            var uf = $(this).attr("value");
-            var cidades = data;
-            var options_cidades = '';
-            
-            for(var i = 0; i < cidades.length; i++){
-                if($cidade[i].uf == uf){
-                    options_cidades += "<option value=" + $cidade[i].id + " class='cidade'>" + $cidade[i].nome + "</option>";
+$(document).ready(function() {
+    $('#estados').change(function() {
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:8080/ProjetoFarmacia/PHP/cidade.php',
+            dataType: 'html',
+            data: {'estado': $('#estados').val()},
+            // Antes de carregar os registros, mostra para o usuário que está
+            // sendo carregado.
+            beforeSend: function(xhr) {
+                $('#cidades').attr('disabled', 'disabled');
+                $('#cidades').html('<option value="">Carregando...</option>');
+            },
+            // Após carregar, coloca a lista dentro do select de cidades.
+            success: function(data) {
+                if ($('#estados').val() != "") {
+                    // Adiciona o retorno no campo, habilita e da foco
+                    $('#cidades').html('<option value="">Selecione</option>');
+                    $('#cidades').append(data);
+                    $('#cidades').removeAttr('disabled').focus();
+                } else {
+                    $('#cidades').html('<option value="">Selecione um estado</option>');
+                    $('#cidades').attr('disabled', 'disabled');
                 }
             }
-            $("#cidades").html(options_cidades);
         });
-        /*
-        var bands = data.bands;
-
-        for (i = 0; i < bands.length; i++) {
-            saida += '<div class="row">';
-            saida += '<div class="col-lg-4 band-img">';
-            saida += '<img src="' + bands[i].picture + '" alt="' + bands[i].name + '" title="' + bands[i].name + '">';
-            saida += '</div>';
-            saida += '</div>';
-        }
-
-        document.getElementById('tela').innerHTML = saida;		
-        */
     });
-})
+});

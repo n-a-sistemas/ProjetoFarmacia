@@ -1,18 +1,14 @@
 <?php
     include("conn.php");
-    
-    $sql = "SELECT * FROM cidade";
+    // Uma forma de obter $_POST['estado'] mais segura
+    $codEstado = $_POST['estado'];
+
+    $sql = "SELECT * FROM cidade WHERE estado = $codEstado ORDER BY nome ASC";
     $resultado = $conn->query($sql);
 
     if($resultado->num_rows > 0){
         while($linha = $resultado->fetch_assoc()){
-            $test = array('id'=>$linha['id'], 'nome'=>$linha['nome'], 'uf'=>$linha['estado']);
-            $cidades[] = $test;
+            echo "<option value=" . $linha['id'] . " class='cidade'>" . $linha['nome'] . "</option>";
         }
     }
-    else{
-        $cidades = "Nenhum resultado";
-    }
-
-    echo json_encode($cidades);
 ?>

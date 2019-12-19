@@ -1,15 +1,6 @@
 <?php
     $json = file_get_contents("http://localhost:8080/ProjetoFarmacia/PHP/estado.php");
     $estados = json_decode($json);
-
-    /*
-    $json = file_get_contents("http://localhost:8080/ProjetoFarmacia/PHP/cidade.php");
-    $cidade = json_decode($json);
-    $dir = "JS/cidade.json";
-    $arquivo = fopen($dir, "a") or die("Não foi possível encontrar o arquivo");
-    fwrite($arquivo, $cidade);
-    fclose($arquivo);
-    */
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +17,9 @@
 <body>
     
     <form action="../PHP/insert_formulario.php" method="POST" enctype="multipart/form-data" onsubmit="return validaFormulario();">
+        <div>
+            <h2>Formulário para cadastro</h2>
+        </div>
         <div>
             <label for="nome">Nome: </label>
             <input type="text" name="nome" id="nome" >
@@ -59,7 +53,8 @@
         </div>
         <div>
             <label for="cpf">CPF: </label>
-            <input type="text" name="cpf" id="cpf">
+            <input type="text" name="cpf" id="cpf" onblur="confirmaCPF()">
+            <label for="cpf">ex:111.222.333-44</label>
         </div>
         <div>
             <label for="estados">Estados: </label>
@@ -70,23 +65,26 @@
         </div>
         <div>
             <label for="cidades">Cidades: </label>
-            <select name="cidades" id="cidades">
+            <select name="cidades" id="cidades" disabled>
                 <option value="hint_cidades">Selecione Aqui</option>
-                
             </select>
         </div>
         <div>
-            <label for=""></label>
-            <input type="text" name="" id="">
+            <label for="endereco">Endereço: </label>
+            <input type="text" name="endereco" id="endereco">
+        </div>
+        <div>
+            <label for="cep">CEP: </label>
+            <input type="text" name="cep" id="cep">
         </div>
         <div>
             <label for="tel">Telefone: </label>
-            <input type="tel" name="tel" id="tel" maxlength="14" minlength="11">
-            <label for="tel" id="exemplo" >ex:(16)91111-4444</label>
+            <input type="tel" name="tel" id="tel" maxlength="14" minlength="11" onblur="confirmaTelefone('tel')">
+            <label for="tel">ex:(16)91111-4444</label>
         </div>
         <div>
             <label for="contato_emergencia">Contato de Emergência: </label>
-            <input type="tel" name="contato_emergencia" id="contato_emergencia" maxlength="14" minlength="11">
+            <input type="tel" name="contato_emergencia" id="contato_emergencia" maxlength="14" minlength="11" onblur="confirmaTelefone('contato_emergencia')">
             <label for="contato_emergencia">ex:(16)91111-4444</label>
         </div>
         <div>
@@ -114,6 +112,14 @@
         <div>
             <label for="plano_de_saude">Plano de saúde: </label>
             <input type="text" name="plano_de_saude" id="plano_de_saude" >
+        </div>
+        <div>
+            <label for="peso">Peso: </label>
+            <input type="number" name="peso" id="peso" min="1" max="500" step="any" >
+        </div>
+        <div>
+            <label for="pressao">Pressão: </label>
+            <input type="text" name="pressao" id="pressao" >
         </div>
         <div>
             <label for="imagemUpload">Foto de Perfil: </label>

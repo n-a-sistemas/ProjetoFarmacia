@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17-Dez-2019 às 20:12
+-- Tempo de geração: 19-Dez-2019 às 02:12
 -- Versão do servidor: 10.4.8-MariaDB
 -- versão do PHP: 7.3.11
 
@@ -5696,7 +5696,8 @@ CREATE TABLE `pessoa` (
   `senha` varchar(500) NOT NULL,
   `email` varchar(500) NOT NULL,
   `endereco` varchar(300) NOT NULL,
-  `cidade_estado` varchar(200) NOT NULL,
+  `id_estado` int(11) NOT NULL,
+  `id_cidade` int(11) NOT NULL,
   `cep` varchar(100) NOT NULL,
   `foto_perfil` varchar(200) DEFAULT NULL,
   `foto_qrcode` varchar(200) NOT NULL,
@@ -5793,19 +5794,19 @@ ALTER TABLE `pais`
 -- AUTO_INCREMENT de tabela `peso`
 --
 ALTER TABLE `peso`
-  MODIFY `id_peso` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_peso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `pessoa`
 --
 ALTER TABLE `pessoa`
-  MODIFY `id_nome` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_nome` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de tabela `pressao`
 --
 ALTER TABLE `pressao`
-  MODIFY `id_pressao` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pressao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
