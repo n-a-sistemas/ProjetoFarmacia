@@ -12,6 +12,7 @@
     && isset($_POST['altura']) && isset($_POST['cidades'])
     && isset($_POST['estados']) && isset($_POST['cep']) 
     && isset($_POST['peso']) && isset($_POST['pressao'])
+    && isset($_POST['data_peso']) && isset($_POST['data_pressao'])
     ){
         $nome = $_POST['nome'];
         $email =  $_POST['email'];
@@ -33,8 +34,9 @@
         $estado = $_POST['estados'];
         $cep = $_POST['cep'];
         $peso = $_POST['peso'];
+        $data_peso = $_POST['data_peso'];
         $pressao = $_POST['pressao'];
-        $data = date("Y-m-d");
+        $data_pressao = $_POST['data_pressao'];
         $arquivo = "";
         if($_FILES['imagemUpload']['name'] != ""){
             $diretorio = "uploads/";
@@ -71,8 +73,8 @@
                     $id = $linha['id_nome'];
                 }
             }
-            $sql_peso = "INSERT INTO peso (id_nome, peso, data) VALUES ('$id', '$peso','$data')";
-            $sql_pressao = "INSERT INTO pressao (id_nome, pressao, data) VALUES ('$id', '$pressao', '$data')";
+            $sql_peso = "INSERT INTO peso (id_nome, peso, data) VALUES ('$id', '$peso','$data_peso')";
+            $sql_pressao = "INSERT INTO pressao (id_nome, pressao, data) VALUES ('$id', '$pressao', '$data_pressao')";
             if($conn->query($sql_peso) == TRUE && $conn->query($sql_pressao) == TRUE){
 
             }

@@ -53,7 +53,7 @@
         </div>
         <div>
             <label for="cpf">CPF: </label>
-            <input type="text" name="cpf" id="cpf" onblur="confirmaCPF()">
+            <input type="text" name="cpf" id="cpf" maxlength="14" onblur="confirmaCPF()">
             <label for="cpf">ex:111.222.333-44</label>
         </div>
         <div>
@@ -76,15 +76,16 @@
         <div>
             <label for="cep">CEP: </label>
             <input type="text" name="cep" id="cep">
+            <label for="cep">ex:91111-111</label>
         </div>
         <div>
             <label for="tel">Telefone: </label>
-            <input type="tel" name="tel" id="tel" maxlength="14" minlength="11" onblur="confirmaTelefone('tel')">
+            <input type="tel" name="tel" id="tel" minlength="11" maxlength="14" onblur="confirmaTelefone('tel')">
             <label for="tel">ex:(16)91111-4444</label>
         </div>
         <div>
             <label for="contato_emergencia">Contato de Emergência: </label>
-            <input type="tel" name="contato_emergencia" id="contato_emergencia" maxlength="14" minlength="11" onblur="confirmaTelefone('contato_emergencia')">
+            <input type="tel" name="contato_emergencia" id="contato_emergencia" minlength="11" maxlength="14" onblur="confirmaTelefone('contato_emergencia')">
             <label for="contato_emergencia">ex:(16)91111-4444</label>
         </div>
         <div>
@@ -118,8 +119,16 @@
             <input type="number" name="peso" id="peso" min="1" max="500" step="any" >
         </div>
         <div>
+            <label for="data_peso">Data da Pesagem: </label>
+            <input type="date" name="data_peso" id="data_peso" >
+        </div>
+        <div>
             <label for="pressao">Pressão: </label>
             <input type="text" name="pressao" id="pressao" >
+        </div>
+        <div>
+            <label for="data_pressao">Data da Aferição da Pressão: </label>
+            <input type="date" name="data_pressao" id="data_pressao" >
         </div>
         <div>
             <label for="imagemUpload">Foto de Perfil: </label>

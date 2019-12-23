@@ -3,7 +3,6 @@ function confirmaSenha() {
     var confirmacao = document.getElementById("confirmacao").value;
     var erroSenha = document.getElementById("erroSenha");
     var erroText = "As senhas não se correspodem";
-    erroSenha.style.color = "red";
 
     if(senha != "" && confirmacao != ""){
         if (senha.length < 5) {
@@ -12,9 +11,12 @@ function confirmaSenha() {
         else if (senha != confirmacao) {
             alert(erroText);
             erroSenha.innerHTML = erroText;
+            erroSenha.style.color = "red";
         }
         else {
             erroSenha.innerHTML = "";
+            erroSenha.style.color = "black";
+
         }
     }
 }
@@ -35,6 +37,7 @@ function confirmaEmail() {
             (dominio.indexOf(".") >= 1) &&
             (dominio.lastIndexOf(".") < dominio.length - 1)) {
             erroEmail.innerHTML = "";
+            erroEmail.style.color = "black";
         }
         else {
             erroEmail.innerHTML = "Email inválido";
@@ -63,7 +66,7 @@ function confirmaTelefone(id) {
 
 function confirmaCPF(){
     var cpf = document.getElementById("cpf").value;
-    if(cpf != ""){
+    if(cpf != "" && cpf.length == 14){
         var Soma = 0;
         var Resto;
         var i = 0;
@@ -72,7 +75,7 @@ function confirmaCPF(){
         cpf = cpf.replace(".", "");
         cpf = cpf.replace("-", "");
         alert(cpf);
-        if (cpf == "00000000000"){
+        if (cpf == "00000000000" || cpf.length != 11){
             msg = "CPF invalido";
         }
         else{
@@ -100,12 +103,14 @@ function confirmaCPF(){
                 if (Resto != parseInt(cpf.substring(10, 11) ) ) {
                     msg = "CPF invalido";
                 }
-                msg = "";
             }
         }
         if(msg != ""){
             alert(msg);
         }        
+    }
+    else{
+        alert("Utilize o exemplo ao lado da caixa de texto");
     }
 }
 
@@ -115,7 +120,7 @@ function validaFormulario() {
 
     //Validação do campo nome
     var nome = document.getElementById("nome").value;
-    if (nome.length < 1) {
+    if (nome == "") {
         msg += "\r\n- Preencha o campo nome";
     }
 
@@ -125,7 +130,7 @@ function validaFormulario() {
     if (email == "") {
         msg += "\r\n- Preencha o campo email";
     }
-    else if (erroEmail.innerHTML != "") {
+    else if (erroEmail.innerHTML != "" || erroEmail.style.color != "black") {
         msg += "\r\n- Corrija o campo email";
     }
 
@@ -139,7 +144,7 @@ function validaFormulario() {
     else if (confirmacao == "") {
         msg += "\r\n- Preencha o campo de confirmação";
     }
-    else if (erroSenha.innerHTML != "") {
+    else if (erroSenha.innerHTML != "" || erroSenha.style.color != "black") {
         msg += "\r\n- Corrija os campo senha e/ou de confirmação";
     }
 
@@ -149,18 +154,37 @@ function validaFormulario() {
         msg += "\r\n- Preencha o campo data de nascimento";
     }
 
-    //Validação do campo telefone
+    //Validação do campo telefone e campo contato
     var tel = document.getElementById("tel").value;
-    if (tel.length < 1) {
+    if (tel == "") {
         msg += "\r\n- Preencha o campo telefone";
     }
-    else if (tel.length < 14 || tel.length > 14) {
-        msg += "\r\n- Siga o exemplo no campo a frente";
+    else if ((tel.length != 14) ||
+            (tel.search("(") != 0) ||
+            (tel.search(")") != 3) ||
+            (tel.search("-") != 9)) {
+        msg += "\r\n- Siga o exemplo de telefone no campo a frente";
+    }
+    var contato = document.getElementById("contato_emergencia").value;
+    if (contato == "") {
+        msg += "\r\n- Preencha o campo contato de emergência";
+    }
+    else if ((contato.length != 14) ||
+    (contato.search("(") != 0) ||
+    (contato.search(")") != 3) ||
+    (contato.search("-") != 9)) {
+        msg += "\r\n- Siga o exemplo de contato no campo a frente";
+    }
+
+    //Validação do campo endereço
+    var endereco = document.getElementById("endereco").value;
+    if(endereco == ""){
+        msg += "\r\n- Preencha o campo endereço";
     }
 
     //Validação do campo altura
     var altura = document.getElementById("altura").value;
-    if (altura < 1) {
+    if (altura == "") {
         msg += "\r\n- Preencha o campo altura";
     }
     else if (altura > 3) {
@@ -171,6 +195,22 @@ function validaFormulario() {
     var sanguineo = document.getElementById("tipo_sanguineo").value;
     if (sanguineo == "hint") {
         msg += "\r\n- Escolha uma opção no campo tipo sanguineo";
+    }
+
+    //Validação do campo cpf e do campo cep
+    var cpf = document.getElementById("cpf").value;
+    if(cpf == ""){
+        msg += "\r\n- Preencha o campo cpf";
+    }
+    else if(cpf.length != 14){
+        msg += "\r\n- Siga o exemplo de cpf no campo a frente";
+    }
+    var cep = document.getElementById("cep").value;
+    if(cep == ""){
+        msg += "\r\n- Preencha o campo cep";
+    }
+    else if(cep.length != 9 || cep.search("-") != 6){
+        msg += "\r\n- Siga o exemplo de cep no campo a frente";
     }
 
     //Teste final para saber se vai validar o formulário
