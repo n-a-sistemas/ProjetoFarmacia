@@ -4,7 +4,7 @@ function confirmaSenha() {
     var erroSenha = document.getElementById("erroSenha");
     var erroText = "As senhas não se correspodem";
 
-    if(senha != "" && confirmacao != ""){
+    if (senha != "" && confirmacao != "") {
         if (senha.length < 5) {
             erroSenha.innerHTML = "A senha deve ter no minimo 5 caracteres";
         }
@@ -16,7 +16,6 @@ function confirmaSenha() {
         else {
             erroSenha.innerHTML = "";
             erroSenha.style.color = "black";
-
         }
     }
 }
@@ -26,7 +25,7 @@ function confirmaEmail() {
     var erroEmail = document.getElementById("erroEmail");
     usuario = email.value.substring(0, email.value.indexOf("@"));
     dominio = email.value.substring(email.value.indexOf("@") + 1, email.value.length);
-    if(email.value != ""){
+    if (email.value != "") {
         if ((usuario.length >= 1) &&
             (dominio.length >= 3) &&
             (usuario.search("@") == -1) &&
@@ -50,67 +49,69 @@ function confirmaEmail() {
 function confirmaTelefone(id) {
     var tel = document.getElementById(id).value;
     var erro = "";
-    if(tel != ""){
+    if (tel != "") {
         if ((tel.length == 14) &&
             (tel.search("(") == 0) &&
             (tel.search(")") == 3) &&
-            (tel.search("-") == 9)){
+            (tel.search("-") == 9)) {
             erro = "";
         }
-        else{
+        else {
             erro = "Utilize o exemplo ao lado da caixa de texto";
             alert(erro);
         }
     }
 }
 
-function confirmaCPF(){
+function confirmaCPF() {
     var cpf = document.getElementById("cpf").value;
-    if(cpf != "" && cpf.length == 14){
-        var Soma = 0;
-        var Resto;
-        var i = 0;
-        var msg = "";
-        cpf = cpf.replace(".", "");
-        cpf = cpf.replace(".", "");
-        cpf = cpf.replace("-", "");
-        alert(cpf);
-        if (cpf == "00000000000" || cpf.length != 11){
-            msg = "CPF invalido";
-        }
-        else{
-            for (i=1; i<=9; i++){
-                Soma = Soma + parseInt(cpf.substring(i-1, i)) * (11 - i);
-            } 
-            Resto = (Soma * 10) % 11;
-            
-            if ((Resto == 10) || (Resto == 11)){
-                Resto = 0;
-            }  
-            if (Resto != parseInt(cpf.substring(9, 10)) ){
+    if (cpf != ""){
+        if (cpf.length == 14) {
+            var Soma = 0;
+            var Resto;
+            var i = 0;
+            var msg = "";
+            cpf = cpf.replace(".", "");
+            cpf = cpf.replace(".", "");
+            cpf = cpf.replace("-", "");
+            alert(cpf);
+            if (cpf == "00000000000" || cpf.length != 11) {
                 msg = "CPF invalido";
             }
-            else{
-                Soma = 0;
-                for (i = 1; i <= 10; i++){
-                    Soma = Soma + parseInt(cpf.substring(i-1, i)) * (12 - i);
+            else {
+                for (i = 1; i <= 9; i++) {
+                    Soma = Soma + parseInt(cpf.substring(i - 1, i)) * (11 - i);
                 }
                 Resto = (Soma * 10) % 11;
-            
-                if ((Resto == 10) || (Resto == 11)){
+    
+                if ((Resto == 10) || (Resto == 11)) {
                     Resto = 0;
                 }
-                if (Resto != parseInt(cpf.substring(10, 11) ) ) {
+                if (Resto != parseInt(cpf.substring(9, 10))) {
                     msg = "CPF invalido";
                 }
+                else {
+                    Soma = 0;
+                    for (i = 1; i <= 10; i++) {
+                        Soma = Soma + parseInt(cpf.substring(i - 1, i)) * (12 - i);
+                    }
+                    Resto = (Soma * 10) % 11;
+    
+                    if ((Resto == 10) || (Resto == 11)) {
+                        Resto = 0;
+                    }
+                    if (Resto != parseInt(cpf.substring(10, 11))) {
+                        msg = "CPF invalido";
+                    }
+                }
+            }
+            if (msg != "") {
+                alert(msg);
             }
         }
-        if(msg != ""){
-            alert(msg);
-        }        
-    }
-    else{
-        alert("Utilize o exemplo ao lado da caixa de texto");
+        else {
+            alert("Utilize o exemplo ao lado da caixa de texto");
+        }
     }
 }
 
@@ -160,9 +161,9 @@ function validaFormulario() {
         msg += "\r\n- Preencha o campo telefone";
     }
     else if ((tel.length != 14) ||
-            (tel.search("(") != 0) ||
-            (tel.search(")") != 3) ||
-            (tel.search("-") != 9)) {
+        (tel.search("(") != 0) ||
+        (tel.search(")") != 3) ||
+        (tel.search("-") != 9)) {
         msg += "\r\n- Siga o exemplo de telefone no campo a frente";
     }
     var contato = document.getElementById("contato_emergencia").value;
@@ -170,15 +171,15 @@ function validaFormulario() {
         msg += "\r\n- Preencha o campo contato de emergência";
     }
     else if ((contato.length != 14) ||
-    (contato.search("(") != 0) ||
-    (contato.search(")") != 3) ||
-    (contato.search("-") != 9)) {
+        (contato.search("(") != 0) ||
+        (contato.search(")") != 3) ||
+        (contato.search("-") != 9)) {
         msg += "\r\n- Siga o exemplo de contato no campo a frente";
     }
 
     //Validação do campo endereço
     var endereco = document.getElementById("endereco").value;
-    if(endereco == ""){
+    if (endereco == "") {
         msg += "\r\n- Preencha o campo endereço";
     }
 
@@ -191,26 +192,64 @@ function validaFormulario() {
         msg += "\r\n- Preencha o campo altura com um valor abaixo de 3";
     }
 
-    //Validação do campo tipo sanguineo
+    //Validação do campo tipo sanguineo, do campo estado e do campo cidade
     var sanguineo = document.getElementById("tipo_sanguineo").value;
     if (sanguineo == "hint") {
         msg += "\r\n- Escolha uma opção no campo tipo sanguineo";
     }
+    var estado = document.getElementById("estados").value;
+    if (estado == "hint_estados"){
+        msg += "\r\n- Escolha um estado";
+    }
+    var cidade = document.getElementById("cidades").value;
+    if (cidade == "hint_cidades"){
+        msg += "\r\n- Escolha uma cidade";
+    }
 
     //Validação do campo cpf e do campo cep
     var cpf = document.getElementById("cpf").value;
-    if(cpf == ""){
+    if (cpf == "") {
         msg += "\r\n- Preencha o campo cpf";
     }
-    else if(cpf.length != 14){
+    else if (cpf.length != 14) {
         msg += "\r\n- Siga o exemplo de cpf no campo a frente";
     }
     var cep = document.getElementById("cep").value;
-    if(cep == ""){
+    if (cep == "") {
         msg += "\r\n- Preencha o campo cep";
     }
-    else if(cep.length != 9 || cep.search("-") != 6){
+    else if (cep.length != 9 || cep.search("-") != 6) {
         msg += "\r\n- Siga o exemplo de cep no campo a frente";
+    }
+
+    //Validação do campo alergias ou doenças e do campo plano de saúde
+    var alergias_doencas = document.getElementById("alergias_doencas").value;
+    if(alergias_doencas == ""){
+        msg += "\r\n- Preencha o campo alergias ou doenças";
+    }
+    var plano = document.getElementById("plano_de_saude").value;
+    if(plano == ""){
+        msg += "\r\n- Preencha o campo plano de saúde";
+    }
+
+    //Validação do campo peso e do campo data da pesagem
+    var peso = document.getElementById("peso").value;
+    if(peso == ""){
+        msg += "\r\n- Preencha o campo peso";
+    }
+    var data_peso = document.getElementById("data_peso").value;
+    if(data_peso == ""){
+        msg += "\r\n- Preencha o campo data da pesagem";
+    }
+
+    //Validação do campo pressão e do campo data da pressão
+    var pressao = document.getElementById("pressao").value;
+    if(pressao == ""){
+        msg += "\r\n- Preencha o campo pressao";
+    }
+    var data_pressao = document.getElementById("data_pressao").value;
+    if(data_pressao == ""){
+        msg += "\r\n- Preencha o campo data da pressão";
     }
 
     //Teste final para saber se vai validar o formulário

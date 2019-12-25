@@ -127,7 +127,7 @@
             <input type="text" name="pressao" id="pressao" >
         </div>
         <div>
-            <label for="data_pressao">Data da Aferição da Pressão: </label>
+            <label for="data_pressao">Data da Pressão: </label>
             <input type="date" name="data_pressao" id="data_pressao" >
         </div>
         <div>

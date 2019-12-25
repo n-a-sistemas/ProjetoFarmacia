@@ -37,53 +37,70 @@
         $data_peso = $_POST['data_peso'];
         $pressao = $_POST['pressao'];
         $data_pressao = $_POST['data_pressao'];
-        $arquivo = "";
-        if($_FILES['imagemUpload']['name'] != ""){
-            $diretorio = "uploads/";
-            $arquivo = $diretorio . basename($_FILES['imagemUpload']['name']);
+        
+        if(($nome != "") && ($email != "") &&
+            ($datanascimento != "") && ($cpf != "") &&
+            ($sexo != "") && ($telefone != "") &&
+            ($alergiadoencas != "") && ($tiposanguineo != "") &&
+            ($contatoemergencia != "") && ($planodesaude != "") &&
+            ($senha != "")  && ($altura != "") &&
+            ($endereco != "") && ($cidade != "") &&
+            ($estado != "") && ($cidade != "hint_cidades") &&
+            ($estado != "hint_estados") && ($cep != "") &&
+            ($peso != "") && ($data_peso != "") &&
+            ($pressao != "") && ($data_pressao != "")){
+            $arquivo = "";
+            if($_FILES['imagemUpload']['name'] != ""){
+                $diretorio = "uploads/";
+                $arquivo = $diretorio . basename($_FILES['imagemUpload']['name']);
 
-            $tipo = strtolower(pathinfo($arquivo, PATHINFO_EXTENSION));
+                $tipo = strtolower(pathinfo($arquivo, PATHINFO_EXTENSION));
 
-            if(move_uploaded_file($_FILES['imagemUpload']['tmp_name'], $arquivo)){
-            }
-            else{
-                echo "Erro ao cadastrar imagem";
-                $arquivo = "";
-            }
-        }
-
-        // how to configure pixel "zoom" factor
-        $tempDir = "qrcodes/";
-        $nomeqrcode = 'qrcode_'. $cpf.'.png';
-        $codeContents = 'perfil.php?id=' . $id;
-        // generating
-        QRcode::png($codeContents, $tempDir. $nomeqrcode, QR_ECLEVEL_L, 2);  
-        // displaying
-        echo "<img src='qrcodes/" . $nomeqrcode . "'>";
-
-        $sql_pessoa = "INSERT INTO pessoa (nome,email,data_nascimento,cpf,sexo,telefone,alergia_doencas,tipo_sanguineo,telefone_emergencia,plano_saude,senha,altura,foto_qrcode,foto_perfil,adm,id_cidade,id_estado,cep,endereco) 
-                VALUES ('$nome', '$email','$datanascimento','$cpf','$sexo','$telefone','$alergiadoencas','$tiposanguineo','$contatoemergencia','$planodesaude','$senha','$altura','$tempDir . $nomeqrcode','$arquivo','$adm','$cidade','$estado','$cep','$endereco')";
-
-        if($conn->query($sql_pessoa) == TRUE){
-            $sql_select = "SELECT * FROM pessoa WHERE cpf ='" . $cpf . "'";
-            $resultado = $conn->query($sql_select);
-            $id = "";
-            if($resultado->num_rows == 1){
-                while($linha = $resultado->fetch_assoc()){
-                    $id = $linha['id_nome'];
+                if(move_uploaded_file($_FILES['imagemUpload']['tmp_name'], $arquivo)){
+                }
+                else{
+                    echo "Erro ao cadastrar imagem";
+                    $arquivo = "";
                 }
             }
-            $sql_peso = "INSERT INTO peso (id_nome, peso, data) VALUES ('$id', '$peso','$data_peso')";
-            $sql_pressao = "INSERT INTO pressao (id_nome, pressao, data) VALUES ('$id', '$pressao', '$data_pressao')";
-            if($conn->query($sql_peso) == TRUE && $conn->query($sql_pressao) == TRUE){
+            $sql_select = "SELECT * FROM pessoa WHERE cpf ='" . $cpf . "'";
+            $resultado = $conn->query($sql_select);
+            if($resultado->num_rows == 0){
+                // how to configure pixel "zoom" factor
+                $tempDir = "qrcodes/";
+                $nomeqrcode = 'qrcode_'. $cpf.'.png';
+                $codeContents = 'perfil.php?id=' . $id;
+                // generating
+                QRcode::png($codeContents, $tempDir. $nomeqrcode, QR_ECLEVEL_L, 2);  
 
-            }
-            else{
-                echo "Erro : " . $conn->error;    
+                $sql_pessoa = "INSERT INTO pessoa (nome,email,data_nascimento,cpf,sexo,telefone,alergia_doencas,tipo_sanguineo,telefone_emergencia,plano_saude,senha,altura,foto_qrcode,foto_perfil,adm,id_cidade,id_estado,cep,endereco) 
+                        VALUES ('$nome', '$email','$datanascimento','$cpf','$sexo','$telefone','$alergiadoencas','$tiposanguineo','$contatoemergencia','$planodesaude','$senha','$altura','$tempDir . $nomeqrcode','$arquivo','$adm','$cidade','$estado','$cep','$endereco')";
+
+                if($conn->query($sql_pessoa) == TRUE){
+                    $sql_select = "SELECT * FROM pessoa WHERE cpf ='" . $cpf . "'";
+                    $resultado = $conn->query($sql_select);
+                    $id = "";
+                    if($resultado->num_rows == 1){
+                        while($linha = $resultado->fetch_assoc()){
+                            $id = $linha['id_nome'];
+                        }
+                    }
+                    $sql_peso = "INSERT INTO peso (id_nome, peso, data) VALUES ('$id', '$peso','$data_peso')";
+                    $sql_pressao = "INSERT INTO pressao (id_nome, pressao, data) VALUES ('$id', '$pressao', '$data_pressao')";
+                    if($conn->query($sql_peso) == TRUE && $conn->query($sql_pressao) == TRUE){
+
+                    }
+                    else{
+                        echo "Erro : " . $conn->error;    
+                    }
+                }
+                else{
+                    echo "Erro : " . $conn->error;
+                }
             }
         }
         else{
-            echo "Erro : " . $conn->error;
+            echo "Erro ao cadastrar, volte e preencha o formulário corretamente";
         }
     }
     else{
