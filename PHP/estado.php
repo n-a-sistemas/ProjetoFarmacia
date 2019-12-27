@@ -6,13 +6,7 @@
 
     if($resultado->num_rows > 0){
         while($linha = $resultado->fetch_assoc()){
-            $test = array('id'=>$linha['id'], 'nome'=>$linha['nome'], 'uf'=>$linha['uf']);
-            $estados[] = $test;
+            echo "<option value=" . $linha['id'] . ">" . $linha['nome'] . "</option>";
         }
     }
-    else{
-        $estados = "Nenhum resultado";
-    }
-
-    echo json_encode($estados);
 ?>

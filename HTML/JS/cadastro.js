@@ -51,9 +51,9 @@ function confirmaTelefone(id) {
     var erro = "";
     if (tel != "") {
         if ((tel.length == 14) &&
-            (tel.search("(") == 0) &&
-            (tel.search(")") == 3) &&
-            (tel.search("-") == 9)) {
+            (tel.indexOf("(") == 0) &&
+            (tel.indexOf(")") == 3) &&
+            (tel.indexOf("-") == 9)) {
             erro = "";
         }
         else {
@@ -65,7 +65,7 @@ function confirmaTelefone(id) {
 
 function confirmaCPF() {
     var cpf = document.getElementById("cpf").value;
-    if (cpf != ""){
+    if (cpf != "") {
         if (cpf.length == 14) {
             var Soma = 0;
             var Resto;
@@ -74,7 +74,6 @@ function confirmaCPF() {
             cpf = cpf.replace(".", "");
             cpf = cpf.replace(".", "");
             cpf = cpf.replace("-", "");
-            alert(cpf);
             if (cpf == "00000000000" || cpf.length != 11) {
                 msg = "CPF invalido";
             }
@@ -83,7 +82,7 @@ function confirmaCPF() {
                     Soma = Soma + parseInt(cpf.substring(i - 1, i)) * (11 - i);
                 }
                 Resto = (Soma * 10) % 11;
-    
+
                 if ((Resto == 10) || (Resto == 11)) {
                     Resto = 0;
                 }
@@ -96,7 +95,7 @@ function confirmaCPF() {
                         Soma = Soma + parseInt(cpf.substring(i - 1, i)) * (12 - i);
                     }
                     Resto = (Soma * 10) % 11;
-    
+
                     if ((Resto == 10) || (Resto == 11)) {
                         Resto = 0;
                     }
@@ -131,7 +130,7 @@ function validaFormulario() {
     if (email == "") {
         msg += "\r\n- Preencha o campo email";
     }
-    else if (erroEmail.innerHTML != "" || erroEmail.style.color != "black") {
+    else if (erroEmail.innerHTML == "Email inválido" || erroEmail.style.color == "red") {
         msg += "\r\n- Corrija o campo email";
     }
 
@@ -145,7 +144,7 @@ function validaFormulario() {
     else if (confirmacao == "") {
         msg += "\r\n- Preencha o campo de confirmação";
     }
-    else if (erroSenha.innerHTML != "" || erroSenha.style.color != "black") {
+    else if (erroSenha.innerHTML == "As senhas não se correspodem" || erroSenha.style.color == "red") {
         msg += "\r\n- Corrija os campo senha e/ou de confirmação";
     }
 
@@ -160,10 +159,10 @@ function validaFormulario() {
     if (tel == "") {
         msg += "\r\n- Preencha o campo telefone";
     }
-    else if ((tel.length != 14) ||
-        (tel.search("(") != 0) ||
-        (tel.search(")") != 3) ||
-        (tel.search("-") != 9)) {
+    else if ((tel.length != 14) || 
+             (tel.indexOf("(") != 0) ||
+             (tel.indexOf(")") != 3) ||
+             (tel.indexOf("-") != 9)){
         msg += "\r\n- Siga o exemplo de telefone no campo a frente";
     }
     var contato = document.getElementById("contato_emergencia").value;
@@ -171,9 +170,9 @@ function validaFormulario() {
         msg += "\r\n- Preencha o campo contato de emergência";
     }
     else if ((contato.length != 14) ||
-        (contato.search("(") != 0) ||
-        (contato.search(")") != 3) ||
-        (contato.search("-") != 9)) {
+        (contato.indexOf("(") != 0) ||
+        (contato.indexOf(")") != 3) ||
+        (contato.indexOf("-") != 9)) {
         msg += "\r\n- Siga o exemplo de contato no campo a frente";
     }
 
@@ -198,11 +197,11 @@ function validaFormulario() {
         msg += "\r\n- Escolha uma opção no campo tipo sanguineo";
     }
     var estado = document.getElementById("estados").value;
-    if (estado == "hint_estados"){
+    if (estado == "hint_estados") {
         msg += "\r\n- Escolha um estado";
     }
     var cidade = document.getElementById("cidades").value;
-    if (cidade == "hint_cidades"){
+    if (cidade == "hint_cidades") {
         msg += "\r\n- Escolha uma cidade";
     }
 
@@ -218,39 +217,43 @@ function validaFormulario() {
     if (cep == "") {
         msg += "\r\n- Preencha o campo cep";
     }
-    else if (cep.length != 9 || cep.search("-") != 6) {
+    else if (cep.length != 9 || cep.indexOf("-") != 6) {
         msg += "\r\n- Siga o exemplo de cep no campo a frente";
     }
 
     //Validação do campo alergias ou doenças e do campo plano de saúde
     var alergias_doencas = document.getElementById("alergias_doencas").value;
-    if(alergias_doencas == ""){
+    if (alergias_doencas == "") {
         msg += "\r\n- Preencha o campo alergias ou doenças";
     }
     var plano = document.getElementById("plano_de_saude").value;
-    if(plano == ""){
+    if (plano == "") {
         msg += "\r\n- Preencha o campo plano de saúde";
     }
 
     //Validação do campo peso e do campo data da pesagem
     var peso = document.getElementById("peso").value;
-    if(peso == ""){
+    if (peso == "") {
         msg += "\r\n- Preencha o campo peso";
     }
+    /*
     var data_peso = document.getElementById("data_peso").value;
-    if(data_peso == ""){
+    if (data_peso == "") {
         msg += "\r\n- Preencha o campo data da pesagem";
     }
+    */
 
+    /*
     //Validação do campo pressão e do campo data da pressão
     var pressao = document.getElementById("pressao").value;
-    if(pressao == ""){
+    if (pressao == "") {
         msg += "\r\n- Preencha o campo pressao";
     }
     var data_pressao = document.getElementById("data_pressao").value;
-    if(data_pressao == ""){
+    if (data_pressao == "") {
         msg += "\r\n- Preencha o campo data da pressão";
     }
+    */
 
     //Teste final para saber se vai validar o formulário
     if (msg == "") {
