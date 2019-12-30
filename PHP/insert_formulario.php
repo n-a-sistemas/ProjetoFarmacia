@@ -24,7 +24,6 @@
         $contatoemergencia = $_POST['contato_emergencia'];
         $planodesaude = $_POST['plano_de_saude'];
         $senha  = $_POST['senha'];
-        $senha = hash('sha256', $senha);
         $confirmacao = $_POST['confirmacao'];
         $altura = $_POST['altura']; 
         $adm = false;
@@ -45,6 +44,7 @@
         if(isset($_POST['data_peso'])){
             $data_peso = $_POST['data_peso'];
         }
+        $erro = false;
 
         if(($nome != "") && ($email != "") &&
             ($datanascimento != "") && ($cpf != "") &&
@@ -57,6 +57,7 @@
             ($estado != "hint_estados") && ($cep != "") &&
             ($peso != "")){
             $arquivo = "";
+            $senha = hash('sha256', $senha);
             if($_FILES['imagemUpload']['name'] != ""){
                 $diretorio = "uploads/";
                 $arquivo = $diretorio . basename($_FILES['imagemUpload']['name']);
@@ -80,8 +81,8 @@
                 // generating
                 QRcode::png($codeContents, $tempDir. $nomeqrcode, QR_ECLEVEL_L, 2);  
 
-                $sql_pessoa = "INSERT INTO pessoa (nome,email,data_nascimento,cpf,sexo,telefone,alergia_doencas,tipo_sanguineo,telefone_emergencia,plano_saude,senha,altura,foto_qrcode,foto_perfil,adm,id_cidade,id_estado,cep,endereco) 
-                        VALUES ('$nome', '$email','$datanascimento','$cpf','$sexo','$telefone','$alergiadoencas','$tiposanguineo','$contatoemergencia','$planodesaude','$senha','$altura','$tempDir . $nomeqrcode','$arquivo','$adm','$cidade','$estado','$cep','$endereco')";
+                $sql_pessoa = "INSERT INTO pessoa (nome,email,data_nascimento,cpf,sexo,telefone,alergia_doencas,tipo_sanguineo,telefone_emergencia,plano_saude,senha,altura,foto_qrcode,foto_perfil,adm,id_cidade,id_estado,cep,endereco,id_qrcode) 
+                        VALUES ('$nome', '$email','$datanascimento','$cpf','$sexo','$telefone','$alergiadoencas','$tiposanguineo','$contatoemergencia','$planodesaude','$senha','$altura','$tempDir . $nomeqrcode','$arquivo','$adm','$cidade','$estado','$cep','$endereco','$id')";
 
                 if($conn->query($sql_pessoa) == TRUE){
                     $sql_select = "SELECT * FROM pessoa WHERE cpf ='" . $cpf . "' AND email ='" . $email . "'";
@@ -94,13 +95,18 @@
                     }
                     $sql_peso = "INSERT INTO peso (id_nome, peso, data) VALUES ('$id', '$peso','$data_peso')";
                     if($conn->query($sql_peso) != TRUE){
-                        echo "Erro : " . $conn->error;    
+                        echo "Erro : " . $conn->error;
+                        $erro = true;            
                     }
                     if($pressao != ""){
                         $sql_pressao = "INSERT INTO pressao (id_nome, pressao, data) VALUES ('$id', '$pressao', '$data_pressao')";
                         if($conn->query($sql_peso) != TRUE){
-                            echo "Erro : " . $conn->error;    
+                            echo "Erro : " . $conn->error;
+                            $erro = true;  
                         }
+                    }
+                    if(!$erro){
+                        header('Location: ../HTML/index.php');
                     }
                 }
                 else{

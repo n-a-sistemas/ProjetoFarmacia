@@ -217,7 +217,7 @@ function validaFormulario() {
     if (cep == "") {
         msg += "\r\n- Preencha o campo cep";
     }
-    else if (cep.length != 9 || cep.indexOf("-") != 6) {
+    else if ((cep.length != 9 ) || (cep.indexOf("-") != 5)) {
         msg += "\r\n- Siga o exemplo de cep no campo a frente";
     }
 

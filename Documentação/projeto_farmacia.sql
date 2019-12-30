@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19-Dez-2019 às 02:12
--- Versão do servidor: 10.4.8-MariaDB
--- versão do PHP: 7.3.11
+-- Tempo de geração: 30-Dez-2019 às 01:50
+-- Versão do servidor: 10.4.10-MariaDB
+-- versão do PHP: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -5684,6 +5684,14 @@ CREATE TABLE `peso` (
   `data` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `peso`
+--
+
+INSERT INTO `peso` (`id_peso`, `id_nome`, `peso`, `data`) VALUES
+(9, 30, '60', '2019-12-26'),
+(10, 31, '60', '0000-00-00');
+
 -- --------------------------------------------------------
 
 --
@@ -5701,9 +5709,10 @@ CREATE TABLE `pessoa` (
   `cep` varchar(100) NOT NULL,
   `foto_perfil` varchar(200) DEFAULT NULL,
   `foto_qrcode` varchar(200) NOT NULL,
+  `id_qrcode` varchar(500) NOT NULL,
   `data_nascimento` date NOT NULL,
   `sexo` varchar(100) NOT NULL,
-  `cpf` varchar(12) NOT NULL,
+  `cpf` varchar(14) NOT NULL,
   `telefone` varchar(50) NOT NULL,
   `telefone_emergencia` varchar(50) NOT NULL,
   `altura` decimal(10,0) NOT NULL,
@@ -5712,6 +5721,13 @@ CREATE TABLE `pessoa` (
   `alergia_doencas` varchar(500) NOT NULL,
   `plano_saude` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `pessoa`
+--
+
+INSERT INTO `pessoa` (`id_nome`, `nome`, `senha`, `email`, `endereco`, `id_estado`, `id_cidade`, `cep`, `foto_perfil`, `foto_qrcode`, `id_qrcode`, `data_nascimento`, `sexo`, `cpf`, `telefone`, `telefone_emergencia`, `altura`, `adm`, `tipo_sanguineo`, `alergia_doencas`, `plano_saude`) VALUES
+(31, 'Kevyn', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', 'kaparecido483@gmail.com', 'Rua 15', 26, 5254, '91111-111', '', 'qrcodes/ . qrcode_111.111.111-11.png', '70601ec4abd36e052ff5a57f85d11849641d1caebe88135025067808c5a5d6d4', '2001-11-02', 'Masculino', '111.111.111-11', '(16)91111-1111', '(16)92222-3333', '2', 0, 'A+', 'Não sei', 'Nenhum');
 
 -- --------------------------------------------------------
 
@@ -5725,6 +5741,13 @@ CREATE TABLE `pressao` (
   `pressao` varchar(20) NOT NULL,
   `data` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `pressao`
+--
+
+INSERT INTO `pressao` (`id_pressao`, `id_nome`, `pressao`, `data`) VALUES
+(8, 30, '1', '2019-12-26');
 
 --
 -- Índices para tabelas despejadas
@@ -5794,19 +5817,19 @@ ALTER TABLE `pais`
 -- AUTO_INCREMENT de tabela `peso`
 --
 ALTER TABLE `peso`
-  MODIFY `id_peso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_peso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `pessoa`
 --
 ALTER TABLE `pessoa`
-  MODIFY `id_nome` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_nome` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de tabela `pressao`
 --
 ALTER TABLE `pressao`
-  MODIFY `id_pressao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_pressao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
