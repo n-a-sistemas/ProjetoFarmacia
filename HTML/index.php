@@ -28,7 +28,7 @@
                 <button type="button" id="btn">Mostrar senha</button>
             </div>
             <div>
-                <a href="#">Não é cadastrado ?</a>
+                <a href="cadastro.php">Não é cadastrado ?</a>
                 <a href="#">Não sabe a senha ?</a>
                 <button type="submit" id="logar">Logar</button>
             </div>

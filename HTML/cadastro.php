@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    session_unset();
+    session_destroy();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -91,7 +97,7 @@
                 <input type="number" name="altura" id="altura" min="0" max="3" step="any" required>
             </div>
             <div>
-                <label for="tipo_sanguineo">*Tipo Sanguineo: </label>
+                <label for="tipo_sanguineo">*Tipo Sanguíneo: </label>
                 <select name="tipo_sanguineo" id="tipo_sanguineo" required>
                     <option value="hint" selected>Selecione aqui</option>
                     <option value="A+">A+</option>
