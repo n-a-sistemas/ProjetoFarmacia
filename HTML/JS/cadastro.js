@@ -1,3 +1,12 @@
+$(document).ready(function () {
+    $("#mostra-pressao").click(function () {
+        $("#label_pressao").toggle();
+    });
+    $("#mostra-peso").click(function () {
+        $("#label_peso").toggle();
+    });
+});
+
 function confirmaSenha() {
     var senha = document.getElementById("senha").value;
     var confirmacao = document.getElementById("confirmacao").value;
@@ -221,6 +230,7 @@ function validaFormulario() {
         msg += "\r\n- Siga o exemplo de cep no campo a frente";
     }
 
+    /*
     //Validação do campo alergias ou doenças e do campo plano de saúde
     var alergias_doencas = document.getElementById("alergias_doencas").value;
     if (alergias_doencas == "") {
@@ -230,6 +240,7 @@ function validaFormulario() {
     if (plano == "") {
         msg += "\r\n- Preencha o campo plano de saúde";
     }
+    */
 
     //Validação do campo peso e do campo data da pesagem
     var peso = document.getElementById("peso").value;

@@ -1,0 +1,6 @@
+#label_pressao, #label_peso{
+    display: none;
+}
+#alerta_cpf{
+    color: red;
+}

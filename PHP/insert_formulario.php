@@ -2,13 +2,13 @@
 
     include('conn.php');
     include('phpqrcode/qrlib.php');
+    date_default_timezone_set('America/Sao_Paulo');
 
     if(isset($_POST['nome']) && isset($_POST['email'])
     && isset($_POST['data_nascimento']) && isset($_POST['cpf'])
     && isset($_POST['sexo']) && isset($_POST['tel'])
     && isset($_POST['contato_emergencia']) && isset($_POST['senha']) && isset($_POST['confirmacao'])
-    && isset($_POST['alergias_doencas']) && isset($_POST['tipo_sanguineo'])
-    && isset($_POST['plano_de_saude']) && isset($_POST['endereco'])
+    && isset($_POST['tipo_sanguineo']) && isset($_POST['endereco'])
     && isset($_POST['altura']) && isset($_POST['cidades'])
     && isset($_POST['estados']) && isset($_POST['cep']) 
     && isset($_POST['peso'])){
@@ -32,25 +32,27 @@
         $estado = $_POST['estados'];
         $cep = $_POST['cep'];
         $peso = $_POST['peso'];
-        $pressao = "";
-        $data_peso = date("Y-m-d");
-        $data_pressao = date("Y-m-d");
-        if(isset($_POST['pressao'])){
-            $pressao = $_POST['pressao'];
+        $pressao = $_POST['pressao'];
+        $data_pressao = $_POST['data_pressao'];
+        $data_peso = $_POST['data_peso'];
+        if($data_pressao == ""){
+            $data_pressao = date('Y-m-d');
         }
-        if(isset($_POST['data_pressao'])){
-            $data_pressao = $_POST['data_pressao'];
+        if($data_peso == ""){
+            $data_peso = date('Y-m-d');
         }
-        if(isset($_POST['data_peso'])){
-            $data_peso = $_POST['data_peso'];
+        if($alergiadoencas == ""){
+            $alergiadoencas = "Nenhum";
+        }
+        if($planodesaude == ""){
+            $planodesaude = "Nenhum";
         }
         $erro = false;
 
         if(($nome != "") && ($email != "") &&
             ($datanascimento != "") && ($cpf != "") &&
             ($sexo != "") && ($telefone != "") &&
-            ($alergiadoencas != "") && ($tiposanguineo != "") &&
-            ($contatoemergencia != "") && ($planodesaude != "") &&
+            ($tiposanguineo != "") && ($contatoemergencia != "") && 
             ($senha != "") && ($senha == $confirmacao) && ($altura != "") &&
             ($endereco != "") && ($cidade != "") &&
             ($estado != "") && ($cidade != "hint_cidades") &&
@@ -58,19 +60,22 @@
             ($peso != "")){
             $arquivo = "";
             $senha = hash('sha256', $senha);
+
+            $diretorio = "uploads/";
             if($_FILES['imagemUpload']['name'] != ""){
-                $diretorio = "uploads/";
                 $arquivo = $diretorio . basename($_FILES['imagemUpload']['name']);
-
-                $tipo = strtolower(pathinfo($arquivo, PATHINFO_EXTENSION));
-
-                if(move_uploaded_file($_FILES['imagemUpload']['tmp_name'], $arquivo)){
-                }
-                else{
-                    echo "Erro ao cadastrar imagem";
-                    $arquivo = "";
-                }
             }
+            else{
+                $arquivo = $diretorio . "user.png";
+            }
+            $tipo = strtolower(pathinfo($arquivo, PATHINFO_EXTENSION));
+            if($arquivo != ""){
+                if(!move_uploaded_file($_FILES['imagemUpload']['tmp_name'], $arquivo)){
+                    echo "Erro ao cadastrar imagem<br>";
+                    $erro = true;
+                 }
+            }
+
             $sql_select = "SELECT * FROM pessoa WHERE cpf ='" . $cpf . "' AND email ='" . $email . "'";
             $resultado = $conn->query($sql_select);
             if($resultado->num_rows == 0){

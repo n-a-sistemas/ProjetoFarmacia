@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 03-Jan-2020 às 22:54
+-- Tempo de geração: 07-Jan-2020 às 01:29
 -- Versão do servidor: 10.4.10-MariaDB
 -- versão do PHP: 7.3.12
 
@@ -5709,7 +5709,7 @@ CREATE TABLE `pessoa` (
   `telefone_emergencia` varchar(50) NOT NULL,
   `altura` decimal(10,0) NOT NULL,
   `adm` tinyint(1) NOT NULL,
-  `tipo_sanguineo` varchar(2) NOT NULL,
+  `tipo_sanguineo` varchar(3) NOT NULL,
   `alergia_doencas` varchar(500) NOT NULL,
   `plano_saude` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

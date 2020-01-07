@@ -1,18 +1,18 @@
 <?php
     session_start();
+    session_unset(); // limpa todas as variáveis de sessão
+    session_destroy(); // destroi a sessão
     include("../PHP/conn.php");
-    $id = "";
-    $adm = false;
-    $foto_perfil = "";
-    if(isset($_SESSION['adm']) && isset($_SESSION['id'])){
-        $id = $_SESSION['id'];
-        $adm = $_SESSION['adm'];
+    $id_qrcode = "";
+    if(isset($_GET['id'])){
+        $id_qrcode = $_GET['id'];
     }
-    if($id != ""){
-        $sql = "SELECT * FROM pessoa WHERE id_nome = $id";
+    if($id_qrcode != ""){
+        $sql = "SELECT * FROM pessoa WHERE id_qrcode ='". $id_qrcode . "'";
         $resultado = $conn->query($sql);
         if($resultado->num_rows == 1){
             while($linha = $resultado->fetch_assoc()){
+                $id = $linha['id_nome'];
                 $nome = $linha['nome'];
                 $email = $linha['email'];
                 $data = $linha['data_nascimento'];
@@ -68,14 +68,14 @@
 
     <main>
         <div>
-            <img src="./parts/grafico_peso.php" alt="Gráfico do seu peso">
+            <img src="./parts/grafico_peso.php?id=<?php echo $id_qrcode;?>" alt="Gráfico do seu peso">
         </div>
 
         <div>
             <h2>Suas informações cadastradas</h2>
             <p>Email: <?php echo $email; ?></p>
             <p>Sexo: <?php echo $sexo; ?></p>
-            <p>Data de Nascimento: <?php echo $datanascimento->format("d/m/Y"); ?></p>
+            <p>Data de Nascimento: <?php echo $datanascimento->format("d-m-Y"); ?></p>
             <p>Altura: <?php echo $altura . "m"; ?></p>
             <p>CPF: <?php echo $cpf; ?></p>
             <p>CEP: <?php echo $cep; ?></p>
@@ -87,7 +87,6 @@
             <p>Alergias ou Doenças: <?php echo $alergiadoencas; ?></p>
             <p>Plano de Saúde: <?php echo $planodesaude; ?></p>
         </div>
-        <a href="atualizar.php"><button>Atualizar Dados</button></a>
     </main>
 </body>
 </html>

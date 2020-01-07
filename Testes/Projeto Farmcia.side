@@ -276,32 +276,6 @@
       ],
       "value": ""
     }, {
-      "id": "6575b183-146f-4702-b40b-316f6329992f",
-      "comment": "",
-      "command": "type",
-      "target": "id=alergias_doencas",
-      "targets": [
-        ["id=alergias_doencas", "id"],
-        ["name=alergias_doencas", "name"],
-        ["css=#alergias_doencas", "css:finder"],
-        ["xpath=//textarea[@id='alergias_doencas']", "xpath:attributes"],
-        ["xpath=//textarea", "xpath:position"]
-      ],
-      "value": "Não sei"
-    }, {
-      "id": "99be6210-4cd4-4391-88b7-ac834abe5eee",
-      "comment": "",
-      "command": "type",
-      "target": "id=plano_de_saude",
-      "targets": [
-        ["id=plano_de_saude", "id"],
-        ["name=plano_de_saude", "name"],
-        ["css=#plano_de_saude", "css:finder"],
-        ["xpath=//input[@id='plano_de_saude']", "xpath:attributes"],
-        ["xpath=//div[17]/input", "xpath:position"]
-      ],
-      "value": "Nenhum"
-    }, {
       "id": "7ec3aa7d-147f-449d-827d-513519913c5a",
       "comment": "",
       "command": "type",
@@ -314,71 +288,6 @@
         ["xpath=//div[18]/input", "xpath:position"]
       ],
       "value": "60"
-    }, {
-      "id": "8f7958eb-0c29-4760-ae6f-46ecc7acbf06",
-      "comment": "",
-      "command": "click",
-      "target": "id=data_peso",
-      "targets": [
-        ["id=data_peso", "id"],
-        ["name=data_peso", "name"],
-        ["css=#data_peso", "css:finder"],
-        ["xpath=//input[@id='data_peso']", "xpath:attributes"],
-        ["xpath=//div[19]/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "4dd9df96-d83f-4e22-8b9c-0abd9ae5e157",
-      "comment": "",
-      "command": "type",
-      "target": "id=data_peso",
-      "targets": [
-        ["id=data_peso", "id"],
-        ["name=data_peso", "name"],
-        ["css=#data_peso", "css:finder"],
-        ["xpath=//input[@id='data_peso']", "xpath:attributes"],
-        ["xpath=//div[19]/input", "xpath:position"]
-      ],
-      "value": "2019-12-26"
-    }, {
-      "id": "2790e231-760d-481d-bfbe-964fa5b8eb70",
-      "comment": "",
-      "command": "type",
-      "target": "id=pressao",
-      "targets": [
-        ["id=pressao", "id"],
-        ["name=pressao", "name"],
-        ["css=#pressao", "css:finder"],
-        ["xpath=//input[@id='pressao']", "xpath:attributes"],
-        ["xpath=//div[20]/input", "xpath:position"]
-      ],
-      "value": "1"
-    }, {
-      "id": "84b7ddb6-2bb9-4237-938f-71b8f49f039d",
-      "comment": "",
-      "command": "click",
-      "target": "id=data_pressao",
-      "targets": [
-        ["id=data_pressao", "id"],
-        ["name=data_pressao", "name"],
-        ["css=#data_pressao", "css:finder"],
-        ["xpath=//input[@id='data_pressao']", "xpath:attributes"],
-        ["xpath=//div[21]/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "9fb350cc-45b9-454b-8678-a589d8d3abbf",
-      "comment": "",
-      "command": "type",
-      "target": "id=data_pressao",
-      "targets": [
-        ["id=data_pressao", "id"],
-        ["name=data_pressao", "name"],
-        ["css=#data_pressao", "css:finder"],
-        ["xpath=//input[@id='data_pressao']", "xpath:attributes"],
-        ["xpath=//div[21]/input", "xpath:position"]
-      ],
-      "value": "2019-12-26"
     }, {
       "id": "2b315e3f-b67d-4713-9a6b-04a60011966d",
       "comment": "",
