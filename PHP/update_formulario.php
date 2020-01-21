@@ -17,7 +17,7 @@
         $email =  $_POST['email'];
         $datanascimento = $_POST['data_nascimento'];
         $cpf = $_POST['cpf'];
-        $id = hash('sha256', $cpf);
+        $id_qrcode = hash('sha256', $cpf);
         $sexo  = $_POST['sexo'];
         $telefone = $_POST['tel'];
         $alergiadoencas = $_POST['alergias_doencas'];
@@ -89,7 +89,7 @@
                 QRcode::png($codeContents, $tempDir. $nomeqrcode, QR_ECLEVEL_L, 2);  
                 $sql_pessoa = "UPDATE pessoa SET `nome`='".$nome."',`email`='".$email."',`endereco`='".$endereco."',
                 `id_estado`='".$estado."',`id_cidade`='".$cidade."',`cep`='".$cep."',
-                `foto_perfil`='".$arquivo."',`foto_qrcode`='".$tempDir . $nomeqrcode."',`id_qrcode`='".$id."',
+                `foto_perfil`='".$arquivo."',`foto_qrcode`='".$tempDir . $nomeqrcode."',`id_qrcode`='".$id_qrcode."',
                 `data_nascimento`='".$datanascimento."',`sexo`='".$sexo."',`cpf`='".$cpf."',
                 `telefone`='".$telefone."',`telefone_emergencia`='".$contatoemergencia."',`altura`='".$altura."',
                 `tipo_sanguineo`='".$tiposanguineo."',`alergia_doencas`='".$alergiadoencas."',`plano_saude`='".$planodesaude."' 

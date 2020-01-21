@@ -17,7 +17,7 @@
 
         <?php if(!$login){ echo "<li><a href='http://localhost:8080/ProjetoFarmacia/HTML/cadastro.php'>Cadastro</a></li>";} ?>
 
-        <li><a href="#">Contato</a></li>
+        <li><a href="http://localhost:8080/ProjetoFarmacia/HTML/contato.php">Contato</a></li>
 
         <?php //if($adm){ echo "<li><a href='http://localhost:8080/ProjetoFarmacia/HTML/" . "CONTATO ADM" . ">Contato ADM</a></li>";} ?>
 

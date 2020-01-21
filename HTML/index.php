@@ -20,11 +20,11 @@
         <form action="../PHP/logar.php" method="post" onsubmit="return validaLogin();">
             <div>
                 <label for="email">Email: </label>
-                <input type="email" name="email" id="email" require>
+                <input type="email" name="email" id="email" required>
             </div>
             <div>
                 <label for="senha">Senha: </label>
-                <input type="password" name="senha" id="senha" require>
+                <input type="password" name="senha" id="senha" required>
                 <button type="button" id="btn">Mostrar senha</button>
             </div>
             <div>

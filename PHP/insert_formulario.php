@@ -76,9 +76,11 @@
                  }
             }
 
-            $sql_select = "SELECT * FROM pessoa WHERE cpf ='" . $cpf . "' AND email ='" . $email . "'";
-            $resultado = $conn->query($sql_select);
-            if($resultado->num_rows == 0){
+            $sql_select_cpf = "SELECT * FROM pessoa WHERE cpf ='" . $cpf . "'";
+            $resultado_cpf = $conn->query($sql_select_cpf);
+            $sql_select_email = "SELECT * FROM pessoa WHERE email ='" . $email . "'";
+            $resultado_email = $conn->query($sql_select_email);
+            if($resultado_cpf->num_rows == 0 && $resultado_email->num_rows == 0){
                 // how to configure pixel "zoom" factor
                 $tempDir = "qrcodes/";
                 $nomeqrcode = 'qrcode_'. $cpf.'.png';

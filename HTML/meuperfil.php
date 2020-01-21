@@ -69,6 +69,7 @@
     <main>
         <div>
             <img src="./parts/grafico_peso.php" alt="Gráfico do seu peso">
+            <img src="./parts/grafico_pressao.php" alt="Gráfico da sua pressão">
         </div>
 
         <div>

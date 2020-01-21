@@ -8,30 +8,28 @@ $(document).ready(function () {
 });
 
 function confirmaSenha() {
-    var senha = document.getElementById("senha").value;
-    var confirmacao = document.getElementById("confirmacao").value;
-    var erroSenha = document.getElementById("erroSenha");
-    var erroText = "As senhas não se correspodem";
+    var errorSenha = document.getElementById("errorSenha");
+    var senha = document.getElementById("senha");
+    var errorText = "As senhas não se correspodem";
+    var error = validarSenha();
 
-    if (senha != "" && confirmacao != "") {
-        if (senha.length < 5) {
-            erroSenha.innerHTML = "A senha deve ter no minimo 5 caracteres";
-        }
-        else if (senha != confirmacao) {
-            alert(erroText);
-            erroSenha.innerHTML = erroText;
-            erroSenha.style.color = "red";
-        }
-        else {
-            erroSenha.innerHTML = "";
-            erroSenha.style.color = "black";
-        }
+    if (error == "menor") {
+        errorSenha.innerHTML = "A senha deve ter no minimo 5 caracteres";
+    }
+    else if (error == "diferente") {
+        alert(errorText);
+        errorSenha.innerHTML = errorText;
+        errorSenha.style.color = "red";
+        senha.focus();
+    }
+    else {
+        errorSenha.innerHTML = "";
+        errorSenha.style.color = "black";
     }
 }
 
-function confirmaEmail() {
+function validarEmail() {
     var email = document.getElementById("email");
-    var erroEmail = document.getElementById("erroEmail");
     usuario = email.value.substring(0, email.value.indexOf("@"));
     dominio = email.value.substring(email.value.indexOf("@") + 1, email.value.length);
     if (email.value != "") {
@@ -44,30 +42,53 @@ function confirmaEmail() {
             (dominio.search(".") != -1) &&
             (dominio.indexOf(".") >= 1) &&
             (dominio.lastIndexOf(".") < dominio.length - 1)) {
-            erroEmail.innerHTML = "";
-            erroEmail.style.color = "black";
+            return false;
         }
         else {
-            erroEmail.innerHTML = "Email inválido";
-            erroEmail.style.color = "red";
-            alert("E-mail invalido");
+            return true;
         }
+    }
+}
+
+function validarSenha() {
+    var senha = document.getElementById("senha").value;
+    var confirmacao = document.getElementById("confirmacao").value;
+    if (senha != "" && confirmacao != "") {
+        if (senha.length < 5) {
+            return "menor";
+        }
+        else if (senha != confirmacao) {
+            return "diferente";
+        }
+        else { return ""; }
+    }
+}
+
+function confirmaEmail() {
+    var errorEmail = document.getElementById("errorEmail");
+    var email = document.getElementById("email");
+    var error = validarEmail();
+    if (error) {
+        errorEmail.innerHTML = "Email inválido";
+        errorEmail.style.color = "red";
+        alert("E-mail invalido");
+        email.focus();
+    }
+    else {
+        errorEmail.innerHTML = "";
+        errorEmail.style.color = "black";
     }
 }
 
 function confirmaTelefone(id) {
     var tel = document.getElementById(id).value;
-    var erro = "";
     if (tel != "") {
-        if ((tel.length == 14) &&
-            (tel.indexOf("(") == 0) &&
-            (tel.indexOf(")") == 3) &&
-            (tel.indexOf("-") == 9)) {
-            erro = "";
-        }
-        else {
-            erro = "Utilize o exemplo ao lado da caixa de texto";
-            alert(erro);
+        if ((tel.length != 14) ||
+            (tel.indexOf("(") != 0) ||
+            (tel.indexOf(")") != 3) ||
+            (tel.indexOf("-") != 9)) {
+            alert("Utilize o exemplo ao lado da caixa de texto");
+            tel.focus();
         }
     }
 }
@@ -115,46 +136,61 @@ function confirmaCPF() {
             }
             if (msg != "") {
                 alert(msg);
+                cpf.focus();
             }
         }
         else {
             alert("Utilize o exemplo ao lado da caixa de texto");
+            cpf.focus();
         }
     }
 }
 
-function validaFormulario() {
+function validaFormularioCompleto() {
     var msg = "";
     var autorizacao = false;
 
     //Validação do campo nome
     var nome = document.getElementById("nome").value;
-    if (nome == "") {
+    if (nome == "" || nome == null || nome.length < 3) {
         msg += "\r\n- Preencha o campo nome";
     }
 
     //Validação do campo email
     var email = document.getElementById("email").value;
-    var erroEmail = document.getElementById("erroEmail");
+    var error = validarEmail();
     if (email == "") {
         msg += "\r\n- Preencha o campo email";
     }
-    else if (erroEmail.innerHTML == "Email inválido" || erroEmail.style.color == "red") {
+    else if (error) {
         msg += "\r\n- Corrija o campo email";
     }
 
     //Validação dos campos senha e confirma senha 
     var senha = document.getElementById("senha").value;
     var confirmacao = document.getElementById("confirmacao").value;
-    var erroSenha = document.getElementById("erroSenha");
+    var error = validarSenha();
     if (senha == "") {
         msg += "\r\n- Preencha o campo senha";
     }
     else if (confirmacao == "") {
         msg += "\r\n- Preencha o campo de confirmação";
     }
-    else if (erroSenha.innerHTML == "As senhas não se correspodem" || erroSenha.style.color == "red") {
+    else if (error == "diferente") {
         msg += "\r\n- Corrija os campo senha e/ou de confirmação";
+    }
+
+    //Validação do campo sexo
+    var sexo = document.getElementsByName("sexo");
+    var escolhaSexo = -1;
+    for (var i = sexo.lenght - 1; i > -1; i--) {
+        if (sexo[i].checked) {
+            escolhaSexo = i;
+        }
+    }
+    if (escolhaSexo == -1) {
+        msg += "\r\n- Escolha o seu sexo";
+        sexo[0].focus();
     }
 
     //Validação do campo de data de nascimento
@@ -168,10 +204,10 @@ function validaFormulario() {
     if (tel == "") {
         msg += "\r\n- Preencha o campo telefone";
     }
-    else if ((tel.length != 14) || 
-             (tel.indexOf("(") != 0) ||
-             (tel.indexOf(")") != 3) ||
-             (tel.indexOf("-") != 9)){
+    else if ((tel.length != 14) ||
+        (tel.indexOf("(") != 0) ||
+        (tel.indexOf(")") != 3) ||
+        (tel.indexOf("-") != 9)) {
         msg += "\r\n- Siga o exemplo de telefone no campo a frente";
     }
     var contato = document.getElementById("contato_emergencia").value;
@@ -202,15 +238,15 @@ function validaFormulario() {
 
     //Validação do campo tipo sanguineo, do campo estado e do campo cidade
     var sanguineo = document.getElementById("tipo_sanguineo").value;
-    if (sanguineo == "hint") {
+    if (sanguineo == "hint" || sanguineo == "") {
         msg += "\r\n- Escolha uma opção no campo tipo sanguineo";
     }
     var estado = document.getElementById("estados").value;
-    if (estado == "hint_estados") {
+    if (estado == "hint_estados" || estado == "") {
         msg += "\r\n- Escolha um estado";
     }
     var cidade = document.getElementById("cidades").value;
-    if (cidade == "hint_cidades") {
+    if (cidade == "hint_cidades" || cidade == "") {
         msg += "\r\n- Escolha uma cidade";
     }
 
@@ -226,45 +262,23 @@ function validaFormulario() {
     if (cep == "") {
         msg += "\r\n- Preencha o campo cep";
     }
-    else if ((cep.length != 9 ) || (cep.indexOf("-") != 5)) {
+    else if ((cep.length != 9) || (cep.indexOf("-") != 5)) {
         msg += "\r\n- Siga o exemplo de cep no campo a frente";
     }
 
-    /*
-    //Validação do campo alergias ou doenças e do campo plano de saúde
-    var alergias_doencas = document.getElementById("alergias_doencas").value;
-    if (alergias_doencas == "") {
-        msg += "\r\n- Preencha o campo alergias ou doenças";
-    }
-    var plano = document.getElementById("plano_de_saude").value;
-    if (plano == "") {
-        msg += "\r\n- Preencha o campo plano de saúde";
-    }
-    */
-
-    //Validação do campo peso e do campo data da pesagem
+    //Validação do campo peso
     var peso = document.getElementById("peso").value;
     if (peso == "") {
         msg += "\r\n- Preencha o campo peso";
     }
-    /*
-    var data_peso = document.getElementById("data_peso").value;
-    if (data_peso == "") {
-        msg += "\r\n- Preencha o campo data da pesagem";
-    }
-    */
 
-    /*
-    //Validação do campo pressão e do campo data da pressão
+    //Validação do campo pressão
     var pressao = document.getElementById("pressao").value;
     if (pressao == "") {
-        msg += "\r\n- Preencha o campo pressao";
+        if(pressao.indexOf("/") != -1){
+            msg += "\r\n- Siga o exemplo de pressão no campo a frente";
+        }
     }
-    var data_pressao = document.getElementById("data_pressao").value;
-    if (data_pressao == "") {
-        msg += "\r\n- Preencha o campo data da pressão";
-    }
-    */
 
     //Teste final para saber se vai validar o formulário
     if (msg == "") {

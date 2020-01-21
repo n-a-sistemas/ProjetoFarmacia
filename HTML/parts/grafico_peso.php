@@ -37,12 +37,11 @@
                 $plot->SetYTitle("Pesos");
                 $plot->SetPrecisionY(1);
                 $plot->SetPlotType("linepoints");
-                $plot->SetDataType("text-data");
                 $plot->SetDataValues($tabela_peso);
                 $plot->SetXTickPos('none');
+                $plot->SetYTickPos('none');
                 $plot->SetXLabelFontSize(2);
                 $plot->SetAxisFontSize(2);
-                $plot->SetYDataLabelPos('plotin');
                 $plot->DrawGraph();
             }
         }
