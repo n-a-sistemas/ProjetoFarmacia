@@ -37,21 +37,21 @@
     <?php include("./parts/navegacao.php"); ?>
 
     <main>
-        <form action="enviar_email.php" method="POST">
+    <form action="../PHP/enviar_email.php" method="post">
             <div>
-                <label for="email">Email: </label>
-                <input type="email" name="email" id="email" value="<?php echo ($email != "") ? "$email" : null; ?>" required>
+                <label for="email">email:</label>
+                <input type="email" name="email" id="email">
             </div>
             <div>
-                <label for="assunto">Título do assunto: </label>
-                <input type="text" name="assunto" id="assunto" required>
+                <label for="assunto">assunto:</label>
+                <input type="text" name="assunto" id="assunto">
             </div>
             <div>
-                <label for="conteudo">Conteúdo: </label>
-                <textarea name="conteudo" id="conteudo" cols="30" rows="10" required></textarea>
+                <label for="corpo">Conteudo:</label>
+                <textarea name="corpo" id="corpo" cols="30" rows="10"></textarea>
             </div>
             <div>
-                <button type="button">Enviar</button>
+                <input type="submit" name="Enviar">
             </div>
         </form>
     </main>
