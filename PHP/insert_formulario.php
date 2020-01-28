@@ -73,7 +73,7 @@
                 if(!move_uploaded_file($_FILES['imagemUpload']['tmp_name'], $arquivo)){
                     echo "Erro ao cadastrar imagem<br>";
                     $erro = true;
-                 }
+                }
             }
 
             $sql_select_cpf = "SELECT * FROM pessoa WHERE cpf ='" . $cpf . "'";

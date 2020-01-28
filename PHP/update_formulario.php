@@ -12,7 +12,7 @@
     && isset($_POST['altura']) && isset($_POST['cidades']) && isset($_POST['estados'])
     && isset($_POST['cep'])){
         $erro = false;
-
+        $id_nome = "";
         $nome = $_POST['nome'];
         $email =  $_POST['email'];
         $datanascimento = $_POST['data_nascimento'];
@@ -67,15 +67,18 @@
                         $email_antigo = $linha['email'];
                     }
                 }
+
                 $diretorio = "uploads/";
+                $arquivo = "";
                 if($_FILES['imagemUpload']['name'] != ""){
                     $arquivo = $diretorio . basename($_FILES['imagemUpload']['name']);
                 }
                 else{
-                    $arquivo = $diretorio . "user.png";
+                    $arquivo = $arquivo_antigo;
                 }
+
                 $tipo = strtolower(pathinfo($arquivo, PATHINFO_EXTENSION));
-                if($arquivo != $arquivo_antigo){
+                if($arquivo != "" && $arquivo != $arquivo_antigo){
                     if(!move_uploaded_file($_FILES['imagemUpload']['tmp_name'], $arquivo)){
                         echo "Erro ao cadastrar imagem<br>";
                         $erro = true;
@@ -84,9 +87,10 @@
                 // how to configure pixel "zoom" factor
                 $tempDir = "qrcodes/";
                 $nomeqrcode = 'qrcode_'. $cpf.'.png';
-                $codeContents = 'perfil.php?id=' . $id;
+                $codeContents = 'perfil.php?id=' . $id_qrcode;
                 // generating
                 QRcode::png($codeContents, $tempDir. $nomeqrcode, QR_ECLEVEL_L, 2);  
+
                 $sql_pessoa = "UPDATE pessoa SET `nome`='".$nome."',`email`='".$email."',`endereco`='".$endereco."',
                 `id_estado`='".$estado."',`id_cidade`='".$cidade."',`cep`='".$cep."',
                 `foto_perfil`='".$arquivo."',`foto_qrcode`='".$tempDir . $nomeqrcode."',`id_qrcode`='".$id_qrcode."',

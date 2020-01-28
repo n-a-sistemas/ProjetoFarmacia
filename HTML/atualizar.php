@@ -190,7 +190,7 @@
             </fieldset>
             <div>
                 <label for="imagemUpload">Foto de Perfil: </label>
-                <input type="file" name="imagemUpload" value="<?php echo $foto_perfil?>" accept="image/png ,image/jpeg">
+                <input type="file" name="imagemUpload" value="" accept="image/png ,image/jpeg">
             </div>
             <div>
                 <button type="submit">Atualizar</button>
