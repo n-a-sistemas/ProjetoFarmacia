@@ -10,7 +10,6 @@ require 'mailer/PHPMailerAutoload.php';
 $email = $_POST['email'];
 $assunto = $_POST['assunto'];
 $corpo = $_POST['mensagem'];
-$nome = $_POST['nome'];
 
 $mail = new PHPMAILER(); //INSTANCIA UM OBJETO do tipo PHPMAIL
 
@@ -24,17 +23,13 @@ $mail->Password='senac123';
 $mail->Port=587;
 
 //$mail->setFrom($email);
-$mail->addReplyTo('projetofarmaciati33@gmail.com');
-$mail->addAddress('projetofarmaciati33@gmail.com');
+$mail->addReplyTo($email);
+$mail->addAddress($email);
 
 $mail->isHTML(true);
 $mail->CharSet = 'utf-8'; // Charset da mensagem (opcional)
  // DEFINIÇÃO DA MENSAGEM
- $mail->Subject  = "Formulário de Contato"; // Assunto da mensagem
- $mail->Body .= " Nome: ".$_POST['nome']."<br>
-"; // Texto da mensagem
- $mail->Body .= " E-mail: ".$_POST['email']."<br>
-"; // Texto da mensagem
+ $mail->Subject  = "Formulário de Contato"; // Assunto da mensagems
  $mail->Body .= " Assunto: ".$_POST['assunto']."<br><br>
 "; // Texto da mensagem
  $mail->Body .= " Mensagem: ".($_POST['mensagem'])."
@@ -50,4 +45,4 @@ $mail->CharSet = 'utf-8'; // Charset da mensagem (opcional)
     echo "Não foi possível enviar o e-mail.";
     echo "Detalhes do erro: " . $mail->ErrorInfo;
   }
-  header("location: ../HTML/contato.php");
+  

@@ -37,15 +37,17 @@
     <?php include("./parts/navegacao.php"); ?>
 
     <main>
-    <form action="../PHP/enviar_email.php" method="post">
+    <form action="../PHP/enviar_todos.php" method="post">
+           
             <div>
-                <label for="nome">nome:</label>
-                <input type="nome" name="nome" id="nome">
+                <label for="email">Emails: </label>
+                    <select name="email" id="email" required>
+                        <option value="all">Enviar para Todos</option>
+                        <?php include("../PHP/emails.php"); ?>
+                        
+                    </select>
             </div>
-            <div>
-                <label for="email">email:</label>
-                <input type="email" name="email" id="email">
-            </div>
+           
             <div>
                 <label for="assunto">assunto:</label>
                 <input type="text" name="assunto" id="assunto">
