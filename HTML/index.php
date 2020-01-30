@@ -29,7 +29,7 @@
             </div>
             <div>
                 <a href="cadastro.php">Não é cadastrado ?</a>
-                <a href="#">Não sabe a senha ?</a>
+                <a href="recuperar_senha.php">Não sabe a senha ?</a>
                 <button type="submit" id="logar">Logar</button>
             </div>
         </form>

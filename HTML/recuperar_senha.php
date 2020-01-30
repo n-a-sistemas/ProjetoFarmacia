@@ -1,5 +1,16 @@
 <?php
     session_start();
+    $pag = "";
+    $informacoes = "NADA";
+    if(isset($_GET['pag'])){
+        $pag = $_GET['pag'];
+    }
+    if($pag == 2){
+        $json = file_get_contents("http://10.60.44.29:8080/ProjetoFarmacia/PHP/token.php");
+        $informacoes = base64_decode($json);
+        $informacoes = json_decode($informacoes);
+    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -21,16 +32,36 @@
     <?php include("./parts/navegacao.php"); ?>
 
     <main>
-        <div>
+        <form action="../PHP/token.php" method="post" id="primeira-form">
+            <h2>Coloque seu email para enviarmos um codigo</h2>
             <div>
                 <label for="email">Email: </label>
-                <input type="email" name="email" id="email">
+                <input type="email" name="email" id="email" required>
             </div>
             <div>
-                <button type="button" id="btn-enviar-1">Enviar</button>
+                <button type="submit" id="btn-enviar-1">Enviar</button>
             </div>
-        </div>
+        </form>
+        <form action="" method="post" id="segundo-form">
+            <h2>Agora troque a senha para uma melhor e que você lembre dela</h2>
+            <div>
+                <label for="senha">Nova senha: </label>
+                <input type="password" name="senha" id="senha" minlength="5" required>
+            </div>
+            <div>
+                <label for="confirmacao">Digite novamente sua senha: </label>
+                <input type="password" name="confirmacao" id="confirmacao" minlength="5" onblur="confirmaSenha()" required>
+                <label for="confirmacao" id="errorSenha"></label>
+            </div>
+            <div>
+                <button type="submit"></button>
+            </div>
+        </form>
     </main>
+
+    <aside>
+        <?php echo $informacoes;?>
+    </aside>
 
 </body>
 </html>
