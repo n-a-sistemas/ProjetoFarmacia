@@ -68,26 +68,6 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text" id="btnGroupAddon">
 
-<<<<<<< HEAD
-    <main>
-        <form action="../PHP/logar.php" method="post" onsubmit="return validaLogin();">
-            <div>
-                <label for="email">Email: </label>
-                <input type="email" name="email" id="email" required>
-            </div>
-            <div>
-                <label for="senha">Senha: </label>
-                <input type="password" name="senha" id="senha" required>
-                <button type="button" id="btn">Mostrar senha</button>
-            </div>
-            <div>
-                <a href="cadastro.php">Não é cadastrado ?</a>
-                <a href="recuperar_senha.php">Não sabe a senha ?</a>
-                <button type="submit" id="logar">Logar</button>
-            </div>
-        </form>
-    </main>
-=======
                             </div>
                         </div>
                         <input type="password" class="form-control" placeholder="Senha" name="senha" id="senha" required>
@@ -102,6 +82,5 @@
             </main>
         </div>
     </div>
->>>>>>> 8ceb6cdfd14f55646c3d6afc1e113fe4460fb153
 </body>
 </html>
