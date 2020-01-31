@@ -20,7 +20,6 @@ function confirmaSenha() {
         alert(errorText);
         errorSenha.innerHTML = errorText;
         errorSenha.style.color = "red";
-        senha.focus();
     }
     else {
         errorSenha.innerHTML = "";
@@ -72,7 +71,6 @@ function confirmaEmail() {
         errorEmail.innerHTML = "Email inválido";
         errorEmail.style.color = "red";
         alert("E-mail invalido");
-        email.focus();
     }
     else {
         errorEmail.innerHTML = "";
@@ -88,7 +86,6 @@ function confirmaTelefone(id) {
             (tel.indexOf(")") != 3) ||
             (tel.indexOf("-") != 9)) {
             alert("Utilize o exemplo ao lado da caixa de texto");
-            tel.focus();
         }
     }
 }
@@ -136,12 +133,10 @@ function confirmaCPF() {
             }
             if (msg != "") {
                 alert(msg);
-                cpf.focus();
             }
         }
         else {
             alert("Utilize o exemplo ao lado da caixa de texto");
-            cpf.focus();
         }
     }
 }
