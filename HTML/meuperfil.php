@@ -55,6 +55,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
     <title>Meu Perfil</title>
 </head>
 <body>
@@ -89,6 +90,8 @@
             <p>Plano de Saúde: <?php echo $planodesaude; ?></p>
         </div>
         <a href="atualizar.php"><button>Atualizar Dados</button></a>
+        <a href="qrcode.php"><button>Imprimir Qrcode</button></a>
+
     </main>
 </body>
 </html>

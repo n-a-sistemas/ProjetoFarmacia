@@ -18,6 +18,7 @@ if($resultado->num_rows > 0){
     }
 }
 
+echo "<script>window.print(../PHP/qrcodes/$img);</script>";
 
 ?>
 
@@ -39,9 +40,35 @@ if($resultado->num_rows > 0){
         <h1>Imprisa seu Qr Code</h1>
     </header>
     <?php include("./parts/navegacao.php"); ?>
-    <main>
-        <img src="../PHP/<?php echo $img;?>">
+    <main id="impressao">
+        
+        <a href="#"><img  src="../PHP/<?php echo $img;?>"></a>
+       
+
       
     </main>
+
+
+
+
+    
+    <script>
+    
+    
+        var conteudo = document.getElementById('impressao').innerHTML;
+        var telaImpressao = window.open('about:blank');
+
+        telaImpressao.document.write(conteudo);
+        telaImpressao.window.print();
+        telaImpressao.window.close();
+    
+    
+     </script>
+    
+
+
+    
+    
+   
 </body>
 </html>
