@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Numans");
+
+#borda,
+#menu {
+  background-color: #ff322b;
+}
+
+strong {
+  font-size: x-large;
+  color: #ff322b;
+}
+#logar {
+  background-color:rgba(230, 231, 233, 0.63);
+}
