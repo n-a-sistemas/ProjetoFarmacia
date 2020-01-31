@@ -136,12 +136,10 @@ function confirmaCPF() {
             }
             if (msg != "") {
                 alert(msg);
-                cpf.focus();
             }
         }
         else {
             alert("Utilize o exemplo ao lado da caixa de texto");
-            cpf.focus();
         }
     }
 }

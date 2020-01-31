@@ -1,9 +1,5 @@
 function impressao() {
-    var conteudo = document.getElementById('barcode').innerHTML;
-    var telaImpressao = window.open('');
+    window.print();
 
-    telaImpressao.document.write(conteudo);
-    telaImpressao.window.print();
-
-    telaImpressao.window.close();
+    window.close();
 }

@@ -58,6 +58,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <title>Meu Perfil</title>
+    <link rel="stylesheet" href="./CSS/meu_perfil.css">
+    <script src="JS/jquery-3.4.1.min.js"></script>
+    
 </head>
 <body>
     
@@ -92,10 +95,10 @@
         </div>
         <a href="atualizar.php"><button>Atualizar Dados</button></a>
 
-        <button type="button" onclick="impressao()">Imprimir Qrcode</button>
+        <button type="button" onclick="impressao();">Imprimir Qrcode</button>
 
-        <div id="barcode" style="display: none;"> 
-            <img  src="../PHP/<?php echo $img;?>">
+        <div id="printable"> 
+            <img src="../PHP/<?php echo $img;?>">
         </div>
     </main>
     <script type="text/javascript" src="JS/impressao.js"></script>
