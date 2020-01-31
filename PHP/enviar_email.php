@@ -2,8 +2,6 @@
 
 
 //PHPMAILER v5.2 - versão estável
-
-
 require 'mailer/PHPMailerAutoload.php';
 //require para a execução se houver problema para importar o arquivo
 

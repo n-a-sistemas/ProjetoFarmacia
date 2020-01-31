@@ -1,14 +1,8 @@
 <?php
     session_start();
-    $pag = "";
-    $informacoes = "NADA";
-    if(isset($_GET['pag'])){
-        $pag = $_GET['pag'];
-    }
-    if($pag == 2){
-        $json = file_get_contents("http://10.60.44.29:8080/ProjetoFarmacia/PHP/token.php");
-        $informacoes = base64_decode($json);
-        $informacoes = json_decode($informacoes);
+    $email = "";
+    if(isset($_SESSION['email'])){
+        $email = $_SESSION['email'];
     }
     
 ?>
@@ -40,6 +34,15 @@
             </div>
             <div>
                 <button type="submit" id="btn-enviar-1">Enviar</button>
+            </div>
+        </form>
+        <form action="" method="post">
+            <div>
+                <label for="token">Codigo: </label>
+                <input type="text" name="token" id="token" required>
+            </div>
+            <div>
+                <button type="submit">Enviar</button>
             </div>
         </form>
         <form action="" method="post" id="segundo-form">
