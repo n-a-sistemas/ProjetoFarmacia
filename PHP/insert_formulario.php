@@ -69,7 +69,7 @@
                 $arquivo = $diretorio . "user.png";
             }
             $tipo = strtolower(pathinfo($arquivo, PATHINFO_EXTENSION));
-            if($arquivo != ""){
+            if($arquivo != "user.png"){
                 if(!move_uploaded_file($_FILES['imagemUpload']['tmp_name'], $arquivo)){
                     echo "Erro ao cadastrar imagem<br>";
                     $erro = true;
@@ -83,14 +83,13 @@
             if($resultado_cpf->num_rows == 0 && $resultado_email->num_rows == 0){
                 // how to configure pixel "zoom" factor
                 $tempDir = "qrcodes/";
-                $nomeqrcode = 'qrcode_'. $cpf.'.png';
+                $nomeqrcode = 'qrcode_'. $cpf . '.png';
                 $codeContents = 'perfil.php?id=' . $id;
                 // generating
                 QRcode::png($codeContents, $tempDir. $nomeqrcode, QR_ECLEVEL_L, 2);  
 
                 $sql_pessoa = "INSERT INTO pessoa (nome,email,data_nascimento,cpf,sexo,telefone,alergia_doencas,tipo_sanguineo,telefone_emergencia,plano_saude,senha,altura,foto_qrcode,foto_perfil,adm,id_cidade,id_estado,cep,endereco,id_qrcode) 
-                        VALUES ('$nome', '$email','$datanascimento','$cpf','$sexo','$telefone','$alergiadoencas','$tiposanguineo','$contatoemergencia','$planodesaude','$senha','$altura','$tempDir . $nomeqrcode','$arquivo','$adm','$cidade','$estado','$cep','$endereco','$id')";
-
+                        VALUES ('$nome', '$email','$datanascimento','$cpf','$sexo','$telefone','$alergiadoencas','$tiposanguineo','$contatoemergencia','$planodesaude','$senha','$altura','$tempDir$nomeqrcode','$arquivo','$adm','$cidade','$estado','$cep','$endereco','$id')";
                 if($conn->query($sql_pessoa) == TRUE){
                     $sql_select = "SELECT * FROM pessoa WHERE cpf ='" . $cpf . "' AND email ='" . $email . "'";
                     $resultado = $conn->query($sql_select);
