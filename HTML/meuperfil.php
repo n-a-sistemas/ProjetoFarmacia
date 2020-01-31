@@ -30,6 +30,7 @@
                 $estado = $linha['id_estado'];
                 $cep = $linha['cep'];
                 $foto_perfil = $linha['foto_perfil'];
+                $img = $linha['foto_qrcode'];
             }
             $sql_cidade = "SELECT `id`, `nome` FROM cidade WHERE id = $cidade ORDER BY nome ASC";
             $resultado = $conn->query($sql_cidade);
@@ -57,6 +58,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <title>Meu Perfil</title>
+    <link rel="stylesheet" href="./CSS/meu_perfil.css">
+    <script src="JS/jquery-3.4.1.min.js"></script>
+    
 </head>
 <body>
     
@@ -90,8 +94,13 @@
             <p>Plano de Saúde: <?php echo $planodesaude; ?></p>
         </div>
         <a href="atualizar.php"><button>Atualizar Dados</button></a>
-        <a href="qrcode.php"><button>Imprimir Qrcode</button></a>
 
+        <button type="button" onclick="impressao();">Imprimir Qrcode</button>
+
+        <div id="printable"> 
+            <img src="../PHP/<?php echo $img;?>">
+        </div>
     </main>
+    <script type="text/javascript" src="JS/impressao.js"></script>
 </body>
 </html>

@@ -85,7 +85,6 @@
                 $tempDir = "qrcodes/";
                 $nomeqrcode = 'qrcode_'. $cpf . '.png';
                 $codeContents = 'perfil.php?id=' . $id;
-                $erro = true;
                 // generating
                 QRcode::png($codeContents, $tempDir. $nomeqrcode, QR_ECLEVEL_L, 2);  
 
