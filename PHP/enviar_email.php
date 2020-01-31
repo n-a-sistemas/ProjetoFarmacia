@@ -12,6 +12,7 @@ $assunto = $_POST['assunto'];
 $corpo = $_POST['mensagem'];
 $nome = $_POST['nome'];
 
+
 $mail = new PHPMAILER(); //INSTANCIA UM OBJETO do tipo PHPMAIL
 
 $mail->isSMTP();
