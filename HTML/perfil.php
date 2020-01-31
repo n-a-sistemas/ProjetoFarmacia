@@ -62,6 +62,7 @@
     <header>
         <?php include("./parts/header_login.php"); ?>
         <h1>Meu Perfil</h1>
+        <h1>teste</h1>
     </header>
 
     <?php include("./parts/navegacao.php"); ?>
