@@ -86,7 +86,7 @@
                 $nomeqrcode = 'qrcode_'. $cpf . '.png';
                 $codeContents = 'perfil.php?id=' . $id;
                 // generating
-                QRcode::png($codeContents, $tempDir. $nomeqrcode, QR_ECLEVEL_L, 2);  
+                QRcode::png($codeContents, $tempDir. $nomeqrcode, QR_ECLEVEL_L, 6);  
 
                 $sql_pessoa = "INSERT INTO pessoa (nome,email,data_nascimento,cpf,sexo,telefone,alergia_doencas,tipo_sanguineo,telefone_emergencia,plano_saude,senha,altura,foto_qrcode,foto_perfil,adm,id_cidade,id_estado,cep,endereco,id_qrcode) 
                         VALUES ('$nome', '$email','$datanascimento','$cpf','$sexo','$telefone','$alergiadoencas','$tiposanguineo','$contatoemergencia','$planodesaude','$senha','$altura','$tempDir$nomeqrcode','$arquivo','$adm','$cidade','$estado','$cep','$endereco','$id')";

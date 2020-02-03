@@ -64,12 +64,14 @@
 </head>
 <body>
     
-    <header>
+    
+        <?php include("./parts/navegacao.php"); ?>
         <?php include("./parts/header_login.php"); ?>
+   
         <h1>Meu Perfil</h1>
-    </header>
+    
 
-    <?php include("./parts/navegacao.php"); ?>
+  
 
     <main>
         <div>
