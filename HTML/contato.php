@@ -26,38 +26,51 @@
     <title>Contato</title>
     <script src="JS/jquery-3.4.1.min.js"></script>
     <script src="JS/login.js"></script>
+    <script type="text/javascript" src="JS/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="CSS/bootstrap.min.css" />
 </head>
 <body>
 
-    <header>
-        <?php include("./parts/header_login.php"); ?>
-        <h1>Contato para dúvidas ou bugs encontrados no site</h1>
-    </header>
-    
-    <?php include("./parts/navegacao.php"); ?>
+  
 
-    <main>
-    <form action="../PHP/enviar_email.php" method="post">
-            <div>
-                <label for="nome">nome:</label>
-                <input type="nome" name="nome" id="nome">
+    <?php include("./parts/navegacao.php"); ?>
+    <?php include("./parts/header_login.php"); ?>
+    <main class="container d-flex text-left">
+
+    <div class="row">
+    <form class="form-horizontal" action="../PHP/enviar_email.php" method="post">
+            <div class="form-group">
+           
+                <label for="nome">Nome:</label>
+            <div class="col-auto">
+                <input class="form-control" type="nome" name="nome" id="nome">
             </div>
-            <div>
-                <label for="email">email:</label>
-                <input type="email" name="email" id="email">
             </div>
-            <div>
-                <label for="assunto">assunto:</label>
-                <input type="text" name="assunto" id="assunto">
+            <div class="form-group">
+                <label for="email">Email:</label>
+            <div class="col-auto">
+                <input class="form-control" type="email" name="email" id="email">
             </div>
-            <div>
-                <label for="mensagem">Conteudo:</label>
-                <textarea name="mensagem" id="mensagem" cols="30" rows="10"></textarea>
             </div>
-            <div>
-                <input type="submit" name="Enviar">
+            <div class="form-group">
+                <label for="assunto">Assunto:</label>
+            <div class="col-auto">
+                <input class="form-control" type="text" name="assunto" id="assunto">
+            </div>
+            </div>
+            <div class="form-group">
+                <label for="mensagem">Mensagem:</label>
+            <div class="col-auto">
+                <textarea class="form-control" name="mensagem" id="mensagem" cols="50" rows="10"></textarea>
+            </div>
+            </div>
+            <div class="form-group" >
+            <div class="col-auto">
+                <button class="btn btn-primary mb-2 m-5" type="submit">Enviar Mensagem</button>
+            </div>
             </div>
         </form>
+    </div>
     </main>
 </body>
 </html>
