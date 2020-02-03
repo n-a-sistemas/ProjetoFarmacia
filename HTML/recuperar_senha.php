@@ -26,45 +26,20 @@
     <?php include("./parts/navegacao.php"); ?>
 
     <main>
-        <form action="../PHP/token.php" method="post" id="primeira-form">
-            <h2>Coloque seu email para enviarmos um codigo</h2>
-            <div>
-                <label for="email">Email: </label>
-                <input type="email" name="email" id="email" required>
-            </div>
-            <div>
-                <button type="submit" id="btn-enviar-1">Enviar</button>
-            </div>
-        </form>
-        <form action="" method="post">
-            <div>
-                <label for="token">Codigo: </label>
-                <input type="text" name="token" id="token" required>
-            </div>
-            <div>
-                <button type="submit">Enviar</button>
-            </div>
-        </form>
-        <form action="" method="post" id="segundo-form">
-            <h2>Agora troque a senha para uma melhor e que você lembre dela</h2>
-            <div>
-                <label for="senha">Nova senha: </label>
-                <input type="password" name="senha" id="senha" minlength="5" required>
-            </div>
-            <div>
-                <label for="confirmacao">Digite novamente sua senha: </label>
-                <input type="password" name="confirmacao" id="confirmacao" minlength="5" onblur="confirmaSenha()" required>
-                <label for="confirmacao" id="errorSenha"></label>
-            </div>
-            <div>
-                <button type="submit"></button>
-            </div>
-        </form>
-    </main>
+        <?php
+            if($email == "") {
+                include('./parts/recuperar_senha_part1.html');
+            }
+        ?>
+        
+        <?php 
+            if($email != ""){
+                include('./parts/recuperar_senha_part2.html');
+            }
+        ?>
 
-    <aside>
-        <?php echo $informacoes;?>
-    </aside>
+        <?php include('./parts/recuperar_senha_part3.html')?>
+    </main>
 
 </body>
 </html>

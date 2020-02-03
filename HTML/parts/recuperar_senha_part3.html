@@ -1,0 +1,15 @@
+<form action="" method="post" id="segundo-form">
+    <h2>Agora troque a senha para uma melhor e que você lembre dela</h2>
+    <div>
+        <label for="senha">Nova senha: </label>
+        <input type="password" name="senha" id="senha" minlength="5" required>
+    </div>
+    <div>
+        <label for="confirmacao">Digite novamente sua senha: </label>
+        <input type="password" name="confirmacao" id="confirmacao" minlength="5" onblur="confirmaSenha()" required>
+        <label for="confirmacao" id="errorSenha"></label>
+    </div>
+    <div>
+        <button type="submit"></button>
+    </div>
+</form>
