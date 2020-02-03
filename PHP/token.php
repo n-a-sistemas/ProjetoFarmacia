@@ -40,8 +40,8 @@
                 $mail->Port=587;
 
                 //$mail->setFrom($email);
-                $mail->addReplyTo('projetofarmaciati33@gmail.com');
-                $mail->addAddress('projetofarmaciati33@gmail.com');
+                $mail->addReplyTo($email);
+                $mail->addAddress($email);
 
                 $mail->isHTML(true);
                 $mail->CharSet = 'utf-8'; // Charset da mensagem (opcional)
