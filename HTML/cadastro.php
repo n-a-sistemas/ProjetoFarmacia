@@ -12,11 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cadastro</title>
-    <!--
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-    </script>
-    -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
@@ -29,7 +24,7 @@
 </head>
 
 <body>
-      <?php include("./parts/navegacao.php"); ?>
+    <?php include("./parts/navegacao.php"); ?>
     <div class="container d-flex justify-content-center">
         <div class="row">
             <main>
@@ -230,15 +225,18 @@
                             <label class="col-auto control-label" for="data_peso">Opcional</label>
                         </div>
                     </fieldset>
-                    <div>
+                    <div class="container form-group">
                         <label class="col-auto control-label" for="imagemUpload">Foto de Perfil: </label>
-                        <div class="col-auto">
-                            <input class="form-control" type="file" name="imagemUpload" value="Procurar..."
+                        <div class="col-auto custom-file">
+                            <input class="form-control custom-file-input" type="file" name="imagemUpload" value="Procurar..."
                                 accept="image/png ,image/jpeg">
+                            <label class="custom-file-label" for="customFile">Escolha a foto</label>
                         </div>
                     </div>
-                    <div>
-                        <button class="btn btn-primary mb-2 m-5" type="submit">Cadastrar</button>
+                    <div class="form-group">
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
                     </div>
                 </form>
             </main>

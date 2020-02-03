@@ -48,6 +48,7 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,17 +58,14 @@
     <script src="JS/jquery-3.4.1.min.js"></script>
     <script src="JS/cadastro.js"></script>
 </head>
-<body>
 
-    <header>
-        <?php include("./parts/header_login.php"); ?>
-        <h1>Formulário para atualizar seus dados</h1>
-    </header>
-    
+<body>
     <?php include("./parts/navegacao.php"); ?>
+    <?php include("./parts/header_login.php"); ?>
 
     <main>
-        <form action="../PHP/update_formulario.php" method="POST" enctype="multipart/form-data" onsubmit="return validaFormulario();">
+        <form action="../PHP/update_formulario.php" method="POST" enctype="multipart/form-data"
+            onsubmit="return validaFormulario();">
             <p>*Campos de preenchimento obrigatório.</p>
             <fieldset>
                 <legend>Dados pessoais</legend>
@@ -77,36 +75,46 @@
                 </div>
                 <div>
                     <label for="email">Email*: </label>
-                    <input type="email" name="email" id="email" onblur="confirmaEmail()" value="<?php echo $email ?>" required>
+                    <input type="email" name="email" id="email" onblur="confirmaEmail()" value="<?php echo $email ?>"
+                        required>
                     <label for="email" id="errorEmail"></label>
                 </div>
                 <fieldset>
                     <legend>Sexo*: </legend>
-                    <input type="radio" name="sexo" id="Masculino" value="Masculino" <?php echo ($sexo == "Masculino") ? "checked" : null; ?>>
+                    <input type="radio" name="sexo" id="Masculino" value="Masculino"
+                        <?php echo ($sexo == "Masculino") ? "checked" : null; ?>>
                     <label for="Masculino">Masculino</label>
-                    <input type="radio" name="sexo" id="Feminino" value="Feminino" <?php echo ($sexo == "Feminino") ? "checked" : null; ?>>
+                    <input type="radio" name="sexo" id="Feminino" value="Feminino"
+                        <?php echo ($sexo == "Feminino") ? "checked" : null; ?>>
                     <label for="Feminino">Feminino</label>
-                    <input type="radio" name="sexo" id="Outros" value="Outros" <?php echo ($sexo == "Outros") ? "checked" : null; ?>>
+                    <input type="radio" name="sexo" id="Outros" value="Outros"
+                        <?php echo ($sexo == "Outros") ? "checked" : null; ?>>
                     <label for="Outros">Outros</label>
                 </fieldset>
                 <div>
                     <label for="data_nascimento">Data de Nascimento*: </label>
-                    <input type="date" name="data_nascimento" id="data_nascimento" value="<?php echo $data_nascimento ?>" required>
+                    <input type="date" name="data_nascimento" id="data_nascimento"
+                        value="<?php echo $data_nascimento ?>" required>
                 </div>
                 <div>
                     <label for="cpf">CPF*: </label>
-                    <input type="text" name="cpf" id="cpf" minlength="14" maxlength="14" onblur="confirmaCPF()" value="<?php echo $cpf ?>" required>
+                    <input type="text" name="cpf" id="cpf" minlength="14" maxlength="14" onblur="confirmaCPF()"
+                        value="<?php echo $cpf ?>" required>
                     <label for="cpf">ex:111.222.333-44</label>
-                    <label for="cpf" id="alerta_cpf">Ao editar esse campo é possivel que o QR Code precisa ser trocado</label>
+                    <label for="cpf" id="alerta_cpf">Ao editar esse campo é possivel que o QR Code precisa ser
+                        trocado</label>
                 </div>
                 <div>
                     <label for="tel">Telefone*: </label>
-                    <input type="tel" name="tel" id="tel" minlength="14" maxlength="14" onblur="confirmaTelefone('tel')" value="<?php echo $telefone ?>" required>
+                    <input type="tel" name="tel" id="tel" minlength="14" maxlength="14" onblur="confirmaTelefone('tel')"
+                        value="<?php echo $telefone ?>" required>
                     <label for="tel">ex:(16)91111-4444</label>
                 </div>
                 <div>
                     <label for="contato_emergencia">Contato de Emergência*: </label>
-                    <input type="tel" name="contato_emergencia" id="contato_emergencia" minlength="14" maxlength="14" onblur="confirmaTelefone('contato_emergencia')" value="<?php echo $contatoemergencia ?>" required>
+                    <input type="tel" name="contato_emergencia" id="contato_emergencia" minlength="14" maxlength="14"
+                        onblur="confirmaTelefone('contato_emergencia')" value="<?php echo $contatoemergencia ?>"
+                        required>
                     <label for="contato_emergencia">ex:(16)91111-4444</label>
                 </div>
             </fieldset>
@@ -114,7 +122,8 @@
                 <legend>Endereço</legend>
                 <div>
                     <label for="cep">CEP*: </label>
-                    <input type="text" name="cep" id="cep" minlength="9" maxlength="9" value="<?php echo $cep ?>" required>
+                    <input type="text" name="cep" id="cep" minlength="9" maxlength="9" value="<?php echo $cep ?>"
+                        required>
                     <label for="cep">ex:91111-111</label>
                 </div>
                 <div>
@@ -150,7 +159,8 @@
                 </div>
                 <div>
                     <label for="alergias_doencas">Alergias ou Doenças: </label>
-                    <textarea name="alergias_doencas" id="alergias_doencas" cols="30" rows="10"><?php echo $alergiadoencas ?></textarea>
+                    <textarea name="alergias_doencas" id="alergias_doencas" cols="30"
+                        rows="10"><?php echo $alergiadoencas ?></textarea>
                     <label for="alergias_doencas">*Se não sabe pode deixar vazio</label>
                 </div>
                 <div>
@@ -160,7 +170,8 @@
                 </div>
                 <div>
                     <label for="altura">Altura*: </label>
-                    <input type="number" name="altura" id="altura" min="0" max="3" step="any" value="<?php echo $altura?>" required>
+                    <input type="number" name="altura" id="altura" min="0" max="3" step="any"
+                        value="<?php echo $altura?>" required>
                 </div>
                 <div><button id='mostra-peso' type="button">Atualizar peso</button></div>
                 <div id='label_peso'>
@@ -199,4 +210,5 @@
     </main>
     <script src="JS/formulario.js"></script>
 </body>
+
 </html>

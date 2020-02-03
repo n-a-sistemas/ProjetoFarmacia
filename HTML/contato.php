@@ -28,6 +28,8 @@
     <script src="JS/login.js"></script>
     <script type="text/javascript" src="JS/bootstrap.min.js"></script>
     <link rel="stylesheet" href="CSS/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/estilos.css" />
+    <link rel="stylesheet" href="css/contato.css"/>
 </head>
 <body>
 
@@ -35,10 +37,10 @@
 
     <?php include("./parts/navegacao.php"); ?>
     <?php include("./parts/header_login.php"); ?>
-    <main class="container d-flex text-left">
+    <main class="container d-flex text-left p-5">
 
     <div class="row">
-    <form class="form-horizontal" action="../PHP/enviar_email.php" method="post">
+    <form  class="form-horizontal" action="../PHP/enviar_email.php" method="post">
             <div class="form-group">
            
                 <label for="nome">Nome:</label>
@@ -66,7 +68,7 @@
             </div>
             <div class="form-group" >
             <div class="col-auto">
-                <button class="btn btn-primary mb-2 m-5" type="submit">Enviar Mensagem</button>
+            <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
             </div>
         </form>
