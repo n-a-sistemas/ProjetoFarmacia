@@ -22,24 +22,23 @@
 
 <body>
     <?php include("./parts/navegacao.php");?>
-    
+
     <div class="container d-flex justify-content-center w-25 mt-5">
         <div class="row">
             <main>
-                <div class="d-flex justify-content-center h-100" >
+                <div class="d-flex justify-content-center h-100">
                     <div class="card">
                         <div class="card-header text-center">
                             <h3>Login</h3>
                         </div>
                         <div class="card-body">
-                            <form action="../PHP/logar.php" method="post"onsubmit="return validaLogin();">
+                            <form action="../PHP/logar.php" method="post" onsubmit="return validaLogin();">
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                                     </div>
                                     <input type="email" class="form-control" placeholder="Email" name="email" id="email"
                                         required>
-
                                 </div>
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
