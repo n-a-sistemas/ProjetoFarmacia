@@ -46,7 +46,9 @@
                                     </div>
                                     <input type="password" class="form-control" placeholder="Senha" name="senha"
                                         id="senha" required>
-                                    <button type="button" id="btn">Mostrar senha</button>
+                                    <button type="button" id="btn">
+                                        <img src="IMG/eye.svg" alt="eye" width="25" height="25" class="d-inline-block align-top">
+                                    </button>
                                 </div>
                                 <div class="row align-items-center remember">
                                     <input type="checkbox">Lembre de mim
