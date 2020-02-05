@@ -4,6 +4,10 @@
     if(isset($_SESSION['email'])){
         $email = $_SESSION['email'];
     }
+    $token = "";
+    if(isset($_SESSION['token'])){
+        $token = $_SESSION['token'];
+    }
     
 ?>
 <!DOCTYPE html>
@@ -27,18 +31,22 @@
 
     <main>
         <?php
-            if($email == "") {
+            if($email == "" && $token == "") {
                 include('./parts/recuperar_senha_part1.html');
             }
         ?>
         
         <?php 
-            if($email != ""){
+            if($email != ""  && $token == ""){
                 include('./parts/recuperar_senha_part2.html');
             }
         ?>
 
-        <?php include('./parts/recuperar_senha_part3.html')?>
+        <?php 
+            if($email != ""  && $token != ""){
+                include('./parts/recuperar_senha_part3.html');
+            }
+        ?>
     </main>
 
 </body>

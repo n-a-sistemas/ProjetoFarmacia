@@ -1,6 +1,7 @@
 <?php
     include("conn.php");
     session_start();
+    session_unset();
     require 'mailer/PHPMailerAutoload.php';
     date_default_timezone_set('America/Sao_Paulo');
     $email = "";

@@ -1,21 +1,7 @@
 <?php
     session_start();
-    include("../PHP/conn.php");
-    $id = "";
-    $email = "";
-    if(isset($_SESSION['id'])){
-        $id = $_SESSION['id'];
-    }
-    if($id != ""){
-        $sql = "SELECT * FROM pessoa WHERE id_nome = $id";
-        $resultado = $conn->query($sql);
-        if($resultado->num_rows == 1){
-            while($linha = $resultado->fetch_assoc()){
-                $email = $linha['email'];
-            }
-        }
-    }
-
+    session_unset();
+    session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

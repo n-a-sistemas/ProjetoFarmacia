@@ -6,7 +6,7 @@
     $token = "";
     $email = "";
     if(isset($_POST['token'])){
-        $token = '14bcc269c9b4ede338b5dcce4ba5ad6e';
+        $token = $_POST['token'];
     }
     if(isset($_SESSION['email'])){
         $email = 'kaparecido483@gmail.com';
@@ -31,19 +31,19 @@
             //Separando em variaveis a data atual
             $hoje = date("Y m d H i s");
             //echo $hoje . "<br>";
-            list($ano_t, $mes_t, $dia_t, $horas_t, $minutos_t, $segundos_t) = explode(" ", $hoje);
+            list($ano_atual, $mes_atual, $dia_atual, $horas_atual, $minutos_atual, $segundos_atual) = explode(" ", $hoje);
 
-            echo $ano . "-" . $ano_t . "<br>";
-            echo $mes . "-" . $mes_t . "<br>";
-            echo $dia . "-" . $dia_t . "<br>";
-            echo $horas . "-" . $horas_t . "<br>";
-            echo $minutos . "-" . $minutos_t . "<br>";
+            echo $ano . "-" . $ano_atual . "<br>";
+            echo $mes . "-" . $mes_atual . "<br>";
+            echo $dia . "-" . $dia_atual . "<br>";
+            echo $horas . "-" . $horas_atual . "<br>";
+            echo $minutos . "-" . $minutos_atual . "<br>";
 
-            if($ano == $ano_t){
-                if($mes == $mes_t){
-                    if($dia != $dia_t){
+            if($ano == $ano_atual){
+                if($mes == $mes_atual){
+                    if($dia != $dia_atual){
                         $validacao = false;
-                        echo "1". "<br>";
+                        echo "3". "<br>";
                     }
                 }
                 else{
@@ -53,7 +53,7 @@
             }
             else{
                 $validacao = false;
-                echo "3". "<br>";
+                echo "1". "<br>";
             }
 
             if($validacao){
@@ -63,21 +63,23 @@
                     $min =- 60;
                 }
 
-                if($horas == $horas_t){
+                if($horas == $horas_atual){
                     echo $min. "<br>";
-                    if($min <= $minutos_t){
+                    if($min <= $minutos_atual){
                         $validacao = false;
-                        echo "4". "<br>";
+                        echo "5". "<br>";
                     }
                 }
                 else{
                     $validacao = false;
-                    echo "5". "<br>";
+                    echo "4". "<br>";
                 }
             }
 
             if($validacao){
                 echo "True";
+                $_SESSION['token'] = $token;
+                header('Location: ../HTML/recuperar_senha.php');
             }
             else{
                 echo "False";
