@@ -7,7 +7,6 @@
     $id = "";
     if(isset($_SESSION['id'])){
         $id = $_SESSION['id'];
-        $sql_peso = "SELECT * FROM peso WHERE id_nome =" . $id . "";
     }
     else if(isset($_GET['id'])){
         $id = $_GET['id'];
@@ -18,7 +17,9 @@
                 $id = $linha['id_nome'];
             }
         }
-        $sql_peso = "SELECT * FROM peso WHERE id_nome =" . $id . "";
+    }
+    if($id != ""){
+        $sql_peso = "SELECT * FROM peso WHERE id_nome = ".$id." ORDER BY data ASC";
     }
     
     if($sql_peso != ""){

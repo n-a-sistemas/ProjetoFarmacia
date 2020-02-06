@@ -106,7 +106,7 @@
                     }
                     if($pressao != ""){
                         $sql_pressao = "INSERT INTO pressao (id_nome, pressao, data) VALUES ('$id', '$pressao', '$data_pressao')";
-                        if($conn->query($sql_peso) != TRUE){
+                        if($conn->query($sql_pressao) != TRUE){
                             echo "Erro : " . $conn->error;
                             $erro = true;  
                         }
