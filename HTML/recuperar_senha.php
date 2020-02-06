@@ -8,7 +8,10 @@
     if(isset($_SESSION['token'])){
         $token = $_SESSION['token'];
     }
-    
+    $erro = "";
+    if(isset($_SESSION['erro'])){
+        $erro = $_SESSION['erro'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -18,8 +21,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Recuperar Senha</title>
     <link rel="stylesheet" href="CSS/recuperar_senha.css">
-    <script src="JS/jquery-3.4.1.min.js"></script>
-    <script src="JS/token.js"></script>
 </head>
 <body>
     
@@ -30,6 +31,14 @@
     <?php include("./parts/navegacao.php"); ?>
 
     <main>
+        <?php
+            if($erro != ""){
+                echo "<div>";
+                    echo "<h3>Erro</h3>";
+                    echo "<p>".$erro."</p>";
+                echo '</div>';
+            }
+        ?>
         <?php
             if($email == "" && $token == "") {
                 include('./parts/recuperar_senha_part1.html');
