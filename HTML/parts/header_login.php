@@ -15,7 +15,11 @@
         }
     }
     if($nome != ""){
-        echo "<img id='foto_perfil' src='../PHP/" . $foto_perfil ."' alt='Foto de perfil'>";
-        echo "<h2>" . $nome . "</h2>";
+        echo "<div class='d-flex justify-content-center'>
+                <img id='foto_perfil' class='rounded-circle' src='../PHP/" . $foto_perfil ."' alt='Foto de perfil' width='200' height='200'>
+              </div>
+              <div class='d-flex justify-content-center'>
+                <h2>$nome</h2>
+             </div>";
     }
 ?>
