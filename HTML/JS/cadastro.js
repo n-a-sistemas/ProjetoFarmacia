@@ -5,6 +5,33 @@ $(document).ready(function () {
     $("#mostra-peso").click(function () {
         $("#label_peso").toggle();
     });
+    $(".btn").click(function(){
+        if($(".btn").attr("id") == 1){
+            $("#id01").show();
+        }
+        else if($(".btn").attr("id") == 2){
+            $("#id02").show();
+        }
+    });
+    $(".close-1").click(function(){
+        $("#id01").hide();
+    });
+    $(".close-2").click(function(){
+        $("#id02").hide();
+    });
+    
+    var modal_1 = document.getElementById('id01');
+    var modal_2 = document.getElementById('id02');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal_1) {
+            modal.style.display = "none";
+        }
+        if (event.target == modal_2) {
+            modal.style.display = "none";
+        }
+    }
 });
 
 function confirmaSenha() {

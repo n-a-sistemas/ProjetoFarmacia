@@ -21,6 +21,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Recuperar Senha</title>
     <link rel="stylesheet" href="CSS/recuperar_senha.css">
+    <script src="JS/cadastro.js"></script>
 </head>
 <body>
     

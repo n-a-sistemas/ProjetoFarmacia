@@ -70,7 +70,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/estilos.css" />
-
+    <link rel="stylesheet" href="CSS/cadastro.css">
+    <link rel="stylesheet" href="CSS/form_modal.css">
+    <script src="JS/cadastro.js"></script>
 </head>
 
 <body>
@@ -121,6 +123,43 @@
                                 <div>
                                     <img src="./parts/grafico_peso.php" alt="Gráfico do seu peso">
                                     <img src="./parts/grafico_pressao.php" alt="Gráfico da sua pressão">
+                                </div>
+                                <button class="btn" id="1" type="button">Atualizar peso</button>
+                                <div id="id01" class="modal">
+                                    <form class="modal-content animate" action="" method="post">
+                                    <div class="imgcontainer">
+                                        <span class="close close-1" title="Close Modal">&times;</span>
+                                        <img src=<?php echo "../PHP/" . $foto_perfil .""?> alt="Avatar" class="avatar">
+                                    </div>
+                                    <div class="container">
+                                        <div>
+                                            <label for="peso">Peso*: </label>
+                                            <input type="number" name="peso" id="peso" min="1" max="500" step="any">
+                                        </div>
+                                        <div>
+                                            <label for="data_peso">Data da Pesagem: </label>
+                                            <input type="date" name="data_peso" id="data_peso">
+                                            <label for="data_peso">*Se deixar vazio o campo, ele enviará a data de atual</label>
+                                        </div>
+                                    </div>
+                                    <div class="container container-2">
+                                        <button type="button" class="cancelbtn close-1">Cancel</button>
+                                        <span class="psw">Forgot <a href="#">password?</a></span>
+                                    </div>
+                                    </form>
+                                </div>
+                                <div><button class="btn" id="2" type="button">Atualizar pressão</button></div>
+                                <div id='label_pressao'>
+                                    <div>
+                                        <label for="pressao">Pressão: </label>
+                                        <input type="text" name="pressao" id="pressao">
+                                        <label for="pressao">ex:120/60</label>
+                                    </div>
+                                    <div>
+                                        <label for="data_pressao">Data da Pressão: </label>
+                                        <input type="date" name="data_pressao" id="data_pressao">
+                                        <label for="data_peso">*Se deixar vazio o campo, ele enviará a data de atual</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>

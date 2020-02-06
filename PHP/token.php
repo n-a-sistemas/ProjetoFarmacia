@@ -4,11 +4,12 @@
     session_unset();
     require 'mailer/PHPMailerAutoload.php';
     date_default_timezone_set('America/Sao_Paulo');
+
     $email = "";
     if(isset($_POST['email'])){
         $email = $_POST['email'];
     }
-
+    
     if($email != ""){
         $sql = "SELECT * FROM pessoa WHERE email ='" . $email . "'";
         $resultado = $conn->query($sql);
@@ -32,7 +33,7 @@
             $mail->addAddress($email);
 
             $mail->isHTML(true);
-            $mail->Subject = "Token de recuperação de senha";
+            $mail->Subject = "Token de recuperacao de senha";
 
             $sql = "INSERT INTO token (token,email,data_criacao,valido) VALUES ('$token', '$email', '$data', '$valido')";
             if($conn->query($sql) == TRUE){

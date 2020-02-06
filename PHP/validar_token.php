@@ -5,14 +5,19 @@
 
     $token = "";
     $email = "";
+    $retornar = false;
+
     if(isset($_POST['token'])){
         $token = $_POST['token'];
     }
     if(isset($_SESSION['email'])){
         $email = $_SESSION['email'];
     }
+    if(isset($_GET['retornar'])){
+        $retornar = $_GET['retornar'];
+    }
 
-    if($email != "" && $token != ""){
+    if(!$retornar && $email != "" && $token != ""){
         $sql = "SELECT * FROM token WHERE email ='" . $email . "' AND token ='" . $token . "'";
         $resultado = $conn->query($sql);
         if($resultado->num_rows == 1){
@@ -67,9 +72,9 @@
                         $min =- 60;
                     }
 
-                    if($horas == $horas_atual){
-                        echo $min. "<br>";
-                        if($min <= $minutos_atual){
+                    if($horas >= $horas_atual){
+                        //echo $min. "<br>";
+                        if($min >= $minutos_atual){
                             $validacao = false;
                             //echo "5". "<br>";
                         }
@@ -99,8 +104,10 @@
         else{
             $erro = "Email e/ou token não cadastrados no sistema, tente novamente";
             $_SESSION['erro'] = $erro;
-            $_SESSION['email'] = "";
         }
+    }
+    else if($retornar){
+        $_SESSION['email'] = "";
     }
     else{
         $erro = "Envie um email e/ou token para prosseguir";

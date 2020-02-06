@@ -1,10 +1,14 @@
 <form action="../PHP/validar_token.php" method="post">
     <h2>Foi enviado um codigo para seu email, coloque o codigo para prosseguir</h2>
+    <p>*Se não foi enviado para seu email, aperte o botão voltar e tente novamente</p>
     <div>
         <label for="token">Codigo: </label>
         <input type="text" name="token" id="token" required>
     </div>
     <div>
         <button type="submit">Enviar</button>
+    </div>
+    <div>
+        <a href="../PHP/validar_token.php?retornar=true"><button type="button">Voltar</button></a>
     </div>
 </form>
