@@ -19,6 +19,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,40 +27,54 @@
     <title>Contato</title>
     <script src="JS/jquery-3.4.1.min.js"></script>
     <script src="JS/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/estilos.css" />
 </head>
+
 <body>
 
-    <header>
-        <?php include("./parts/header_login.php"); ?>
-        <h1>Contato para dúvidas ou bugs encontrados no site</h1>
-    </header>
-    
     <?php include("./parts/navegacao.php"); ?>
+    <?php include("./parts/header_login.php"); ?>
 
-    <main>
-    <form action="../PHP/enviar_todos.php" method="post">
-           
-            <div>
-                <label for="email">Emails: </label>
-                    <select name="email" id="email" required>
-                        <option value="all">Enviar para Todos</option>
-                        <?php include("../PHP/emails.php"); ?>
-                        
-                    </select>
-            </div>
-           
-            <div>
-                <label for="assunto">assunto:</label>
-                <input type="text" name="assunto" id="assunto">
-            </div>
-            <div>
-                <label for="mensagem">Conteudo:</label>
-                <textarea name="mensagem" id="mensagem" cols="30" rows="10"></textarea>
-            </div>
-            <div>
-                <input type="submit" name="Enviar">
-            </div>
-        </form>
-    </main>
+    <div class="container d-flex text-left p-5">
+        <div class="row">
+            <main>
+                <form class="form-horizontal" action="../PHP/enviar_todos.php" method="post">
+                    <h1>Contato para dúvidas ou bugs encontrados no site</h1>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <select class="form-control col-auto" name="email" id="email" required>
+                            <option value="all">Enviar para Todos</option>
+                            <?php include("../PHP/emails.php"); ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="assunto">Assunto:</label>
+                        <div class="col-auto">
+                            <input class="form-control" type="text" name="assunto" id="assunto">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem:</label>
+                        <div class="col-auto">
+                            <textarea class="form-control" name="mensagem" id="mensagem" cols="50" rows="10"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
+                    </div>
+                </form>
+            </main>
+        </div>
+    </div>
 </body>
+
 </html>
