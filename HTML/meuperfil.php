@@ -121,8 +121,8 @@
                                     <p><strong>Plano de Saúde:</strong> <?php echo $planodesaude; ?></p>
                                 </div>
                                 <div>
-                                    <img src="./parts/grafico_peso.php" alt="Gráfico do seu peso">
-                                    <img src="./parts/grafico_pressao.php" alt="Gráfico da sua pressão">
+                                    <img class="img-fluid" src="./parts/grafico_peso.php" alt="Gráfico do seu peso">
+                                    <img class="img-fluid" src="./parts/grafico_pressao.php" alt="Gráfico da sua pressão">
                                 </div>
                                 <button class="btn" id="1" type="button">Atualizar peso</button>
                                 <div id="id01" class="modal">

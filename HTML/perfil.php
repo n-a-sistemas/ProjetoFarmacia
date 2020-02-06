@@ -56,38 +56,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Meu Perfil</title>
+    <link rel="stylesheet" href="./CSS/meu_perfil.css">
+    <script src="JS/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="JS/login.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/estilos.css" />
 </head>
 <body>
-    
-    <header>
-        <?php include("./parts/header_login.php"); ?>
-        <h1>Meu Perfil</h1>
-        <h1>teste</h1>
-    </header>
 
     <?php include("./parts/navegacao.php"); ?>
 
-    <main>
-        <div>
-            <img src="./parts/grafico_peso.php?id=<?php echo $id_qrcode;?>" alt="Gráfico do seu peso">
+    <div class="container mt-5">
+        <div class="row">
+            <main>
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h1>Meu Perfil</h1>
+                    </div>
+                    <div class="bg-white shadow rounded overflow-hidden">
+                        <div class="px-4 pt-0 pb-4">
+                            <div class="card-body">
+                                <div>
+                                    <?php include("./parts/header_login.php"); ?>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group form-group text-center">
+                                        <h2>Suas informações cadastradas</h2>
+                                    </div>
+                                    <p><strong>Email:</strong> <?php echo $email; ?></p>
+                                    <p><strong>Sexo:</strong> <?php echo $sexo; ?></p>
+                                    <p><strong>Data de Nascimento:</strong> <?php echo $datanascimento->format("d/m/Y"); ?></p>
+                                    <p><strong>Altura:</strong> <?php echo $altura . "m"; ?></p>
+                                    <p><strong>CPF:</strong> <?php echo $cpf; ?></p>
+                                    <p><strong>CEP:</strong> <?php echo $cep; ?></p>
+                                    <p><strong>Cidade/Estado:</strong> <?php echo $cidade . "/" . $estado; ?></p>
+                                    <p><strong>Endereço:</strong> <?php echo $endereco; ?></p>
+                                    <p><strong>Telefone:</strong> <?php echo $telefone; ?></p>
+                                    <p><strong>Contato de Emergência:</strong> <?php echo $contatoemergencia; ?></p>
+                                    <p><strong>Tipo Sanguíneo:</strong> <?php echo $tiposanguineo; ?></p>
+                                    <p><strong>Alergias ou Doenças:</strong> <?php echo $alergiadoencas; ?></p>
+                                    <p><strong>Plano de Saúde:</strong> <?php echo $planodesaude; ?></p>
+                                </div>
+                                <div>
+                                    <img class="img-fluid" src="./parts/grafico_peso.php" alt="Gráfico do seu peso">
+                                    <img class="img-fluid" src="./parts/grafico_pressao.php" alt="Gráfico da sua pressão">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
         </div>
-
-        <div>
-            <h2>Suas informações cadastradas</h2>
-            <p>Email: <?php echo $email; ?></p>
-            <p>Sexo: <?php echo $sexo; ?></p>
-            <p>Data de Nascimento: <?php echo $datanascimento->format("d-m-Y"); ?></p>
-            <p>Altura: <?php echo $altura . "m"; ?></p>
-            <p>CPF: <?php echo $cpf; ?></p>
-            <p>CEP: <?php echo $cep; ?></p>
-            <p>Cidade/Estado: <?php echo $cidade . "/" . $estado; ?></p>
-            <p>Endereço: <?php echo $endereco; ?></p>
-            <p>Telefone: <?php echo $telefone; ?></p>
-            <p>Contato de Emergência: <?php echo $contatoemergencia; ?></p>
-            <p>Tipo Sanguíneo: <?php echo $tiposanguineo; ?></p>
-            <p>Alergias ou Doenças: <?php echo $alergiadoencas; ?></p>
-            <p>Plano de Saúde: <?php echo $planodesaude; ?></p>
-        </div>
-    </main>
+    </div>
 </body>
 </html>
