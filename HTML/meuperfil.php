@@ -195,7 +195,7 @@
                                     </div>
                                 </div>
                                 
-                                <div class="d-flex justify-content-between p-5">
+                                <div class="d-flex justify-content-md-start justify-content-xl-around p-5">
                                         <a href="" class="btn btn-danger btn-rounded mb-4" data-toggle="modal"
                                             data-target="#modalPesoForm">Atualizar Peso</a>
 

@@ -14,7 +14,7 @@ $(document).ready(function () {
             // Adiciona o retorno no campo, habilita e da foco
             $('#estados').html('<option value="hint_estados">Selecione um estado</option>');
             $('#estados').append(data);
-            $('#estados').removeAttr('disabled').focus();
+            $('#estados').removeAttr('disabled');
         }
     });
     $.ajax({
@@ -32,7 +32,7 @@ $(document).ready(function () {
             // Adiciona o retorno no campo, habilita e da foco
             $('#cidades').html('<option value="hint_cidades">Selecione uma cidade</option>');
             $('#cidades').append(data);
-            $('#cidades').removeAttr('disabled').focus();
+            $('#cidades').removeAttr('disabled');
         }
     });
     $('#estados').change(function () {
@@ -53,7 +53,7 @@ $(document).ready(function () {
                     // Adiciona o retorno no campo, habilita e da foco
                     $('#cidades').html('<option value="hint_cidades">Selecione uma cidade</option>');
                     $('#cidades').append(data);
-                    $('#cidades').removeAttr('disabled').focus();
+                    $('#cidades').removeAttr('disabled');
                 } else {
                     $('#cidades').html('<option value="">Selecione um estado</option>');
                     $('#cidades').attr('disabled', 'disabled');
