@@ -1,14 +1,32 @@
-<form action="../PHP/validar_token.php" method="post">
-    <h2>Foi enviado um codigo para seu email, coloque o codigo para prosseguir</h2>
-    <p>*Se não foi enviado para seu email, aperte o botão voltar e tente novamente</p>
-    <div>
-        <label for="token">Codigo: </label>
-        <input type="text" name="token" id="token" required>
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8 d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header text-center">
+                <h2>Recuperar Senha</h2>
+            </div>
+            <div class="card-body">
+                <form action="../PHP/validar_token.php" method="post">
+                    <h4>Foi enviado um codigo para seu email, coloque o codigo para prosseguir.</h4>
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Código" name="token" id="token"
+                            required>
+                    </div>
+                    <p>*Se não foi enviado para seu email, aperte o botão voltar e tente novamente.</p>
+                    <div class="d-flex justify-content-center p-5">
+                        <div class="form-group">
+                            <button type="submit" id="btn-enviar-1" class="btn btn-danger">Enviar</button>
+                        </div>
+                        <div class="form-group ml-2">
+                            <a href="../PHP/validar_token.php?retornar=true"><button type="button" class="btn btn-danger">Voltar</button></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <div>
-        <button type="submit">Enviar</button>
-    </div>
-    <div>
-        <a href="../PHP/validar_token.php?retornar=true"><button type="button">Voltar</button></a>
-    </div>
-</form>
+    <div class="col-2"></div>
+</div>
