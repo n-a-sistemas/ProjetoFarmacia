@@ -3158,6 +3158,7 @@ class PHPlot
      */
     function SetTitle($which_title)
     {
+        $which_title = utf8_decode($which_title);
         $this->title_txt = $which_title;
         return TRUE;
     }
@@ -3197,6 +3198,7 @@ class PHPlot
      */
     function SetYTitle($which_ytitle, $which_ypos = 'plotleft')
     {
+        $which_ytitle = utf8_decode($which_ytitle);
         if (!($which_ypos = $this->CheckOption($which_ypos, 'plotleft, plotright, both, none', __FUNCTION__)))
             return FALSE;
         if (($this->y_title_txt = $which_ytitle) === '')

@@ -3,12 +3,10 @@
     include('../../PHP/phplot-6.2.0/phplot.php');
     include('../../PHP/conn.php');
     
-    /*
-    $sql_peso = "";
+    $sql_pressao = "";
     $id = "";
     if(isset($_SESSION['id'])){
         $id = $_SESSION['id'];
-        $sql_peso = "SELECT * FROM pressao WHERE id_nome =" . $id . "";
     }
     else if(isset($_GET['id'])){
         $id = $_GET['id'];
@@ -19,7 +17,9 @@
                 $id = $linha['id_nome'];
             }
         }
-        $sql_pressao = "SELECT * FROM pressao WHERE id_nome =" . $id . "";
+    }
+    if($id != ""){
+        $sql_pressao = "SELECT * FROM pressao WHERE id_nome = ".$id." ORDER BY data DESC";
     }
     
     if($sql_pressao != ""){
@@ -28,39 +28,32 @@
             while($linha = $resultado->fetch_assoc()){
                 $data = $linha['data'];
                 $data_pressao = DateTime::createFromFormat("Y-m-d", $data);
-                $informacoes = array('data'=>$data_peso->format("d-m-Y"), 'peso'=>$linha['pressao']);
-                $tabela_pressao[] = $informacoes;
+                list($sistolica, $diastolica) = explode("/", $linha['pressao']);
+                $informacoes = array('data'=>$data_pressao->format("d-m-Y"), 'sistolica'=>(int)$sistolica, 'diastolica'=>(int)$diastolica);
+                $pressaos[] = $informacoes;
             }
-            if(count($tabela_pressao) > 0 ){
-                $plot = new PHPlot(500 , 500);
-                $plot->SetTitle('Grafico da sua pressao');
-                $plot->SetXTitle("Datas");
-                $plot->SetYTitle("Pressão");
-                $plot->SetPrecisionY(1);
-                $plot->SetPlotType("linepoints");
-                $plot->SetDataType("text-data");
-                $plot->SetDataValues($tabela_pressao);
-                $plot->SetXTickPos('none');
-                $plot->SetXLabelFontSize(2);
-                $plot->SetAxisFontSize(2);
-                $plot->SetYDataLabelPos('plotin');
-                $plot->DrawGraph();
+            for($i=0; $i<count($pressaos); $i++){
+                if($i<=5){
+                    $informacoes = array('data'=>$pressaos[$i]['data'], 'sistolica'=>$pressaos[$i]['sistolica'], 'diastolica'=>$pressaos[$i]['diastolica']);
+                    $tabela_pressao[] = $informacoes;
+                }
             }
+            $tabela_pressao = array_reverse($tabela_pressao);
         }
+        else{
+            $tabela_pressao = array(array('data'=>date("d-m-Y"), 'sistolica'=>0, 'diastolica'=>0));
+        }
+        $plot = new PHPlot(500 , 500);
+        $plot->SetTitle('Gráfico da sua pressão');
+        $plot->SetXTitle("Datas");
+        $plot->SetYTitle("Pressão");
+        $plot->SetPrecisionY(1);
+        $plot->SetPlotType("linepoints");
+        $plot->SetDataValues($tabela_pressao);
+        $plot->SetXTickPos('none');
+        $plot->SetYTickPos('none');
+        $plot->SetXLabelFontSize(2);
+        $plot->SetAxisFontSize(2);
+        $plot->DrawGraph();
     }
-    */
-    $informacoes = array('data'=>'08/01/2020', 'pressao'=>10/6);
-    $tabela_pressao[] = $informacoes;
-    $plot = new PHPlot(500 , 500);
-    $plot->SetTitle('Grafico da sua pressao');
-    $plot->SetXTitle("Datas");
-    $plot->SetYTitle("Pressão");
-    $plot->SetPrecisionY(1);
-    $plot->SetPlotType("linepoints");
-    $plot->SetDataValues($tabela_pressao);
-    $plot->SetXTickPos('none');
-    $plot->SetYTickPos('none');
-    $plot->SetXLabelFontSize(2);
-    $plot->SetAxisFontSize(2);
-    $plot->DrawGraph();
 ?>

@@ -19,7 +19,7 @@
         }
     }
     if($id != ""){
-        $sql_peso = "SELECT * FROM peso WHERE id_nome = ".$id." ORDER BY data ASC";
+        $sql_peso = "SELECT * FROM peso WHERE id_nome = ".$id." ORDER BY data DESC";
     }
     
     if($sql_peso != ""){
@@ -29,22 +29,30 @@
                 $data = $linha['data'];
                 $data_peso = DateTime::createFromFormat("Y-m-d", $data);
                 $informacoes = array('data'=>$data_peso->format("d-m-Y"), 'peso'=>$linha['peso']);
-                $tabela_peso[] = $informacoes;
+                $pesos[] = $informacoes;
             }
-            if(count($tabela_peso) > 0 ){
-                $plot = new PHPlot(500 , 500);
-                $plot->SetTitle('Grafico do seu peso');
-                $plot->SetXTitle("Datas");
-                $plot->SetYTitle("Pesos");
-                $plot->SetPrecisionY(1);
-                $plot->SetPlotType("linepoints");
-                $plot->SetDataValues($tabela_peso);
-                $plot->SetXTickPos('none');
-                $plot->SetYTickPos('none');
-                $plot->SetXLabelFontSize(2);
-                $plot->SetAxisFontSize(2);
-                $plot->DrawGraph();
+            for($i=0; $i<count($pesos); $i++){
+                if($i<=5){
+                    $informacoes = array('data'=>$pesos[$i]['data'], 'peso'=>$pesos[$i]['peso']);
+                    $tabela_peso[] = $informacoes;
+                }
             }
+            $tabela_peso = array_reverse($tabela_peso);
         }
+        else{
+            $tabela_peso = array(array('data'=>date("d-m-Y"), 'peso'=>0));
+        }
+        $plot = new PHPlot(500 , 500);
+        $plot->SetTitle('Grafico do seu peso');
+        $plot->SetXTitle("Datas");
+        $plot->SetYTitle("Pesos");
+        $plot->SetPrecisionY(1);
+        $plot->SetPlotType("linepoints");
+        $plot->SetDataValues($tabela_peso);
+        $plot->SetXTickPos('none');
+        $plot->SetYTickPos('none');
+        $plot->SetXLabelFontSize(2);
+        $plot->SetAxisFontSize(2);
+        $plot->DrawGraph();
     }
 ?>
