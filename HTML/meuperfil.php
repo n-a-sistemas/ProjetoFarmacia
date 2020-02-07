@@ -8,6 +8,11 @@
         $id = $_SESSION['id'];
         $adm = $_SESSION['adm'];
     }
+    $erro = "";
+    if(isset($_SESSION['erro'])){
+        $erro = $_SESSION['erro'];
+    }
+
     if($id != ""){
         $sql = "SELECT * FROM pessoa WHERE id_nome = $id";
         $resultado = $conn->query($sql);
@@ -82,6 +87,11 @@
         <div class="row">
             <main>
                 <div class="card">
+                    <?php
+                        if($erro != ""){
+                            include("./parts/erro.php");
+                        }
+                    ?>
                     <div class="card-header text-center">
                         <h1>Meu Perfil</h1>
                     </div>
@@ -121,9 +131,9 @@
                                     <p><strong>Plano de Saúde:</strong> <?php echo $planodesaude; ?></p>
                                 </div>
                                 <div>
-                                    <img class="img-fluid" src="./parts/grafico_peso.php" alt="Gráfico do seu peso">
-                                    <img class="img-fluid" src="./parts/grafico_pressao.php"
-                                        alt="Gráfico da sua pressão">
+                                    <img class='img-fluid' src='./parts/grafico_peso.php' alt='Gráfico do seu peso'>
+                                    <img class='img-fluid' src='./parts/grafico_pressao.php'
+                                        alt='Gráfico da sua pressão'>
                                 </div>
                                 <div class="modal fade" id="modalPesoForm" tabindex="-1" role="dialog"
                                     aria-labelledby="myModalLabel" aria-hidden="true">
@@ -137,25 +147,28 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body mx-3">
-                                                <div class="md-form mb-5">
-                                                    <label for="peso" data-error="wrong" data-success="right"
-                                                        class="col-auto control-label">Peso:</label>
-                                                    <input type="number" name="peso" id="peso" min="1" max="500"
-                                                        step="any" class="form-control">
-                                                </div>
-                                                <div class="md-form mb-4">
-                                                    <label data-error="wrong" data-success="right" for="data_peso"
-                                                        class="col-auto control-label">Data
-                                                        da Pesagem:</label>
-                                                    <input type="date" name="data_peso" id="data_peso"
-                                                        class="form-control">
+                                                <form action="../PHP/insert_peso.php" method="post">
+                                                    <div class="md-form mb-5">
+                                                        <label for="peso" data-error="wrong" data-success="right"
+                                                            class="col-auto control-label">Peso:</label>
+                                                        <input type="number" name="peso" id="peso" min="1" max="500"
+                                                            step="any" class="form-control">
+                                                    </div>
+                                                    <div class="md-form mb-4">
+                                                        <label data-error="wrong" data-success="right" for="data_peso"
+                                                            class="col-auto control-label">Data
+                                                            da Pesagem:</label>
+                                                        <input type="date" name="data_peso" id="data_peso"
+                                                            class="form-control">
 
-                                                    <label for="data_peso">*Se deixar vazio o campo, ele enviará a data
-                                                        atual.</label>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer d-flex justify-content-center">
-                                                <button class="btn btn-danger">Atualizar</button>
+                                                        <label for="data_peso">*Se deixar vazio o campo, ele enviará a
+                                                            data
+                                                            atual.</label>
+                                                    </div>
+                                                    <div class="modal-footer d-flex justify-content-center">
+                                                        <button type="submit" class="btn btn-danger">Atualizar</button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -173,34 +186,38 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body mx-3">
-                                                <div class="md-form mb-5">
-                                                    <label for="pressao" data-error="wrong" data-success="right"
-                                                        class="col-auto control-label">Pressão:</label>
-                                                    <input type="text" name="pressao" id="pressao" class="form-control">
-                                                </div>
-                                                <div class="md-form mb-4">
-                                                    <label data-error="wrong" data-success="right" for="data_pressao"
-                                                        class="col-auto control-label">Data
-                                                        da Pressão:</label>
-                                                    <input type="date" name="data_pressao" id="data_pressao"
-                                                        class="form-control">
-                                                    <label for="data_peso">*Se deixar vazio o campo, ele enviará a data
-                                                        atual.</label>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer d-flex justify-content-center">
-                                                <button class="btn btn-danger">Atualizar</button>
+                                                <form action="../PHP/insert_pressao.php" method="post">
+                                                    <div class="md-form mb-5">
+                                                        <label for="pressao" data-error="wrong" data-success="right"
+                                                            class="col-auto control-label">Pressão:</label>
+                                                        <input type="text" name="pressao" id="pressao"
+                                                            class="form-control">
+                                                    </div>
+                                                    <div class="md-form mb-4">
+                                                        <label data-error="wrong" data-success="right"
+                                                            for="data_pressao" class="col-auto control-label">Data
+                                                            da Pressão:</label>
+                                                        <input type="date" name="data_pressao" id="data_pressao"
+                                                            class="form-control">
+                                                        <label for="data_peso">*Se deixar vazio o campo, ele enviará a
+                                                            data
+                                                            atual.</label>
+                                                    </div>
+                                                    <div class="modal-footer d-flex justify-content-center">
+                                                        <button class="btn btn-danger">Atualizar</button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                
-                                <div class="d-flex justify-content-between p-5">
-                                        <a href="" class="btn btn-danger btn-rounded mb-4" data-toggle="modal"
-                                            data-target="#modalPesoForm">Atualizar Peso</a>
 
-                                        <a href="" class="btn btn-danger btn-rounded mb-4" data-toggle="modal"
-                                            data-target="#modalPressaoForm">Atualizar Pressão</a>
+                                <div class="d-flex justify-content-between p-5">
+                                    <a href="" class="btn btn-danger btn-rounded mb-4" data-toggle="modal"
+                                        data-target="#modalPesoForm">Atualizar Peso</a>
+
+                                    <a href="" class="btn btn-danger btn-rounded mb-4" data-toggle="modal"
+                                        data-target="#modalPressaoForm">Atualizar Pressão</a>
                                 </div>
                             </div>
                         </div>
