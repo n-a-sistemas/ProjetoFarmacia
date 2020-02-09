@@ -40,25 +40,26 @@
                 $mail->Body = "Mensagem: ". $token;
                 if($mail->send()){
                     $_SESSION['email'] = $email;
+                    $_SESSION['erro_senha'] = "";
                 }
                 else{
                     $erro = "Não foi possível enviar o e-mail. Detalhes do erro: " . $mail->ErrorInfo;
-                    $_SESSION['erro'] = $erro;
+                    $_SESSION['erro_senha'] = $erro;
                 }
             }
             else{
                 $erro = "Erro na criação do codigo para enviar, por favor tente novamente";
-                $_SESSION['erro'] = $erro;
+                $_SESSION['erro_senha'] = $erro;
             }
         }
         else{
             $erro = "Esse email não foi cadastrado nesse sistema";
-            $_SESSION['erro'] = $erro;
+            $_SESSION['erro_senha'] = $erro;
         }
     }
     else{
         $erro = "Envie um email para prosseguir";
-        $_SESSION['erro'] = $erro;
+        $_SESSION['erro_senha'] = $erro;
     }
     header('Location: ../HTML/recuperar_senha.php');
 ?>

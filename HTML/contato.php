@@ -1,7 +1,10 @@
 <?php
     session_start();
-    session_unset();
-    session_destroy();
+
+    $erro = "";
+    if(isset($_SESSION['erro_contato'])){
+        $erro = $_SESSION['erro_contato'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -23,12 +26,16 @@
 
     <?php include("./parts/navegacao.php"); ?>
     <?php include("./parts/header_login.php"); ?>
-    
+
     <main class="container d-flex text-left p-5">
         <div class="row">
+            <?php
+                if($erro != ""){
+                    include("./parts/erro.php");
+                }
+            ?>
             <form class="form-horizontal" action="../PHP/enviar_email.php" method="post">
                 <div class="form-group">
-
                     <label for="nome">Nome:</label>
                     <div class="col-auto">
                         <input class="form-control" type="nome" name="nome" id="nome">

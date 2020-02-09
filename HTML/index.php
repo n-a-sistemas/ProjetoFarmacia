@@ -1,7 +1,14 @@
 <?php
     session_start();
-    session_unset();
-    session_destroy();
+    
+    $erro = "";
+    if(isset($_SESSION['erro_login'])){
+        $erro = $_SESSION['erro_login'];
+    }
+    if($erro == ""){
+        session_unset();
+        session_destroy();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +41,11 @@
             <main>
                 <div class="d-flex justify-content-center h-100">
                     <div class="card">
+                        <?php
+                            if($erro != ""){
+                                include("./parts/erro.php");
+                            }
+                        ?>
                         <div class="card-header text-center">
                             <h3>Login</h3>
                         </div>
@@ -53,7 +65,8 @@
                                     <input type="password" class="form-control" placeholder="Senha" name="senha"
                                         id="senha" required>
                                     <button type="button" id="btn">
-                                        <img src="IMG/eye.svg" alt="eye" width="25" height="25" class="d-inline-block align-top">
+                                        <img src="IMG/eye.svg" alt="eye" width="25" height="25"
+                                            class="d-inline-block align-top">
                                     </button>
                                 </div>
                                 <div class="row align-items-center remember">

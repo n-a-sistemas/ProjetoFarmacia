@@ -9,8 +9,8 @@
         $token = $_SESSION['token'];
     }
     $erro = "";
-    if(isset($_SESSION['erro'])){
-        $erro = $_SESSION['erro'];
+    if(isset($_SESSION['erro_senha'])){
+        $erro = $_SESSION['erro_senha'];
     }
 ?>
 <!DOCTYPE html>
@@ -43,10 +43,7 @@
             <main>
                 <?php
             if($erro != ""){
-                echo "<div>";
-                    echo "<h3>Erro</h3>";
-                    echo "<p>".$erro."</p>";
-                echo '</div>';
+                include('./parts/erro.php');
             }
         ?>
                 <?php
