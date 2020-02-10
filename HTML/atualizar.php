@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("../PHP/conn.php");
+    require("../PHP/conn.php");
     $id = "";
     $foto_perfil = "";
     if(isset($_SESSION['id'])){
@@ -44,6 +44,18 @@
             }
         }
     }
+
+    $erro = "";
+    if(isset($_SESSION['erro_atualizar'])){
+        $erro = $_SESSION['erro_atualizar'];
+    }
+    if(isset($_SESSION['alert_imagem'])){
+        $alert = $_SESSION['alert_imagem'];
+    }
+    if($erro == "" && $alert == ""){
+        session_unset();
+        session_destroy();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -70,6 +82,14 @@
     <div class="container d-flex justify-content-center">
         <div class="row">
             <main>
+                <?php
+                    if($erro != ""){
+                        include("./parts/erro.php");
+                    }
+                    if($alerta != ""){
+                        include("./parts/alert.php");
+                    }
+                ?>
                 <form class="form-horizontal" role="form" action="../PHP/update_formulario.php" method="POST"
                     enctype="multipart/form-data" onsubmit="return validaFormulario();">
                     <div class="p-2">
@@ -78,7 +98,7 @@
                     <fieldset>
                         <legend>Dados pessoais</legend>
                         <div class="form-group">
-                            <label for="nome" class="col-auto control-label">Nome: </label>
+                            <label for="nome" class="col-auto control-label">Nome Completo: </label>
                             <div class="col-auto">
                                 <input value="<?php echo $nome ?>" type="text" name="nome" id="nome"
                                     class="form-control" placeholder="Nome" required>
@@ -242,7 +262,8 @@
                         <div class="col-auto custom-file">
                             <input class="form-control custom-file-input" type="file" name="imagemUpload"
                                 value="Procurar..." accept="image/png ,image/jpeg">
-                            <label class="custom-file-label" for="customFile">Escolha a foto</label>
+                            <label class="custom-file-label" for="customFile">Escolha a foto, de preferência com seu
+                                rosto</label>
                         </div>
                     </div>
                     <div class="form-group">

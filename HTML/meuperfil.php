@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("../PHP/conn.php");
+    require("../PHP/conn.php");
     $id = "";
     $adm = false;
     $foto_perfil = "";

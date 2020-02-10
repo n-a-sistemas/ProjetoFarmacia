@@ -1,7 +1,7 @@
 <?php
     session_start();
-    include('../../PHP/phplot-6.2.0/phplot.php');
-    include('../../PHP/conn.php');
+    require('../../PHP/phplot-6.2.0/phplot.php');
+    require('../../PHP/conn.php');
     
     $sql_pressao = "";
     $id = "";

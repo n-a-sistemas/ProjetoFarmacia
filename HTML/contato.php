@@ -38,25 +38,25 @@
                 <div class="form-group">
                     <label for="nome">Nome:</label>
                     <div class="col-auto">
-                        <input class="form-control" type="nome" name="nome" id="nome">
+                        <input class="form-control" type="nome" name="nome" id="nome" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
                     <div class="col-auto">
-                        <input class="form-control" type="email" name="email" id="email">
+                        <input class="form-control" type="email" name="email" id="email" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="assunto">Assunto:</label>
                     <div class="col-auto">
-                        <input class="form-control" type="text" name="assunto" id="assunto">
+                        <input class="form-control" type="text" name="assunto" id="assunto" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="mensagem">Mensagem:</label>
                     <div class="col-auto">
-                        <textarea class="form-control" name="mensagem" id="mensagem" cols="50" rows="10"></textarea>
+                        <textarea class="form-control" name="mensagem" id="mensagem" cols="50" rows="10" required></textarea>
                     </div>
                 </div>
                 <div class="form-group">

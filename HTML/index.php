@@ -2,10 +2,14 @@
     session_start();
     
     $erro = "";
+    $alert = "";
     if(isset($_SESSION['erro_login'])){
         $erro = $_SESSION['erro_login'];
     }
-    if($erro == ""){
+    if(isset($_SESSION['alert_imagem'])){
+        $alert = $_SESSION['alert_imagem'];
+    }
+    if($erro == "" && $alert == ""){
         session_unset();
         session_destroy();
     }
@@ -45,6 +49,9 @@
                             if($erro != ""){
                                 include("./parts/erro.php");
                             }
+                            if($alert != ""){
+                                include("./parts/erro.php");
+                            }
                         ?>
                         <div class="card-header text-center">
                             <h3>Login</h3>
@@ -68,9 +75,6 @@
                                         <img src="IMG/eye.svg" alt="eye" width="25" height="25"
                                             class="d-inline-block align-top">
                                     </button>
-                                </div>
-                                <div class="row align-items-center remember">
-                                    <input type="checkbox">Lembre de mim
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" id="logar" class="btn float-right">Logar</button>

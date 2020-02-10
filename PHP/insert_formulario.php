@@ -1,8 +1,9 @@
 <?php
 
-    include('conn.php');
-    include('phpqrcode/qrlib.php');
+    require('conn.php');
+    require('phpqrcode/qrlib.php');
     date_default_timezone_set('America/Sao_Paulo');
+    session_start();
 
     if(isset($_POST['nome']) && isset($_POST['email'])
     && isset($_POST['data_nascimento']) && isset($_POST['cpf'])
@@ -47,7 +48,6 @@
         if($planodesaude == ""){
             $planodesaude = "Nenhum";
         }
-        $erro = false;
 
         if(($nome != "") && ($email != "") &&
             ($datanascimento != "") && ($cpf != "") &&
@@ -69,10 +69,13 @@
                 $arquivo = $diretorio . "user.png";
             }
             $tipo = strtolower(pathinfo($arquivo, PATHINFO_EXTENSION));
-            if($arquivo != "user.png"){
+
+            $sql_foto = "SELECT `foto_perfil` FROM pessoa";
+            $resultado_foto = $conn->query($sql_foto);
+            if($resultado_foto->num_rows == 0){
                 if(!move_uploaded_file($_FILES['imagemUpload']['tmp_name'], $arquivo)){
-                    echo "Erro ao cadastrar imagem<br>";
-                    $erro = true;
+                    $erro = "Erro ao cadastrar imagem";
+                    $_SESSION['alert_imagem'] = $erro;
                 }
             }
 
@@ -101,34 +104,41 @@
                     }
                     $sql_peso = "INSERT INTO peso (id_nome, peso, data) VALUES ('$id', '$peso','$data_peso')";
                     if($conn->query($sql_peso) != TRUE){
-                        echo "Erro : " . $conn->error;
-                        $erro = true;            
+                        $erro = $conn->error;
+                        $_SESSION['erro_cadastro'] = $erro;
                     }
                     if($pressao != ""){
                         $sql_pressao = "INSERT INTO pressao (id_nome, pressao, data) VALUES ('$id', '$pressao', '$data_pressao')";
                         if($conn->query($sql_pressao) != TRUE){
-                            echo "Erro : " . $conn->error;
-                            $erro = true;  
+                            $erro = $conn->error;
+                            $_SESSION['erro_cadastro'] = $erro;
                         }
-                    }
-                    if(!$erro){
-                        header('Location: ../HTML/index.php');
                     }
                 }
                 else{
-                    echo "Erro : " . $conn->error;
+                    $erro = $conn->error;
+                    $_SESSION['erro_cadastro'] = $erro;
                 }
             }
             else{
-                echo "<p>Já foi cadastrado alguém com esse CPF ou email</p>";
+                $erro = "Já foi cadastrado alguém com esse CPF ou email";
+                $_SESSION['erro_cadastro'] = $erro;
             }
         }
         else{
-            echo "<p>Erro ao cadastrar, volte e preencha o formulário corretamente</p>";
+            $erro = "Erro ao cadastrar, preencha todos os campos do formulário corretamente";
+            $_SESSION['erro_cadastro'] = $erro;
         }
     }
     else{
-        echo "<p>Erro ao cadastrar, volte e preencha o formulário corretamente</p>";
-        echo "<p>Se o erro persistir verifique no seu navegador se está ativo o javascript</p>";
+        $erro = "Erro ao cadastrar, preencha todos os campos do formulário corretamente. Se o erro persistir verifique no seu navegador se está ativo o javascript";
+        $_SESSION['erro_cadastro'] = $erro;
+    }
+
+    if($_SESSION['erro_cadastro'] == ""){
+        header('Location: ../HTML/index.php');
+    }
+    else{
+        header('Location: ../HTML/cadastro.php');
     }
 ?>

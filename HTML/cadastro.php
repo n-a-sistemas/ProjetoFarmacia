@@ -1,7 +1,17 @@
 <?php
     session_start();
-    session_unset();
-    session_destroy();
+
+    $erro = "";
+    if(isset($_SESSION['erro_login'])){
+        $erro = $_SESSION['erro_login'];
+    }
+    if(isset($_SESSION['alert_imagem'])){
+        $alert = $_SESSION['alert_imagem'];
+    }
+    if($erro == "" && $alert == ""){
+        session_unset();
+        session_destroy();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -28,12 +38,20 @@
     <div class="container d-flex justify-content-center">
         <div class="row">
             <main>
+                <?php
+                    if($erro != ""){
+                        include("./parts/erro.php");
+                    }
+                    if($alerta != ""){
+                        include("./parts/alert.php");
+                    }
+                ?>
                 <form class="form-horizontal" role="form" action="../PHP/insert_formulario.php" method="POST"
                     enctype="multipart/form-data" onsubmit="return validaFormulario();">
                     <fieldset>
                         <legend>Dados pessoais</legend>
                         <div class="form-group">
-                            <label for="nome" class="col-auto control-label">Nome: </label>
+                            <label for="nome" class="col-auto control-label">Nome Completo: </label>
                             <div class="col-auto">
                                 <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome"
                                     required>
@@ -215,7 +233,7 @@
                             <div class="col-sm-9">
                                 <input class="form-control" type="text" name="pressao" id="pressao">
                             </div>
-                            <label class="col-auto control-label" for="pressao">ex:120/60</label>
+                            <label class="col-auto control-label" for="pressao">Opcional, ex:120/60</label>
                         </div>
                         <div class="form-group">
                             <label class="col-auto control-label" for="data_pressao">Data da Pressão: </label>
@@ -228,9 +246,10 @@
                     <div class="container form-group">
                         <label class="col-auto control-label" for="imagemUpload">Foto de Perfil: </label>
                         <div class="col-auto custom-file">
-                            <input class="form-control custom-file-input" type="file" name="imagemUpload" value="Procurar..."
-                                accept="image/png ,image/jpeg">
-                            <label class="custom-file-label" for="customFile">Escolha a foto</label>
+                            <input class="form-control custom-file-input" type="file" name="imagemUpload"
+                                value="Procurar..." accept="image/png ,image/jpeg">
+                            <label class="custom-file-label" for="customFile">Escolha a foto, de preferência com seu
+                                rosto</label>
                         </div>
                     </div>
                     <div class="form-group">

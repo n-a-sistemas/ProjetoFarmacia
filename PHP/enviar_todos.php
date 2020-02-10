@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include('conn.php');
+    require('conn.php');
 
     //Conectando no banco e fznd um SELECT
     $sql = "SELECT * FROM pessoa";

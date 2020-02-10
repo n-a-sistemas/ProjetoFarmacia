@@ -2,7 +2,7 @@
     session_start();
     session_unset(); // limpa todas as variáveis de sessão
     session_destroy(); // destroi a sessão
-    include("../PHP/conn.php");
+    require("../PHP/conn.php");
     $id_qrcode = "";
     if(isset($_GET['id'])){
         $id_qrcode = $_GET['id'];

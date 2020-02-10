@@ -1,6 +1,6 @@
 <?php
 
-include("conn.php");
+require("conn.php");
 $sql = "SELECT * FROM pessoa";
 $resultado = $conn->query($sql);
 

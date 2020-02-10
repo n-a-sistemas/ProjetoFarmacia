@@ -1,5 +1,5 @@
 <?php
-    include("conn.php");
+    require("conn.php");
     session_start();
     date_default_timezone_set('America/Sao_Paulo');
 

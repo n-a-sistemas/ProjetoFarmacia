@@ -1,7 +1,7 @@
 <?php
     session_start();
-    include('conn.php');
-    include('phpqrcode/qrlib.php');
+    require('conn.php');
+    require('phpqrcode/qrlib.php');
     date_default_timezone_set('America/Sao_Paulo');
 
     if(isset($_POST['nome']) && isset($_POST['email'])
@@ -70,8 +70,8 @@
                 $tipo = strtolower(pathinfo($arquivo, PATHINFO_EXTENSION));
                 if($arquivo != "" && $arquivo != $arquivo_antigo){
                     if(!move_uploaded_file($_FILES['imagemUpload']['tmp_name'], $arquivo)){
-                        echo "Erro ao cadastrar imagem<br>";
-                        $erro = true;
+                        $erro = "Erro ao cadastrar imagem";
+                        $_SESSION['alert_imagem'] = $erro;
                     }
                 }
                 // how to configure pixel "zoom" factor
@@ -88,20 +88,20 @@
                 `telefone`='".$telefone."',`telefone_emergencia`='".$contatoemergencia."',`altura`='".$altura."',
                 `tipo_sanguineo`='".$tiposanguineo."',`alergia_doencas`='".$alergiadoencas."',`plano_saude`='".$planodesaude."' 
                 WHERE cpf ='" . $cpf_antigo . "' AND email ='" . $email_antigo . "'";
-                if($conn->query($sql_pessoa) == TRUE){
-                    header('Location: ../HTML/meuperfil.php');
-                }
-                else{
-                    echo "Erro : " . $conn->error;
+                if($conn->query($sql_pessoa) != TRUE){
+                    $erro = $conn->error;
+                    $_SESSION['erro_atualizar'] = $erro;
                 }
             }
         }
         else{
-            echo "<p>Erro ao atualizar seus dados, volte e preencha o formulário corretamente</p>";
+            $erro = "Erro ao cadastrar, preencha todos os campos do formulário corretamente";
+            $_SESSION['erro_atualizar'] = $erro;
         }
     }
     else{
-        echo "<p>Erro ao atualizar seus dados, volte e preencha o formulário corretamente</p>";
-        echo "<p>Se o erro persistir verifique no seu navegador se está ativo o javascript</p>";
+        $erro = "Erro ao cadastrar, preencha todos os campos do formulário corretamente. Se o erro persistir verifique no seu navegador se está ativo o javascript";
+        $_SESSION['erro_atualizar'] = $erro;
     }
+    header('Location: ../HTML/meuperfil.php');
 ?>

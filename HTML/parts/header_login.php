@@ -1,5 +1,5 @@
 <?php
-    include("../PHP/conn.php");
+    require("../PHP/conn.php");
     $id = "";
     if(isset($_SESSION['id'])){
         $id = $_SESSION['id'];

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("conn.php");
+    require("conn.php");
     
     $estado_atual = "";
     $cidade_atual = "";
