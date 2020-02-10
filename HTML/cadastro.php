@@ -2,6 +2,7 @@
     session_start();
 
     $erro = "";
+    $alerta = "";
     if(isset($_SESSION['erro_login'])){
         $erro = $_SESSION['erro_login'];
     }

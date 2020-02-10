@@ -46,8 +46,9 @@
     }
 
     $erro = "";
-    if(isset($_SESSION['erro_atualizar'])){
-        $erro = $_SESSION['erro_atualizar'];
+    $alerta = "";
+    if(isset($_SESSION['erro_login'])){
+        $erro = $_SESSION['erro_login'];
     }
     if(isset($_SESSION['alert_imagem'])){
         $alert = $_SESSION['alert_imagem'];
