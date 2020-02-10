@@ -1,15 +1,33 @@
-<form action="../PHP/trocar_senha.php" method="post">
-    <h2>Agora troque a senha para uma melhor e que você lembre dela</h2>
-    <div>
-        <label for="senha">Nova senha: </label>
-        <input type="password" name="senha" id="senha" minlength="5" required>
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8 d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header text-center">
+                <h2>Alterar Senha</h2>
+            </div>
+            <div class="card-body">
+                <form action="../PHP/trocar_senha.php" method="post">
+                    <div class="input-group form-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="password" class="form-control" placeholder="Nova Senha" name="senha" id="senha" minlength="5"
+                            required>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        </div>
+                        <input type="password" class="form-control" placeholder="Digite novamente sua senha" name="confirmacao" id="confirmacao" minlength="5"
+                            onblur="confirmaSenha()" required>
+                        <label for="confirmacao" id="errorSenha"></label>
+                    </div>
+                    <div class="d-flex justify-content-center p-5">
+                        <div class="form-group">
+                            <button type="submit" id="btn-enviar-1" class="btn btn-danger">Enviar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <div>
-        <label for="confirmacao">Digite novamente sua senha: </label>
-        <input type="password" name="confirmacao" id="confirmacao" minlength="5" onblur="confirmaSenha()" required>
-        <label for="confirmacao" id="errorSenha"></label>
-    </div>
-    <div>
-        <button type="submit">Enviar</button>
-    </div>
-</form>
+    <div class="col-2"></div>
+</div>

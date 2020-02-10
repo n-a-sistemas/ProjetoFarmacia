@@ -56,7 +56,7 @@
                                         <img src="IMG/eye.svg" alt="eye" width="25" height="25" class="d-inline-block align-top">
                                     </button>
                                 </div>
-                                <div class="row align-items-center remember">
+                                <div class="row align-items-center pl-3 remember">
                                     <input type="checkbox">Lembre de mim
                                 </div>
                                 <div class="form-group">
