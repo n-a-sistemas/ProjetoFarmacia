@@ -6490,6 +6490,15 @@ class PHPlot
     function SetLegend($which_leg)
     {
         if (is_array($which_leg)) {           // use array (or cancel, if empty array)
+            for($i=0; $i<count($which_leg); $i++){
+                $which_leg[$i] = utf8_decode($which_leg[$i]);
+            }
+        }
+        else{
+            $which_leg = utf8_decode($which_leg);
+        }
+        
+        if (is_array($which_leg)) {           // use array (or cancel, if empty array)
             $this->legend = $which_leg;
         } elseif (!is_null($which_leg)) {     // append string
             if (!isset($this->legend)) $this->legend = array(); // Seems unnecessary, but be safe.

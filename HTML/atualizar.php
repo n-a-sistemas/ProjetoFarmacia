@@ -236,42 +236,6 @@
                                     id="altura" min="0" max="3" step="any" required>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-auto control-label" for="peso">Peso: </label>
-                            <div class="col-auto">
-                                <input class="form-control" type="number" name="peso" id="peso" min="1" max="500"
-                                    step="any" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-auto control-label" for="data_peso">Data da Pesagem: </label>
-                            <div class="col-auto">
-                                <input class="form-control" type="date" name="data_peso" id="data_peso">
-                            </div>
-                            <label class="col-auto control-label" for="data_peso">Opcional</label>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <button class="btn btn-secondary btn-rounded mb-4" id='mostra-peso' type="button">Atualizar
-                                peso</button>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-auto control-label" for="pressao">Pressão: </label>
-                            <div class="col-sm-9">
-                                <input class="form-control" type="text" name="pressao" id="pressao">
-                            </div>
-                            <label class="col-auto control-label" for="pressao">ex:120/60</label>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-auto control-label" for="data_pressao">Data da Pressão: </label>
-                            <div class="col-sm-9">
-                                <input class="form-control" type="date" name="data_pressao" id="data_pressao">
-                            </div>
-                            <label class="col-auto control-label" for="data_peso">Opcional</label>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <button class="btn btn-secondary btn-rounded mb-4" id='mostra-pressao' type="button">Atualizar
-                                pressão</button>
-                        </div>
                     </fieldset>
                     <div class="container form-group">
                         <label class="col-auto control-label" for="imagemUpload">Foto de Perfil: </label>

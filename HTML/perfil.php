@@ -51,6 +51,7 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,6 +69,7 @@
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/estilos.css" />
 </head>
+
 <body>
 
     <?php include("./parts/navegacao.php"); ?>
@@ -91,7 +93,8 @@
                                     </div>
                                     <p><strong>Email:</strong> <?php echo $email; ?></p>
                                     <p><strong>Sexo:</strong> <?php echo $sexo; ?></p>
-                                    <p><strong>Data de Nascimento:</strong> <?php echo $datanascimento->format("d/m/Y"); ?></p>
+                                    <p><strong>Data de Nascimento:</strong>
+                                        <?php echo $datanascimento->format("d/m/Y"); ?></p>
                                     <p><strong>Altura:</strong> <?php echo $altura . "m"; ?></p>
                                     <p><strong>CPF:</strong> <?php echo $cpf; ?></p>
                                     <p><strong>CEP:</strong> <?php echo $cep; ?></p>
@@ -105,7 +108,8 @@
                                 </div>
                                 <div>
                                     <img class="img-fluid" src="./parts/grafico_peso.php" alt="Gráfico do seu peso">
-                                    <img class="img-fluid" src="./parts/grafico_pressao.php" alt="Gráfico da sua pressão">
+                                    <img class="img-fluid" src="./parts/grafico_pressao.php"
+                                        alt="Gráfico da sua pressão">
                                 </div>
                             </div>
                         </div>
@@ -115,4 +119,5 @@
         </div>
     </div>
 </body>
+
 </html>

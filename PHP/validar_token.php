@@ -87,31 +87,32 @@
 
                 if($validacao){
                     $_SESSION['token'] = $token;
-                    $_SESSION['erro'] = "";
+                    $_SESSION['erro_senha'] = "";
                 }
                 else{
                     $erro = "O token foi expirou, tente novamente";
-                    $_SESSION['erro'] = $erro;
+                    $_SESSION['erro_senha'] = $erro;
                     $_SESSION['email'] = "";
                 }
             }
             else{
                 $erro = "O token não é mais valido, tente novamente";
-                $_SESSION['erro'] = $erro;
+                $_SESSION['erro_senha'] = $erro;
                 $_SESSION['email'] = "";
             }
         }
         else{
             $erro = "Email e/ou token não cadastrados no sistema, tente novamente";
-            $_SESSION['erro'] = $erro;
+            $_SESSION['erro_senha'] = $erro;
         }
     }
     else if($retornar){
         $_SESSION['email'] = "";
+        $_SESSION['erro_senha'] = "";
     }
     else{
         $erro = "Envie um email e/ou token para prosseguir";
-        $_SESSION['erro'] = $erro;
+        $_SESSION['erro_senha'] = $erro;
         $_SESSION['email'] = "";
     }
     header('Location: ../HTML/recuperar_senha.php');

@@ -30,16 +30,6 @@
         $cidade = $_POST['cidades'];
         $estado = $_POST['estados'];
         $cep = $_POST['cep'];
-        $peso = $_POST['peso'];
-        $pressao = $_POST['pressao'];
-        $data_pressao = $_POST['data_pressao'];
-        $data_peso = $_POST['data_peso'];
-        if($data_pressao == ""){
-            $data_pressao = date('Y-m-d');
-        }
-        if($data_peso == ""){
-            $data_peso = date('Y-m-d');
-        }
         if($alergiadoencas == ""){
             $alergiadoencas = "Nenhum";
         }
@@ -99,23 +89,7 @@
                 `tipo_sanguineo`='".$tiposanguineo."',`alergia_doencas`='".$alergiadoencas."',`plano_saude`='".$planodesaude."' 
                 WHERE cpf ='" . $cpf_antigo . "' AND email ='" . $email_antigo . "'";
                 if($conn->query($sql_pessoa) == TRUE){
-                    if($peso != ""){
-                        $sql_peso = "INSERT INTO peso (id_nome, peso, data) VALUES ('$id_nome', '$peso','$data_peso')";
-                        if($conn->query($sql_peso) != TRUE){
-                            echo "Erro : " . $conn->error;
-                            $erro = true;            
-                        }
-                    }
-                    if($pressao != ""){
-                        $sql_pressao = "INSERT INTO pressao (id_nome, pressao, data) VALUES ('$id_nome', '$pressao', '$data_pressao')";
-                        if($conn->query($sql_peso) != TRUE){
-                            echo "Erro : " . $conn->error;
-                            $erro = true;  
-                        }
-                    }
-                    if(!$erro){
-                        header('Location: ../HTML/meuperfil.php');
-                    }
+                    header('Location: ../HTML/meuperfil.php');
                 }
                 else{
                     echo "Erro : " . $conn->error;

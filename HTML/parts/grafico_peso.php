@@ -19,7 +19,7 @@
         }
     }
     if($id != ""){
-        $sql_peso = "SELECT * FROM peso WHERE id_nome = ".$id." ORDER BY data DESC";
+        $sql_peso = "SELECT * FROM peso WHERE id_nome = ".$id." ORDER BY data ASC";
     }
     
     if($sql_peso != ""){
@@ -31,6 +31,7 @@
                 $informacoes = array('data'=>$data_peso->format("d-m-Y"), 'peso'=>$linha['peso']);
                 $pesos[] = $informacoes;
             }
+            $pesos = array_reverse($pesos);
             for($i=0; $i<count($pesos); $i++){
                 if($i<=5){
                     $informacoes = array('data'=>$pesos[$i]['data'], 'peso'=>$pesos[$i]['peso']);
@@ -43,7 +44,7 @@
             $tabela_peso = array(array('data'=>date("d-m-Y"), 'peso'=>0));
         }
         $plot = new PHPlot(500 , 500);
-        $plot->SetTitle('Grafico do seu peso');
+        $plot->SetTitle('Gráfico do seu peso');
         $plot->SetXTitle("Datas");
         $plot->SetYTitle("Pesos");
         $plot->SetPrecisionY(1);

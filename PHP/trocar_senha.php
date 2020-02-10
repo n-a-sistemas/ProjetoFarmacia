@@ -34,27 +34,27 @@
                 }
                 else{
                     $erro = "Erro : " . $conn->error;
-                    $_SESSION['erro'] = $erro;
+                    $_SESSION['erro_senha'] = $erro;
                 }
             }
             else{
                 $erro = "As senhas não se correspodem";
-                $_SESSION['erro'] = $erro;
+                $_SESSION['erro_senha'] = $erro;
             }
         }
         else{
             $erro = "Preenchas os campos para prosseguir";
-            $_SESSION['erro'] = $erro;
+            $_SESSION['erro_senha'] = $erro;
         }
     }
     else{
         $erro = "Envie um email e/ou token para prosseguir";
-        $_SESSION['erro'] = $erro;
+        $_SESSION['erro_senha'] = $erro;
         $_SESSION['email'] = "";
         $_SESSION['token'] = "";
     }
     
-    if($_SESSION['erro'] != ""){
+    if($_SESSION['erro_senha'] != ""){
         header('Location: ../HTML/recuperar_senha.php');
     }
     else{

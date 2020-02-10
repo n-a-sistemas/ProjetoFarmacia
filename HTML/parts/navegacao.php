@@ -26,7 +26,7 @@
 
                             <li><a class='text-secondary' href="http://localhost:8080/ProjetoFarmacia/HTML/contato.php">Contato</a></li>
 
-                            <?php //if($adm){ echo "<li><a class='text-secondary' href='http://localhost:8080/ProjetoFarmacia/HTML/" . "CONTATO ADM" . ">Contato ADM</a></li>";} ?>
+                            <?php if($adm){ echo "<li><a class='text-secondary' href='http://localhost:8080/ProjetoFarmacia/HTML/contato_adm.php'>Contato ADM</a></li>";} ?>
 
                             <?php if($login){ echo "<li><a class='text-secondary' href='http://localhost:8080/ProjetoFarmacia/PHP/sair.php'>Logout</a></li>";} ?>
                         </ul>

@@ -1,21 +1,9 @@
 <?php
     session_start();
-    include("../PHP/conn.php");
-    $id = "";
-    $email = "";
-    if(isset($_SESSION['id'])){
-        $id = $_SESSION['id'];
+    $erro = "";
+    if(isset($_SESSION['erro_contato_adm'])){
+        $erro = $_SESSION['erro_contato_adm'];
     }
-    if($id != ""){
-        $sql = "SELECT * FROM pessoa WHERE id_nome = $id";
-        $resultado = $conn->query($sql);
-        if($resultado->num_rows == 1){
-            while($linha = $resultado->fetch_assoc()){
-                $email = $linha['email'];
-            }
-        }
-    }
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -45,6 +33,11 @@
     <div class="container d-flex text-left p-5">
         <div class="row">
             <main>
+                <?php
+                    if($erro != ""){
+                        include("./parts/erro.php");
+                    }
+                ?>
                 <form class="form-horizontal" action="../PHP/enviar_todos.php" method="post">
                     <h1>Contato para dúvidas ou bugs encontrados no site</h1>
                     <div class="form-group">
