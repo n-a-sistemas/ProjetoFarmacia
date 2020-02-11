@@ -89,7 +89,7 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group form-group text-center">
-                                        <h2>Suas informações cadastradas</h2>
+                                        <h2>Informações cadastradas</h2>
                                     </div>
                                     <p><strong>Email:</strong> <?php echo $email; ?></p>
                                     <p><strong>Sexo:</strong> <?php echo $sexo; ?></p>
