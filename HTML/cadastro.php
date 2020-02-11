@@ -112,29 +112,32 @@
                         <div class="form-group required">
                             <label for="cpf" class="col-auto control-label">CPF</label>
                             <div class="col-auto">
-                                <input type="text" name="cpf" id="cpf" minlength="11" maxlength="11"
+                                <input type="text" name="cpf" id="cpf" minlength="14" maxlength="14"
                                     onblur="confirmaCPF()" class="form-control" placeholder="CPF" required>
                             </div>
                             <label for="cpf" class="col-auto">ex:11122233344</label>
+                            <label for="cpf" class="col-auto control-label">ex:111.222.333-44</label>
                         </div>
 
                         <div class="form-group required">
                             <label for="tel" class="col-auto control-label">Telefone</label>
                             <div class="col-auto">
-                                <input type="tel" name="tel" id="tel" minlength="11" maxlength="11"
+                                <input type="tel" name="tel" id="tel" minlength="14" maxlength="14"
                                     onblur="confirmaTelefone('tel')" class="form-control" placeholder="Telefone"
                                     required>
                             </div>
                             <label for="tel" class="col-auto">ex:16911114444</label>
+                            <label for="tel" class="col-auto control-label">ex:(16)91111-4444</label>
                         </div>
                         <div class="form-group required">
                             <label for="contato_emergencia" class="col-auto control-label">Contato de Emergência</label>
                             <div class="col-auto">
-                                <input type="tel" name="contato_emergencia" id="contato_emergencia" minlength="11"
-                                    maxlength="11" onblur="confirmaTelefone('contato_emergencia')" class="form-control"
+                                <input type="tel" name="contato_emergencia" id="contato_emergencia" minlength="14"
+                                    maxlength="14" onblur="confirmaTelefone('contato_emergencia')" class="form-control"
                                     placeholder="Contato de Emergência" required>
                             </div>
                             <label for="contato_emergencia" class="col-auto">ex:16911114444</label>
+                            <label for="contato_emergencia" class="col-auto control-label">ex:(16)91111-4444</label>
                         </div>
                     </fieldset>
                     <fieldset class="form-group required">
@@ -142,10 +145,11 @@
                         <div class="form-group">
                             <label for="cep" class="col-auto control-label">CEP: </label>
                             <div class="col-auto">
-                                <input type="text" name="cep" id="cep" minlength="8" maxlength="8" class="form-control"
+                                <input type="text" name="cep" id="cep" minlength="9" maxlength="9" class="form-control"
                                     placeholder="CEP" required>
                             </div>
                             <label for="cep" class="col-auto">ex:91111111</label>
+                            <label for="cep" class="col-auto control-label">ex:91111-111</label>
                         </div>
                         <div class="form-group required">
                             <label for="estados" class="col-auto control-label">Estados</label>
