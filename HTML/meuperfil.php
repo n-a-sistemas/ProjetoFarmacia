@@ -113,7 +113,7 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group form-group text-center">
-                                        <h2>Suas informações cadastradas</h2>
+                                        <h2>Dados Pessoais</h2>
                                     </div>
                                     <p><strong>Email:</strong> <?php echo $email; ?></p>
                                     <p><strong>Sexo:</strong> <?php echo $sexo; ?></p>
@@ -212,11 +212,11 @@
                                     </div>
                                 </div>
                                 
-                                <div class="d-flex justify-content-md-start justify-content-xl-around p-5">
-                                        <a href="" class="btn btn-danger btn-rounded mb-4" data-toggle="modal"
-                                            data-target="#modalPesoForm">Atualizar Peso</a>
+                                <div class="d-flex justify-content-md-start justify-content-xl-around">
+                                    <a href="" class="btn btn-danger btn-rounded btn-block m-3" data-toggle="modal"
+                                        data-target="#modalPesoForm">Atualizar Peso</a>
 
-                                    <a href="" class="btn btn-danger btn-rounded mb-4" data-toggle="modal"
+                                    <a href="" class="btn btn-danger btn-rounded btn-block m-3" data-toggle="modal"
                                         data-target="#modalPressaoForm">Atualizar Pressão</a>
                                 </div>
                             </div>

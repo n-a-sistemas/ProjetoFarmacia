@@ -15,3 +15,8 @@
 strong{
   color: #000;
 }
+
+.form-group.required .control-label:after{
+  color: red;
+  content: "*";
+}
