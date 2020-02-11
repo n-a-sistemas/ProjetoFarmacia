@@ -32,7 +32,7 @@
         ["xpath=//input[@id='nome']", "xpath:attributes"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "Kevyn"
+      "value": "Kevyn Aparecido de Oliveira Bispo"
     }, {
       "id": "e841f271-67b9-40de-9e6f-14caf8b02d70",
       "comment": "",
@@ -291,14 +291,9 @@
     }, {
       "id": "2b315e3f-b67d-4713-9a6b-04a60011966d",
       "comment": "",
-      "command": "click",
+      "command": "//click",
       "target": "css=button",
-      "targets": [
-        ["css=button", "css:finder"],
-        ["xpath=//button[@type='submit']", "xpath:attributes"],
-        ["xpath=//button", "xpath:position"],
-        ["xpath=//button[contains(.,'Cadastrar')]", "xpath:innerText"]
-      ],
+      "targets": [],
       "value": ""
     }]
   }, {

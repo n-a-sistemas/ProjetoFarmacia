@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 03-Fev-2020 às 21:22
+-- Tempo de geração: 12-Fev-2020 às 00:34
 -- Versão do servidor: 10.4.10-MariaDB
 -- versão do PHP: 7.3.12
 
@@ -5684,15 +5684,6 @@ CREATE TABLE `peso` (
   `data` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Extraindo dados da tabela `peso`
---
-
-INSERT INTO `peso` (`id_peso`, `id_nome`, `peso`, `data`) VALUES
-(1, 1, '72', '2020-01-01'),
-(2, 1, '72', '2020-01-01'),
-(3, 2, '60', '2020-01-30');
-
 -- --------------------------------------------------------
 
 --
@@ -5723,14 +5714,6 @@ CREATE TABLE `pessoa` (
   `plano_saude` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Extraindo dados da tabela `pessoa`
---
-
-INSERT INTO `pessoa` (`id_nome`, `nome`, `senha`, `email`, `endereco`, `id_estado`, `id_cidade`, `cep`, `foto_perfil`, `foto_qrcode`, `id_qrcode`, `data_nascimento`, `sexo`, `cpf`, `telefone`, `telefone_emergencia`, `altura`, `adm`, `tipo_sanguineo`, `alergia_doencas`, `plano_saude`) VALUES
-(1, 'Kevin Aparecido Pinto', '7a8a7a450c0b16179510bf17d5c0b1dd07b725ffd12d52df17b7af9b369846e8', 'Zoroah@Outlook.com', 'Jardim dos Dinossauros', 1, 79, '50073-700', 'uploads/15524882025c89170a6d2b4_1552488202_1x1_md.jpg', 'qrcodes/qrcode_500.183.738-36.png', '927e21bc46f580e3fa2542a6714a59cd625dae913fd3b4644e47af8dfe6c4826', '2001-03-14', 'Masculino', '500.183.738-36', '(16)99196-3314', '(16)99196-3314', '2', 0, 'B-', 'Parkison\r\nProblemas mentais', 'Calangomed'),
-(2, 'Kevyn', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', 'kaparecido483@gmail.com', 'Rua 15', 26, 5254, '11111-111', 'uploads/user.png', 'qrcodes/qrcode_111.111.111-11.png', '70601ec4abd36e052ff5a57f85d11849641d1caebe88135025067808c5a5d6d4', '2001-11-02', 'Masculino', '111.111.111-11', '(16)91111-4444', '(16)94444-2222', '2', 0, 'A+', 'Nenhum', 'Nenhum');
-
 -- --------------------------------------------------------
 
 --
@@ -5752,24 +5735,11 @@ CREATE TABLE `pressao` (
 
 CREATE TABLE `token` (
   `id_token` int(11) NOT NULL,
-  `token` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
+  `token` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
   `data_criacao` datetime NOT NULL,
   `valido` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `token`
---
-
-INSERT INTO `token` (`id_token`, `token`, `email`, `data_criacao`, `valido`) VALUES
-(1, '796d3dfe60b31681abfad45c838ede1a', 'kaparecido483@gmail.com', '2020-01-31 16:27:50', 0),
-(2, '51f1f6028b4c2f620403cc2f61d77cb4', 'kaparecido483@gmail.com', '2020-01-31 16:28:45', 0),
-(3, 'de34074a9a90b0f8268e3933a12f6034', 'kaparecido483@gmail.com', '2020-01-31 16:40:09', 0),
-(4, 'e3403d3b3ade1a6b901d4dbfad39d1d9', 'kaparecido483@gmail.com', '2020-02-03 13:41:50', 0),
-(5, '10e19e77eef65b843bae9eabbaa6e736', 'kaparecido483@gmail.com', '2020-02-03 14:51:22', 0),
-(6, '14bcc269c9b4ede338b5dcce4ba5ad6e', 'kaparecido483@gmail.com', '2020-02-03 16:28:00', 0),
-(7, 'd3680321420a99f6f9f051cd9395d33f', 'kaparecido483@gmail.com', '2020-02-03 16:25:08', 0);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Índices para tabelas despejadas
@@ -5845,13 +5815,13 @@ ALTER TABLE `pais`
 -- AUTO_INCREMENT de tabela `peso`
 --
 ALTER TABLE `peso`
-  MODIFY `id_peso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_peso` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `pessoa`
 --
 ALTER TABLE `pessoa`
-  MODIFY `id_nome` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_nome` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `pressao`
@@ -5863,7 +5833,7 @@ ALTER TABLE `pressao`
 -- AUTO_INCREMENT de tabela `token`
 --
 ALTER TABLE `token`
-  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

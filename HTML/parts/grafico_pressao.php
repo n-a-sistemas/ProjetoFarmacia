@@ -2,6 +2,7 @@
     session_start();
     require('../../PHP/phplot-6.2.0/phplot.php');
     require('../../PHP/conn.php');
+    date_default_timezone_set('America/Sao_Paulo');
     
     $sql_pressao = "";
     $id = "";

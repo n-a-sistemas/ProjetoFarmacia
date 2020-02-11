@@ -1,5 +1,12 @@
 <?php
     session_start();
+    $erro = "";
+    if(isset($_SESSION['erro_reset'])){
+        $erro = $_SESSION['erro_reset'];
+    }
+    if(isset($_SESSION['erro_delete'])){
+        $erro = $_SESSION['erro_delete'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -15,6 +22,7 @@
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="JS/confirmacao.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
@@ -28,6 +36,11 @@
         <div class="row-fluid">
             <main>
                 <div class="card">
+                    <?php
+                        if($erro != ""){
+                            include("./parts/erro.php");
+                        }
+                    ?>
                     <div class="card-header text-center">
                         <h1>Tabela de todos email cadastrados</h1>
                     </div>
