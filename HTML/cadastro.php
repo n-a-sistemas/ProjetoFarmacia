@@ -7,9 +7,9 @@
         $erro = $_SESSION['erro_login'];
     }
     if(isset($_SESSION['alert_imagem'])){
-        $alert = $_SESSION['alert_imagem'];
+        $alerta = $_SESSION['alert_imagem'];
     }
-    if($erro == "" && $alert == ""){
+    if($erro == "" && $alerta == ""){
         session_unset();
         session_destroy();
     }
@@ -113,30 +113,30 @@
                         <div class="form-group">
                             <label for="cpf" class="col-auto control-label">CPF: </label>
                             <div class="col-auto">
-                                <input type="text" name="cpf" id="cpf" minlength="14" maxlength="14"
+                                <input type="text" name="cpf" id="cpf" minlength="11" maxlength="11"
                                     onblur="confirmaCPF()" class="form-control" placeholder="CPF" required>
                             </div>
-                            <label for="cpf" class="col-auto control-label">ex:111.222.333-44</label>
+                            <label for="cpf" class="col-auto control-label">ex:11122233344</label>
                         </div>
 
                         <div class="form-group">
                             <label for="tel" class="col-auto control-label">Telefone: </label>
                             <div class="col-auto">
-                                <input type="tel" name="tel" id="tel" minlength="14" maxlength="14"
+                                <input type="tel" name="tel" id="tel" minlength="11" maxlength="11"
                                     onblur="confirmaTelefone('tel')" class="form-control" placeholder="Telefone"
                                     required>
                             </div>
-                            <label for="tel" class="col-auto control-label">ex:(16)91111-4444</label>
+                            <label for="tel" class="col-auto control-label">ex:16911114444</label>
                         </div>
                         <div class="form-group">
                             <label for="contato_emergencia" class="col-auto control-label">Contato de Emergência:
                             </label>
                             <div class="col-auto">
-                                <input type="tel" name="contato_emergencia" id="contato_emergencia" minlength="14"
-                                    maxlength="14" onblur="confirmaTelefone('contato_emergencia')" class="form-control"
+                                <input type="tel" name="contato_emergencia" id="contato_emergencia" minlength="11"
+                                    maxlength="11" onblur="confirmaTelefone('contato_emergencia')" class="form-control"
                                     placeholder="Contato de Emergência" required>
                             </div>
-                            <label for="contato_emergencia" class="col-auto control-label">ex:(16)91111-4444</label>
+                            <label for="contato_emergencia" class="col-auto control-label">ex:16911114444</label>
                         </div>
                     </fieldset>
                     <fieldset>
@@ -144,10 +144,10 @@
                         <div class="form-group">
                             <label for="cep" class="col-auto control-label">CEP: </label>
                             <div class="col-auto">
-                                <input type="text" name="cep" id="cep" minlength="9" maxlength="9" class="form-control"
+                                <input type="text" name="cep" id="cep" minlength="8" maxlength="8" class="form-control"
                                     placeholder="CEP" required>
                             </div>
-                            <label for="cep" class="col-auto control-label">ex:91111-111</label>
+                            <label for="cep" class="col-auto control-label">ex:91111111</label>
                         </div>
                         <div class="form-group">
                             <label for="estados" class="col-auto control-label">Estados: </label>
