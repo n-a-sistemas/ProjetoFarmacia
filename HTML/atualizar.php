@@ -51,11 +51,7 @@
         $erro = $_SESSION['erro_login'];
     }
     if(isset($_SESSION['alert_imagem'])){
-        $alert = $_SESSION['alert_imagem'];
-    }
-    if($erro == "" && $alert == ""){
-        session_unset();
-        session_destroy();
+        $alerta = $_SESSION['alert_imagem'];
     }
 ?>
 

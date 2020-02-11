@@ -7,9 +7,9 @@
         $erro = $_SESSION['erro_login'];
     }
     if(isset($_SESSION['alert_imagem'])){
-        $alert = $_SESSION['alert_imagem'];
+        $alerta = $_SESSION['alert_imagem'];
     }
-    if($erro == "" && $alert == ""){
+    if($erro == "" && $alerta == ""){
         session_unset();
         session_destroy();
     }
@@ -40,19 +40,19 @@
 <body>
     <?php include("./parts/navegacao.php");?>
 
+    <?php
+        if($erro != ""){
+            include("./parts/erro.php");
+        }
+        if($alerta != ""){
+            include("./parts/alert.php");
+        }
+    ?>
     <div class="container d-flex justify-content-center w-25 mt-5">
         <div class="row">
             <main>
                 <div class="d-flex justify-content-center h-100">
                     <div class="card">
-                        <?php
-                            if($erro != ""){
-                                include("./parts/erro.php");
-                            }
-                            if($alert != ""){
-                                include("./parts/erro.php");
-                            }
-                        ?>
                         <div class="card-header text-center">
                             <h3>Login</h3>
                         </div>
