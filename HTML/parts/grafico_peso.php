@@ -8,8 +8,8 @@
     if(isset($_SESSION['id'])){
         $id = $_SESSION['id'];
     }
-    else if(isset($_GET['id'])){
-        $id = $_GET['id'];
+    else if(isset($_SESSION['id_qrcode'])){
+        $id = $_SESSION['id_qrcode'];
         $sql_select = "SELECT * FROM pessoa WHERE id_qrcode ='". $id . "'";
         $resultado = $conn->query($sql_select);
         if($resultado->num_rows == 1){

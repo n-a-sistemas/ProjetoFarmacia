@@ -1,11 +1,11 @@
 <?php
     session_start();
     session_unset(); // limpa todas as variáveis de sessão
-    session_destroy(); // destroi a sessão
     require("../PHP/conn.php");
     $id_qrcode = "";
     if(isset($_GET['id'])){
         $id_qrcode = $_GET['id'];
+        $_SESSION['id_qrcode'] = $id_qrcode;
     }
     if($id_qrcode != ""){
         $sql = "SELECT * FROM pessoa WHERE id_qrcode ='". $id_qrcode . "'";
