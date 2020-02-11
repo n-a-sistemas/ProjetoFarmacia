@@ -19,3 +19,7 @@ strong{
 table {
   max-width: none;
 }
+.form-group.required .control-label:after{
+  color: red;
+  content: "*";
+}

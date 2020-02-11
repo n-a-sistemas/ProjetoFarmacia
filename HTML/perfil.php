@@ -84,12 +84,12 @@
                     <div class="bg-white shadow rounded overflow-hidden">
                         <div class="px-4 pt-0 pb-4">
                             <div class="card-body">
-                                <div>
+                                <div class="pb-2">
                                     <?php include("./parts/header_login.php"); ?>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group form-group text-center">
-                                        <h2>Informações cadastradas</h2>
+                                        <h2>Dados Pessoais</h2>
                                     </div>
                                     <p><strong>Email:</strong> <?php echo $email; ?></p>
                                     <p><strong>Sexo:</strong> <?php echo $sexo; ?></p>

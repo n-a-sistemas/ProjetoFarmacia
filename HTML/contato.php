@@ -27,7 +27,7 @@
     <?php include("./parts/navegacao.php"); ?>
     <?php include("./parts/header_login.php"); ?>
 
-    <main class="container d-flex text-left p-5">
+    <main class="container d-flex justify-content-center p-5">
         <div class="row">
             <?php
                 if($erro != ""){
@@ -35,6 +35,9 @@
                 }
             ?>
             <form class="form-horizontal" action="../PHP/enviar_email.php" method="post">
+                <div class="text-center">
+                    <h1>Contato</h1>
+                </div>
                 <div class="form-group">
                     <label for="nome">Nome:</label>
                     <div class="col-auto">
@@ -56,12 +59,13 @@
                 <div class="form-group">
                     <label for="mensagem">Mensagem:</label>
                     <div class="col-auto">
-                        <textarea class="form-control" name="mensagem" id="mensagem" cols="50" rows="10" required></textarea>
+                        <textarea class="form-control" name="mensagem" id="mensagem" cols="50" rows="10"
+                            required></textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-auto">
-                        <button type="submit" class="btn btn-primary">Enviar</button>
+                        <button type="submit" class="btn btn-primary btn-block">Enviar</button>
                     </div>
                 </div>
             </form>
