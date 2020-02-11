@@ -40,29 +40,27 @@
                 //echo $hoje . "<br>";
                 list($ano_atual, $mes_atual, $dia_atual, $horas_atual, $minutos_atual, $segundos_atual) = explode(" ", $hoje);
 
-                /*
                 echo $ano . "-" . $ano_atual . "<br>";
                 echo $mes . "-" . $mes_atual . "<br>";
                 echo $dia . "-" . $dia_atual . "<br>";
                 echo $horas . "-" . $horas_atual . "<br>";
                 echo $minutos . "-" . $minutos_atual . "<br>";
-                */
                 
                 if($ano == $ano_atual){
                     if($mes == $mes_atual){
                         if($dia != $dia_atual){
                             $validacao = false;
-                            //echo "3". "<br>";
+                            echo "3". "<br>";
                         }
                     }
                     else{
                         $validacao = false;
-                        //echo "2". "<br>";
+                        echo "2". "<br>";
                     }
                 }
                 else{
                     $validacao = false;
-                    //echo "1". "<br>";
+                    echo "1". "<br>";
                 }
 
                 if($validacao){
@@ -71,17 +69,25 @@
                         $horas++;
                         $min =- 60;
                     }
-
+                    /*
                     if($horas >= $horas_atual){
-                        //echo $min. "<br>";
+                        echo $min. "<br>";
                         if($min >= $minutos_atual){
                             $validacao = false;
-                            //echo "5". "<br>";
+                            echo "5". "<br>";
+                        }
+                    }
+                    */
+                    if($horas_atual <= $horas){
+                        echo $min. "<br>";
+                        if($minutos_atual >= $min){
+                            $validacao = false;
+                            echo "5". "<br>";
                         }
                     }
                     else{
                         $validacao = false;
-                        //echo "4". "<br>";
+                        echo "4". "<br>";
                     }
                 }
 

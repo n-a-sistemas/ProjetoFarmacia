@@ -15,3 +15,7 @@
 strong{
   color: #000;
 }
+
+table {
+  max-width: none;
+}
