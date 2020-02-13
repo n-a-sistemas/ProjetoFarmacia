@@ -141,7 +141,7 @@
                             <div class="col-auto">
                                 <input value="<?php echo $cpf ?>" type="text" name="cpf" id="cpf" minlength="14"
                                     maxlength="14" onblur="confirmaCPF()" class="form-control" placeholder="CPF"
-                                    required>
+                                    data-mask="000.000.000-00" required>
                             </div>
                             <label for="cpf" class="col-auto control-label">ex:111.222.333-44</label>
                             <label for="cpf" id="alerta_cpf">Ao editar esse campo é possivel que o QR Code precise ser
@@ -153,7 +153,7 @@
                             <div class="col-auto">
                                 <input value="<?php echo $telefone ?>" type="tel" name="tel" id="tel" minlength="14"
                                     maxlength="14" onblur="confirmaTelefone('tel')" class="form-control"
-                                    placeholder="Telefone" required>
+                                    placeholder="Telefone" data-mask="(00)00000-0000" required>
                             </div>
                             <label for="tel" class="col-auto control-label">ex:(16)91111-4444</label>
                         </div>
@@ -164,7 +164,7 @@
                                 <input value="<?php echo $contatoemergencia ?>" type="tel" name="contato_emergencia"
                                     id="contato_emergencia" minlength="14" maxlength="14"
                                     onblur="confirmaTelefone('contato_emergencia')" class="form-control"
-                                    placeholder="Contato de Emergência" required>
+                                    placeholder="Contato de Emergência" data-mask="(00)00000-0000" required>
                             </div>
                             <label for="contato_emergencia" class="col-auto control-label">ex:(16)91111-4444</label>
                         </div>
@@ -175,7 +175,7 @@
                             <label for="cep" class="col-auto control-label">CEP: </label>
                             <div class="col-auto">
                                 <input value="<?php echo $cep ?>" type="text" name="cep" id="cep" minlength="9"
-                                    maxlength="9" class="form-control" placeholder="CEP" required>
+                                    maxlength="9" class="form-control" placeholder="CEP" data-mask="00000-000" required>
                             </div>
                             <label for="cep" class="col-auto control-label">ex:91111-111</label>
                         </div>
@@ -249,8 +249,8 @@
                         <div class="form-group">
                             <label class="col-auto control-label" for="altura">Altura: </label>
                             <div class="col-auto">
-                                <input value="<?php echo $altura?>" class="form-control" type="number" name="altura"
-                                    id="altura" min="0" max="3" step="any" required>
+                                <input value="<?php echo $altura?>" class="form-control" type="text" name="altura"
+                                    id="altura" data-mask="0,00" required>
                             </div>
                         </div>
                     </fieldset>
@@ -272,6 +272,7 @@
             </main>
         </div>
     </div>
+    <script src="JS/Mascaras/js/jquery.mask.min.js"></script>
     <script src="JS/formulario.js"></script>
 </body>
 

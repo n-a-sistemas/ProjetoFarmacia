@@ -151,8 +151,8 @@
                                                     <div class="md-form mb-5">
                                                         <label for="peso" data-error="wrong" data-success="right"
                                                             class="col-auto control-label">Peso:</label>
-                                                        <input type="number" name="peso" id="peso" min="1" max="500"
-                                                            step="any" class="form-control">
+                                                        <input type="text" name="peso" id="peso" data-mask="0,00"
+                                                            data-mask-reverse="true" class="form-control">
                                                     </div>
                                                     <div class="md-form mb-4">
                                                         <label data-error="wrong" data-success="right" for="data_peso"
@@ -191,14 +191,14 @@
                                                         <label for="pressao" data-error="wrong" data-success="right"
                                                             class="col-auto control-label">Pressão:</label>
                                                         <input type="text" name="pressao" id="pressao"
-                                                            class="form-control">
+                                                            data-mask="000/000" class=" form-control">
                                                     </div>
                                                     <div class="md-form mb-4">
                                                         <label data-error="wrong" data-success="right"
                                                             for="data_pressao" class="col-auto control-label">Data
                                                             da Pressão:</label>
                                                         <input type="date" name="data_pressao" id="data_pressao"
-                                                            class="form-control">
+                                                            class=" form-control">
                                                         <label for="data_peso">*Se deixar vazio o campo, ele enviará a
                                                             data
                                                             atual.</label>
@@ -211,7 +211,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="d-flex justify-content-md-start justify-content-xl-around">
                                     <a href="" class="btn btn-danger btn-rounded btn-block m-3" data-toggle="modal"
                                         data-target="#modalPesoForm">Atualizar Peso</a>
@@ -227,6 +227,7 @@
             <script type="text/javascript" src="JS/impressao.js"></script>
         </div>
     </div>
+    <script src="JS/Mascaras/js/jquery.mask.min.js"></script>
 </body>
 
 </html>

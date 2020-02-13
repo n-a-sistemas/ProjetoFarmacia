@@ -113,7 +113,8 @@
                             <label for="cpf" class="col-auto control-label">CPF</label>
                             <div class="col-auto">
                                 <input type="text" name="cpf" id="cpf" minlength="14" maxlength="14"
-                                    onblur="confirmaCPF()" class="form-control" placeholder="CPF" required>
+                                    onblur="confirmaCPF()" class="form-control" placeholder="CPF"
+                                    data-mask="000.000.000-00" required>
                             </div>
                             <label for="cpf" class="col-auto">ex:111.222.333-44</label>
                         </div>
@@ -123,7 +124,7 @@
                             <div class="col-auto">
                                 <input type="tel" name="tel" id="tel" minlength="14" maxlength="14"
                                     onblur="confirmaTelefone('tel')" class="form-control" placeholder="Telefone"
-                                    required>
+                                    data-mask="(00)00000-0000" required>
                             </div>
                             <label for="tel" class="col-auto">ex:(16)91111-4444</label>
                         </div>
@@ -132,7 +133,7 @@
                             <div class="col-auto">
                                 <input type="tel" name="contato_emergencia" id="contato_emergencia" minlength="14"
                                     maxlength="14" onblur="confirmaTelefone('contato_emergencia')" class="form-control"
-                                    placeholder="Contato de Emergência" required>
+                                    data-mask="(00)00000-0000" placeholder="Contato de Emergência" required>
                             </div>
                             <label for="contato_emergencia" class="col-auto">ex:(16)91111-4444</label>
                         </div>
@@ -143,7 +144,7 @@
                             <label for="cep" class="col-auto control-label">CEP</label>
                             <div class="col-auto">
                                 <input type="text" name="cep" id="cep" minlength="9" maxlength="9" class="form-control"
-                                    placeholder="CEP" required>
+                                    data-mask="00000-000" placeholder="CEP" required>
                             </div>
                             <label for="cep" class="col-auto">ex:91111-111</label>
                         </div>
@@ -209,15 +210,15 @@
                         <div class="form-group required">
                             <label class="col-auto control-label" for="altura">Altura</label>
                             <div class="col-auto">
-                                <input class="form-control" type="number" name="altura" id="altura" min="0" max="3"
-                                    step="any" required>
+                                <input class="form-control" type="text" name="altura" id="altura" min="0" max="3"
+                                    data-mask="0,00" step="any" required>
                             </div>
                         </div>
                         <div class="form-group required">
                             <label class="col-auto control-label" for="peso">Peso</label>
                             <div class="col-auto">
-                                <input class="form-control" type="number" name="peso" id="peso" min="1" max="500"
-                                    step="any" required>
+                                <input class="form-control" type="text" name="peso" id="peso" data-mask-reverse="true"
+                                    data-mask="000,00" step="any" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -230,7 +231,7 @@
                         <div class="form-group">
                             <label class="col-auto control-label" for="pressao">Pressão</label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" name="pressao" id="pressao">
+                                <input class="form-control" type="text" name="pressao" id="pressao" data-mask="000/000">
                             </div>
                             <label class="col-auto control-label" for="pressao">Opcional, ex:120/60</label>
                         </div>
@@ -260,6 +261,7 @@
             </main>
         </div>
     </div>
+    <script src="JS/Mascaras/js/jquery.mask.min.js"></script>
     <script src="JS/formulario.js"></script>
 </body>
 
