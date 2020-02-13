@@ -42,10 +42,12 @@
                     <h1>Contato para dúvidas ou bugs encontrados no site</h1>
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <select class="form-control col-auto" name="email" id="email" required>
-                            <option value="all">Enviar para Todos</option>
-                            <?php include("../PHP/emails.php"); ?>
-                        </select>
+                        <div class="col-auto">
+                            <select class="form-control" name="email" id="email" required>
+                                <option value="all">Enviar para Todos</option>
+                                <?php include("../PHP/emails.php"); ?>
+                            </select>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="assunto">Assunto:</label>
@@ -56,12 +58,13 @@
                     <div class="form-group">
                         <label for="mensagem">Mensagem:</label>
                         <div class="col-auto">
-                            <textarea class="form-control" name="mensagem" id="mensagem" cols="50" rows="10" required></textarea>
+                            <textarea class="form-control" name="mensagem" id="mensagem" cols="50" rows="10"
+                                required></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-auto">
-                            <button type="submit" class="btn btn-primary">Enviar</button>
+                            <button type="submit" class="btn btn-primary btn-block">Enviar</button>
                         </div>
                     </div>
                 </form>
