@@ -40,11 +40,11 @@
                 //echo $hoje . "<br>";
                 list($ano_atual, $mes_atual, $dia_atual, $horas_atual, $minutos_atual, $segundos_atual) = explode(" ", $hoje);
 
-                echo $ano . "-" . $ano_atual . "<br>";
-                echo $mes . "-" . $mes_atual . "<br>";
-                echo $dia . "-" . $dia_atual . "<br>";
-                echo $horas . "-" . $horas_atual . "<br>";
-                echo $minutos . "-" . $minutos_atual . "<br>";
+                echo $ano_atual . "-" . $ano . "<br>";
+                echo $mes_atual . "-" . $mes . "<br>";
+                echo $dia_atual . "-" . $dia . "<br>";
+                echo $horas_atual . "-" . $horas . "<br>";
+                echo $minutos_atual . "-" . $minutos . "<br>";
                 
                 if($ano == $ano_atual){
                     if($mes == $mes_atual){
@@ -67,8 +67,9 @@
                     $min = $minutos + 30;
                     if($min >= 60){
                         $horas++;
-                        $min =- 60;
+                        $min -= 60;
                     }
+                    echo "<br>Horas:". $horas . ", Minutos:". $min ."<br>";
                     /*
                     if($horas >= $horas_atual){
                         echo $min. "<br>";

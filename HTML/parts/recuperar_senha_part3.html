@@ -1,33 +1,31 @@
 <div class="row">
-    <div class="col-2"></div>
-    <div class="col-8 d-flex justify-content-center h-100">
-        <div class="card">
-            <div class="card-header text-center">
-                <h2>Alterar Senha</h2>
-            </div>
-            <div class="card-body">
-                <form action="../PHP/trocar_senha.php" method="post">
-                    <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-key"></i></span>
-                        </div>
-                        <input type="password" class="form-control" placeholder="Nova Senha" name="senha" id="senha" minlength="5"
-                            required>
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-key"></i></span>
-                        </div>
-                        <input type="password" class="form-control" placeholder="Digite novamente sua senha" name="confirmacao" id="confirmacao" minlength="5"
-                            onblur="confirmaSenha()" required>
-                        <label for="confirmacao" id="errorSenha"></label>
+    <div class="card">
+        <div class="card-header text-center">
+            <h2>Alterar Senha</h2>
+        </div>
+        <div class="card-body">
+            <form action="../PHP/trocar_senha.php" method="post">
+                <div class="input-group form-group col-auto">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
                     </div>
-                    <div class="d-flex justify-content-center p-5">
-                        <div class="form-group">
-                            <button type="submit" id="btn-enviar-1" class="btn btn-danger">Enviar</button>
-                        </div>
+                    <input type="password" class="form-control" placeholder="Digite a nova Senha" name="senha" id="senha" minlength="5"
+                        required>
+                </div>
+                <div class="input-group form-group col-auto">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
                     </div>
-                </form>
-            </div>
+                    <input type="password" class="form-control"  placeholder="Digite novamente" name="confirmacao" id="confirmacao" minlength="5"
+                        onblur="confirmaSenha()" required>
+                    <label for="confirmacao" id="errorSenha"></label>
+                </div>
+                <div class="d-flex justify-content-center p-5">
+                    <div class="form-group">
+                        <button type="submit" id="btn-enviar-1" class="btn btn-danger">Enviar</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-    <div class="col-2"></div>
 </div>
