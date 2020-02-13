@@ -115,7 +115,7 @@
                                 <input type="text" name="cpf" id="cpf" minlength="14" maxlength="14"
                                     onblur="confirmaCPF()" class="form-control" placeholder="CPF" required>
                             </div>
-                            <label for="cpf" class="col-auto control-label">ex:111.222.333-44</label>
+                            <label for="cpf" class="col-auto">ex:111.222.333-44</label>
                         </div>
 
                         <div class="form-group required">
@@ -125,7 +125,7 @@
                                     onblur="confirmaTelefone('tel')" class="form-control" placeholder="Telefone"
                                     required>
                             </div>
-                            <label for="tel" class="col-auto control-label">ex:(16)91111-4444</label>
+                            <label for="tel" class="col-auto">ex:(16)91111-4444</label>
                         </div>
                         <div class="form-group required">
                             <label for="contato_emergencia" class="col-auto control-label">Contato de Emergência</label>
@@ -134,7 +134,7 @@
                                     maxlength="14" onblur="confirmaTelefone('contato_emergencia')" class="form-control"
                                     placeholder="Contato de Emergência" required>
                             </div>
-                            <label for="contato_emergencia" class="col-auto control-label">ex:(16)91111-4444</label>
+                            <label for="contato_emergencia" class="col-auto">ex:(16)91111-4444</label>
                         </div>
                     </fieldset>
                     <fieldset class="form-group required">
@@ -145,7 +145,7 @@
                                 <input type="text" name="cep" id="cep" minlength="9" maxlength="9" class="form-control"
                                     placeholder="CEP" required>
                             </div>
-                            <label for="cep" class="col-auto control-label">ex:91111-111</label>
+                            <label for="cep" class="col-auto">ex:91111-111</label>
                         </div>
                         <div class="form-group required">
                             <label for="estados" class="col-auto control-label">Estados</label>
