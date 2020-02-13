@@ -176,7 +176,7 @@
                     <fieldset>
                         <legend>Dados sobre sua saúde</legend>
                         <div class="form-group required">
-                            <label for="tipo_sanguineo" class="col-auto control-label">Tipo Sanguíneo: </label>
+                            <label for="tipo_sanguineo" class="col-auto control-label">Tipo Sanguíneo</label>
                             <div class="col-auto">
                                 <select class="form-control col-auto control-label" name="tipo_sanguineo"
                                     id="tipo_sanguineo" required>
