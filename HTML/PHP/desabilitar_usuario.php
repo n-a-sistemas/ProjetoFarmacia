@@ -6,19 +6,19 @@
         $id = $_GET['id'];
     }
     if($id != ""){
-        $sql = "UPDATE pessoa SET `senha`='' WHERE id_nome =".$id."";
-        echo $sql;
+        $ativo = 0;
+        $sql = "UPDATE pessoa SET `ativo`='".$ativo."' WHERE id_nome ='".$id."'";
         if($conn->query($sql) != TRUE){
             $erro = $conn->error;
-            $_SESSION['erro_reset'] = $erro;
+            $_SESSION['erro_delete'] = $erro;
         }
         else{
-            $_SESSION['erro_reset'] = "";
+            $_SESSION['erro_delete'] = "";
         }
     }
     else{
         $erro = "Parâmetro invalido para prosseguir";
-        $_SESSION['erro_reset'] = $erro;
+        $_SESSION['erro_delete'] = $erro;
     }
-    header('Location: ../HTML/tabela_cadastrados.php');
+    header('Location: ../tabela_cadastrados.php');
 ?>

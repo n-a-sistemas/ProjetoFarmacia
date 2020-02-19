@@ -18,19 +18,19 @@
                     <div class="col-sm-4 offset-md-1 py-4">
                         <h4 class="text-secondary">Menu</h4>
                         <ul class="list-unstyled">
-                            <?php if(!$login){ echo "<li><a class='text-secondary' href='http://localhost:8080/ProjetoFarmacia/HTML/index.php'>Home</a></li>";} ?>
+                            <?php if(!$login){ echo "<li><a class='text-secondary' href='https://projetofarmacia.000webhostapp.com/index.php'>Home</a></li>";} ?>
 
-                            <?php if($login){ echo "<li><a class='text-secondary' href='http://localhost:8080/ProjetoFarmacia/HTML/meuperfil.php'>Meu Perfil</a></li>";} ?>
+                            <?php if($login){ echo "<li><a class='text-secondary' href='https://projetofarmacia.000webhostapp.com/meuperfil.php'>Meu Perfil</a></li>";} ?>
 
-                            <?php if(!$login){ echo "<li><a class='text-secondary' href='http://localhost:8080/ProjetoFarmacia/HTML/cadastro.php'>Cadastro</a></li>";} ?>
+                            <?php if(!$login){ echo "<li><a class='text-secondary' href='https://projetofarmacia.000webhostapp.com/cadastro.php'>Cadastro</a></li>";} ?>
 
-                            <li><a class='text-secondary' href="http://localhost:8080/ProjetoFarmacia/HTML/contato.php">Contato</a></li>
+                            <li><a class='text-secondary' href="https://projetofarmacia.000webhostapp.com/contato.php">Contato</a></li>
 
-                            <?php if($adm){ echo "<li><a class='text-secondary' href='http://localhost:8080/ProjetoFarmacia/HTML/contato_adm.php'>Contato ADM</a></li>";} ?>
+                            <?php if($adm){ echo "<li><a class='text-secondary' href='https://projetofarmacia.000webhostapp.com/contato_adm.php'>Contato ADM</a></li>";} ?>
 
-                            <?php if($adm){ echo "<li><a class='text-secondary' href='http://localhost:8080/ProjetoFarmacia/HTML/tabela_cadastrados.php'>Tabela de emails cadastrados</a></li>";} ?>
+                            <?php if($adm){ echo "<li><a class='text-secondary' href='https://projetofarmacia.000webhostapp.com/tabela_cadastrados.php'>Tabela de emails cadastrados</a></li>";} ?>
                             
-                            <?php if($login){ echo "<li><a class='text-secondary' href='http://localhost:8080/ProjetoFarmacia/PHP/sair.php'>Logout</a></li>";} ?>
+                            <?php if($login){ echo "<li><a class='text-secondary' href='https://projetofarmacia.000webhostapp.com/PHP/sair.php'>Logout</a></li>";} ?>
                         </ul>
                     </div>
                 </div>

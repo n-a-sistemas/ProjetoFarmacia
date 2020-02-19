@@ -21,6 +21,8 @@
     }
 
     if($email != "" && $token != ""){
+        //echo $senha . "<br>";
+        //echo $confirma_senha . "<br>";
         if($senha != "" && $confirma_senha != ""){
             if($senha == $confirma_senha){
                 $senha = hash('sha256', $senha);
@@ -55,9 +57,10 @@
     }
     
     if($_SESSION['erro_senha'] != ""){
-        header('Location: ../HTML/recuperar_senha.php');
+        header('Location: ../recuperar_senha.php');
     }
     else{
-        header('Location: ../HTML/index.php');
+        header('Location: ../index.php');
     }
+    //echo $_SESSION['erro_senha'];
 ?>

@@ -40,9 +40,9 @@
         $_SESSION['erro_login'] = $erro;
     }
     if($_SESSION['erro_login'] == ""){
-        header('Location: ../HTML/meuperfil.php');
+        header('Location: ../meuperfil.php');
     }
     else{
-        header('Location: ../HTML/index.php');
+        header('Location: ../index.php');
     }
 ?>

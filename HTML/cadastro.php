@@ -1,10 +1,10 @@
 <?php
     session_start();
-
+    unset($_SESSION["id_qrcode"]);
     $erro = "";
     $alerta = "";
-    if(isset($_SESSION['erro_login'])){
-        $erro = $_SESSION['erro_login'];
+    if(isset($_SESSION['erro_cadastro'])){
+        $erro = $_SESSION['erro_cadastro'];
     }
     if(isset($_SESSION['alert_imagem'])){
         $alerta = $_SESSION['alert_imagem'];
@@ -13,6 +13,9 @@
         session_unset();
         session_destroy();
     }
+    $session = "erro_cadastro";
+    $session_alert = "alert_imagem";
+    $page = 'cadastro.php';
 ?>
 
 <!DOCTYPE html>
@@ -47,19 +50,19 @@
                         include("./parts/alert.php");
                     }
                 ?>
-                <form class="form-horizontal" role="form" action="../PHP/insert_formulario.php" method="POST"
+                <form class="form-horizontal" role="form" action="PHP/insert_formulario.php" method="POST"
                     enctype="multipart/form-data" onsubmit="return validaFormulario();">
                     <fieldset>
                         <legend>Dados pessoais</legend>
                         <div class="form-group required">
-                            <label for="nome" class="col-auto control-label">Nome Completo</label>
+                            <label for="nome" class="col-auto control-label font-weight-bold">Nome Completo</label>
                             <div class="col-auto">
                                 <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome"
                                     required>
                             </div>
                         </div>
                         <div class="form-group required">
-                            <label for="email" class="col-auto control-label">Email</label>
+                            <label for="email" class="col-auto control-label font-weight-bold">Email</label>
                             <div class="col-auto">
                                 <input type="email" name="email" id="email" onblur="confirmaEmail()"
                                     class="form-control" placeholder="Email" required>
@@ -67,14 +70,14 @@
                             <label for="email" id="errorEmail"></label>
                         </div>
                         <div class="form-group required">
-                            <label for="senha" class="col-auto control-label">Senha</label>
+                            <label for="senha" class="col-auto control-label font-weight-bold">Senha</label>
                             <div class="col-auto">
                                 <input type="password" name="senha" id="senha" minlength="5" class="form-control"
                                     placeholder="Senha" required>
                             </div>
                         </div>
                         <div class="form-group required">
-                            <label for="confirmacao" class="col-auto control-label">Confirmar senha</label>
+                            <label for="confirmacao" class="col-auto control-label font-weight-bold">Confirmar senha</label>
                             <div class="col-auto">
                                 <input type="password" name="confirmacao" id="confirmacao" minlength="5"
                                     onblur="confirmaSenha()" class="form-control"
@@ -82,8 +85,8 @@
                             </div>
                             <label for="confirmacao" id="errorSenha"></label>
                         </div>
-                        <fieldset class="form-group required">
-                            <legend class="control-label">Sexo</legend>
+                        <fieldset class="form-group required mb-3">
+                            <legend class="control-label font-weight-bold">Sexo</legend>
                             <div class="col-auto custom-control custom-radio">
                                 <div class="col-auto">
                                     <input class="custom-control-input" type="radio" name="sexo" id="Masculino"
@@ -103,53 +106,53 @@
                             </div>
                         </fieldset>
                         <div class="form-group required">
-                            <label for="data_nascimento" class="col-auto control-label">Data de Nascimento</label>
+                            <label for="data_nascimento" class="col-auto control-label font-weight-bold">Data de Nascimento</label>
                             <div class="col-auto">
                                 <input type="date" name="data_nascimento" id="data_nascimento" class="form-control"
                                     required>
                             </div>
                         </div>
                         <div class="form-group required">
-                            <label for="cpf" class="col-auto control-label">CPF</label>
+                            <label for="cpf" class="col-auto control-label font-weight-bold">CPF</label>
                             <div class="col-auto">
                                 <input type="text" name="cpf" id="cpf" minlength="14" maxlength="14"
                                     onblur="confirmaCPF()" class="form-control" placeholder="CPF"
                                     data-mask="000.000.000-00" required>
                             </div>
-                            <label for="cpf" class="col-auto">ex:111.222.333-44</label>
+                            <label for="cpf" class="col-auto text-muted">ex:111.222.333-44</label>
                         </div>
 
                         <div class="form-group required">
-                            <label for="tel" class="col-auto control-label">Telefone</label>
+                            <label for="tel" class="col-auto control-label font-weight-bold">Telefone</label>
                             <div class="col-auto">
                                 <input type="tel" name="tel" id="tel" minlength="14" maxlength="14"
                                     onblur="confirmaTelefone('tel')" class="form-control" placeholder="Telefone"
                                     data-mask="(00)00000-0000" required>
                             </div>
-                            <label for="tel" class="col-auto">ex:(16)91111-4444</label>
+                            <label for="tel" class="col-auto text-muted">ex:(16)91111-4444</label>
                         </div>
                         <div class="form-group required">
-                            <label for="contato_emergencia" class="col-auto control-label">Contato de Emergência</label>
+                            <label for="contato_emergencia" class="col-auto control-label font-weight-bold">Contato de Emergência</label>
                             <div class="col-auto">
                                 <input type="tel" name="contato_emergencia" id="contato_emergencia" minlength="14"
                                     maxlength="14" onblur="confirmaTelefone('contato_emergencia')" class="form-control"
                                     data-mask="(00)00000-0000" placeholder="Contato de Emergência" required>
                             </div>
-                            <label for="contato_emergencia" class="col-auto">ex:(16)91111-4444</label>
+                            <label for="contato_emergencia" class="col-auto text-muted">ex:(16)91111-4444</label>
                         </div>
                     </fieldset>
                     <fieldset class="form-group required">
                         <legend>Endereço</legend>
                         <div class="form-group">
-                            <label for="cep" class="col-auto control-label">CEP</label>
+                            <label for="cep" class="col-auto control-label font-weight-bold">CEP</label>
                             <div class="col-auto">
                                 <input type="text" name="cep" id="cep" minlength="9" maxlength="9" class="form-control"
                                     data-mask="00000-000" placeholder="CEP" required>
                             </div>
-                            <label for="cep" class="col-auto">ex:91111-111</label>
+                            <label for="cep" class="col-auto text-muted">ex:91111-111</label>
                         </div>
                         <div class="form-group required">
-                            <label for="estados" class="col-auto control-label">Estados</label>
+                            <label for="estados" class="col-auto control-label font-weight-bold">Estados</label>
                             <div class="col-auto">
                                 <select class="form-control col-auto control-label" name="estados" id="estados"
                                     required>
@@ -157,7 +160,7 @@
                             </div>
                         </div>
                         <div class="form-group required">
-                            <label for="cidades" class="col-auto control-label">Cidades</label>
+                            <label for="cidades" class="col-auto control-label font-weight-bold">Cidades</label>
                             <div class="col-auto">
                                 <select class="form-control col-auto control-label" name="cidades" id="cidades" disabled
                                     required>
@@ -166,7 +169,7 @@
                             </div>
                         </div>
                         <div class="form-group required">
-                            <label for="endereco" class="col-auto control-label">Endereço</label>
+                            <label for="endereco" class="col-auto control-label font-weight-bold">Endereço</label>
                             <div class="col-auto">
                                 <input type="text" name="endereco" id="endereco" class="form-control"
                                     placeholder="Endereço" required>
@@ -176,7 +179,7 @@
                     <fieldset>
                         <legend>Dados sobre sua saúde</legend>
                         <div class="form-group required">
-                            <label for="tipo_sanguineo" class="col-auto control-label">Tipo Sanguíneo</label>
+                            <label for="tipo_sanguineo" class="col-auto control-label font-weight-bold">Tipo Sanguíneo</label>
                             <div class="col-auto">
                                 <select class="form-control col-auto control-label" name="tipo_sanguineo"
                                     id="tipo_sanguineo" required>
@@ -193,58 +196,58 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-auto control-label" for="alergias_doencas">Alergias ou Doenças</label>
+                            <label class="col-auto control-label font-weight-bold" for="alergias_doencas">Alergias ou Doenças</label>
                             <div class="col-auto">
                                 <textarea class="form-control" name="alergias_doencas" id="alergias_doencas" cols="30"
                                     rows="10"></textarea>
                             </div>
-                            <label class="col-auto control-label" for="alergias_doencas">Opcional</label>
+                            <label class="col-auto control-label text-muted" for="alergias_doencas">Opcional</label>
                         </div>
                         <div class="form-group">
-                            <label class="col-auto control-label" for="plano_de_saude">Plano de saúde</label>
+                            <label class="col-auto control-label font-weight-bold" for="plano_de_saude">Plano de saúde</label>
                             <div class="col-auto">
                                 <input class="form-control" type="text" name="plano_de_saude" id="plano_de_saude">
                             </div>
-                            <label class="col-auto control-label" for="plano_de_saude">Opcional</label>
+                            <label class="col-auto control-label text-muted" for="plano_de_saude">Opcional</label>
                         </div>
                         <div class="form-group required">
-                            <label class="col-auto control-label" for="altura">Altura</label>
+                            <label class="col-auto control-label font-weight-bold" for="altura">Altura</label>
                             <div class="col-auto">
                                 <input class="form-control" type="text" name="altura" id="altura" min="0" max="3"
-                                    data-mask="0,00" step="any" required>
+                                    data-mask="0.00" step="any" required>
                             </div>
                         </div>
                         <div class="form-group required">
-                            <label class="col-auto control-label" for="peso">Peso</label>
+                            <label class="col-auto control-label font-weight-bold" for="peso">Peso</label>
                             <div class="col-auto">
                                 <input class="form-control" type="text" name="peso" id="peso" data-mask-reverse="true"
-                                    data-mask="000,00" step="any" required>
+                                    data-mask="000.00" step="any" required>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-auto control-label" for="data_peso">Data da Pesagem</label>
+                            <label class="col-auto control-label font-weight-bold" for="data_peso">Data da Pesagem</label>
                             <div class="col-auto">
                                 <input class="form-control" type="date" name="data_peso" id="data_peso">
                             </div>
-                            <label class="col-auto control-label" for="data_peso">Opcional</label>
+                            <label class="col-auto control-label text-muted" for="data_peso">Opcional</label>
                         </div>
                         <div class="form-group">
-                            <label class="col-auto control-label" for="pressao">Pressão</label>
+                            <label class="col-auto control-label font-weight-bold" for="pressao">Pressão</label>
                             <div class="col-sm-9">
                                 <input class="form-control" type="text" name="pressao" id="pressao" data-mask="000/000">
                             </div>
-                            <label class="col-auto control-label" for="pressao">Opcional, ex:120/60</label>
+                            <label class="col-auto control-label text-muted" for="pressao">Opcional, ex:120/60</label>
                         </div>
                         <div class="form-group">
-                            <label class="col-auto control-label" for="data_pressao">Data da Pressão</label>
+                            <label class="col-auto control-label font-weight-bold" for="data_pressao">Data da Pressão</label>
                             <div class="col-sm-9">
                                 <input class="form-control" type="date" name="data_pressao" id="data_pressao">
                             </div>
-                            <label class="col-auto control-label" for="data_peso">Opcional</label>
+                            <label class="col-auto control-label text-muted" for="data_peso">Opcional</label>
                         </div>
                     </fieldset>
                     <div class="container form-group">
-                        <label class="col-auto control-label" for="imagemUpload">Foto de Perfil</label>
+                        <label class="col-auto control-label font-weight-bold" for="imagemUpload">Foto de Perfil</label>
                         <div class="col-auto custom-file">
                             <input class="form-control custom-file-input" type="file" name="imagemUpload"
                                 value="Procurar..." accept="image/png ,image/jpeg">

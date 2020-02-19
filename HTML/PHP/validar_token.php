@@ -40,27 +40,27 @@
                 //echo $hoje . "<br>";
                 list($ano_atual, $mes_atual, $dia_atual, $horas_atual, $minutos_atual, $segundos_atual) = explode(" ", $hoje);
 
-                echo $ano_atual . "-" . $ano . "<br>";
-                echo $mes_atual . "-" . $mes . "<br>";
-                echo $dia_atual . "-" . $dia . "<br>";
-                echo $horas_atual . "-" . $horas . "<br>";
-                echo $minutos_atual . "-" . $minutos . "<br>";
+                //echo $ano_atual . "-" . $ano . "<br>";
+                //echo $mes_atual . "-" . $mes . "<br>";
+                //echo $dia_atual . "-" . $dia . "<br>";
+                //echo $horas_atual . "-" . $horas . "<br>";
+                //echo $minutos_atual . "-" . $minutos . "<br>";
                 
                 if($ano == $ano_atual){
                     if($mes == $mes_atual){
                         if($dia != $dia_atual){
                             $validacao = false;
-                            echo "3". "<br>";
+                            //echo "3". "<br>";
                         }
                     }
                     else{
                         $validacao = false;
-                        echo "2". "<br>";
+                        //echo "2". "<br>";
                     }
                 }
                 else{
                     $validacao = false;
-                    echo "1". "<br>";
+                    //echo "1". "<br>";
                 }
 
                 if($validacao){
@@ -69,7 +69,7 @@
                         $horas++;
                         $min -= 60;
                     }
-                    echo "<br>Horas:". $horas . ", Minutos:". $min ."<br>";
+                    //echo "<br>Horas:". $horas . ", Minutos:". $min ."<br>";
                     /*
                     if($horas >= $horas_atual){
                         echo $min. "<br>";
@@ -80,15 +80,15 @@
                     }
                     */
                     if($horas_atual <= $horas){
-                        echo $min. "<br>";
+                        //echo $min. "<br>";
                         if($minutos_atual >= $min){
                             $validacao = false;
-                            echo "5". "<br>";
+                            //echo "5". "<br>";
                         }
                     }
                     else{
                         $validacao = false;
-                        echo "4". "<br>";
+                        //echo "4". "<br>";
                     }
                 }
 
@@ -122,5 +122,5 @@
         $_SESSION['erro_senha'] = $erro;
         $_SESSION['email'] = "";
     }
-    header('Location: ../HTML/recuperar_senha.php');
+    header('Location: ../recuperar_senha.php');
 ?>

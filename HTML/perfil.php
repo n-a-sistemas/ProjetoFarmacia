@@ -1,7 +1,6 @@
 <?php
     session_start();
-    session_unset(); // limpa todas as variáveis de sessão
-    require("../PHP/conn.php");
+    require("PHP/conn.php");
     $id_qrcode = "";
     if(isset($_GET['id'])){
         $id_qrcode = $_GET['id'];
@@ -24,7 +23,8 @@
                 $tiposanguineo = $linha['tipo_sanguineo'];
                 $contatoemergencia = $linha['telefone_emergencia'];
                 $planodesaude = $linha['plano_saude'];
-                $altura = $linha['altura']; 
+                $altura = $linha['altura'];
+                $altura = str_replace(',','.', $altura);
                 $endereco = $linha['endereco'];
                 $cidade = $linha['id_cidade'];
                 $estado = $linha['id_estado'];
@@ -63,11 +63,11 @@
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
     <script src="JS/login.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script type="text/javascript" src="JS/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="CSS/bootstrap.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/estilos.css" />
+    <link rel="stylesheet" href="CSS/estilos.css" />
 </head>
 
 <body>
@@ -119,5 +119,4 @@
         </div>
     </div>
 </body>
-
 </html>

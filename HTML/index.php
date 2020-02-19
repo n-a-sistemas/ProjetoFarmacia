@@ -1,6 +1,6 @@
 <?php
     session_start();
-    
+    unset($_SESSION["id_qrcode"]);
     $erro = "";
     $alerta = "";
     if(isset($_SESSION['erro_login'])){
@@ -13,6 +13,9 @@
         session_unset();
         session_destroy();
     }
+    $session = "erro_login";
+    $session_alert = "alert_imagem";
+    $page = 'index.php';
 ?>
 
 <!DOCTYPE html>
@@ -30,11 +33,11 @@
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
     <script src="JS/login.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script type="text/javascript" src="JS/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="CSS/bootstrap.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/estilos.css" />
+    <link rel="stylesheet" href="CSS/estilos.css" />
 </head>
 
 <body>
@@ -57,7 +60,7 @@
                             <h3>Login</h3>
                         </div>
                         <div class="card-body">
-                            <form action="../PHP/logar.php" method="post" onsubmit="return validaLogin();">
+                            <form action="PHP/logar.php" method="post" onsubmit="return validaLogin();">
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-user"></i></span>

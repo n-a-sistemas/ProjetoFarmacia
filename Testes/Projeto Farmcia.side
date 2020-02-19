@@ -2,7 +2,7 @@
   "id": "9378ebc7-fcc9-4f35-bbcb-af7ca199707e",
   "version": "2.0",
   "name": "Projeto Farmácia",
-  "url": "http://localhost:8080/ProjetoFarmacia/HTML/cadastro.php",
+  "url": "https://projetofarmacia.000webhostapp.com/cadastro.php",
   "tests": [{
     "id": "067450c8-f6dd-446f-b9c5-4585bdd19744",
     "name": "cadastro_teste",
@@ -10,7 +10,7 @@
       "id": "c253a046-fdb4-4c07-bf9e-af5e7a2ad786",
       "comment": "",
       "command": "open",
-      "target": "http://localhost:8080/ProjetoFarmacia/HTML/cadastro.php",
+      "target": "https://projetofarmacia.000webhostapp.com/cadastro.php",
       "targets": [],
       "value": ""
     }, {
@@ -288,13 +288,6 @@
         ["xpath=//div[18]/input", "xpath:position"]
       ],
       "value": "60"
-    }, {
-      "id": "2b315e3f-b67d-4713-9a6b-04a60011966d",
-      "comment": "",
-      "command": "//click",
-      "target": "css=button",
-      "targets": [],
-      "value": ""
     }]
   }, {
     "id": "9f5ccd4a-1437-4605-b339-76a5816c1e74",
@@ -628,6 +621,6 @@
     "timeout": 300,
     "tests": ["067450c8-f6dd-446f-b9c5-4585bdd19744"]
   }],
-  "urls": ["http://localhost:8080/ProjetoFarmacia/HTML/cadastro.php"],
+  "urls": ["http://localhost:8080/ProjetoFarmacia/HTML/cadastro.php", "https://projetofarmacia.000webhostapp.com/cadastro.php"],
   "plugins": []
 }

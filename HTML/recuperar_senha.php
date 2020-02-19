@@ -1,5 +1,6 @@
 <?php
     session_start();
+    unset($_SESSION["id_qrcode"]);
     $email = "";
     if(isset($_SESSION['email'])){
         $email = $_SESSION['email'];
@@ -12,6 +13,8 @@
     if(isset($_SESSION['erro_senha'])){
         $erro = $_SESSION['erro_senha'];
     }
+    $session = "erro_senha";
+    $page = 'recuperar_senha.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

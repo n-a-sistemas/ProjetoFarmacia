@@ -1,16 +1,18 @@
 <?php
     session_start();
-    require('../../PHP/phplot-6.2.0/phplot.php');
-    require('../../PHP/conn.php');
+    require('../PHP/phplot-6.2.0/phplot.php');
+    require('../PHP/conn.php');
     date_default_timezone_set('America/Sao_Paulo');
     
     $sql_pressao = "";
     $id = "";
+    
     if(isset($_SESSION['id'])){
         $id = $_SESSION['id'];
     }
-    else if(isset($_SESSION['id_qrcode'])){
+    if(isset($_SESSION['id_qrcode'])){
         $id = $_SESSION['id_qrcode'];
+        $_SESSION['qrcode']++;
         $sql_select = "SELECT * FROM pessoa WHERE id_qrcode ='". $id . "'";
         $resultado = $conn->query($sql_select);
         if($resultado->num_rows == 1){
@@ -19,6 +21,7 @@
             }
         }
     }
+    
     if($id != ""){
         $sql_pressao = "SELECT * FROM pressao WHERE id_nome = ".$id." ORDER BY data ASC";
     }

@@ -4,6 +4,9 @@
     require('phpqrcode/qrlib.php');
     date_default_timezone_set('America/Sao_Paulo');
     session_start();
+    $adm = 0;
+    $_SESSION['erro_cadastro'] = "";
+    $_SESSION['alert_imagem'] = "";
 
     if(isset($_POST['nome']) && isset($_POST['email'])
     && isset($_POST['data_nascimento']) && isset($_POST['cpf'])
@@ -27,7 +30,6 @@
         $senha  = $_POST['senha'];
         $confirmacao = $_POST['confirmacao'];
         $altura = $_POST['altura']; 
-        $adm = false;
         $endereco = $_POST['endereco'];
         $cidade = $_POST['cidades'];
         $estado = $_POST['estados'];
@@ -60,6 +62,7 @@
             ($peso != "")){
             $arquivo = "";
             $senha = hash('sha256', $senha);
+            $altura = str_replace(',','.', $altura);
 
             $diretorio = "uploads/";
             if($_FILES['imagemUpload']['name'] != ""){
@@ -70,7 +73,7 @@
             }
             $tipo = strtolower(pathinfo($arquivo, PATHINFO_EXTENSION));
 
-            $sql_foto = "SELECT `foto_perfil` FROM pessoa";
+            $sql_foto = "SELECT `foto_perfil` FROM pessoa WHERE foto_perfil ='".$arquivo."'";
             $resultado_foto = $conn->query($sql_foto);
             if($resultado_foto->num_rows == 0){
                 if(!move_uploaded_file($_FILES['imagemUpload']['tmp_name'], $arquivo)){
@@ -92,7 +95,7 @@
                 QRcode::png($codeContents, $tempDir. $nomeqrcode, QR_ECLEVEL_L, 2);  
 
                 $sql_pessoa = "INSERT INTO pessoa (nome,email,data_nascimento,cpf,sexo,telefone,alergia_doencas,tipo_sanguineo,telefone_emergencia,plano_saude,senha,altura,foto_qrcode,foto_perfil,adm,id_cidade,id_estado,cep,endereco,id_qrcode) 
-                        VALUES ('$nome', '$email','$datanascimento','$cpf','$sexo','$telefone','$alergiadoencas','$tiposanguineo','$contatoemergencia','$planodesaude','$senha','$altura','$tempDir$nomeqrcode','$arquivo','$adm','$cidade','$estado','$cep','$endereco','$id')";
+                        VALUES ('$nome', '$email','$datanascimento','$cpf','$sexo','$telefone','$alergiadoencas','$tiposanguineo','$contatoemergencia','$planodesaude','$senha','$altura','$tempDir$nomeqrcode','$arquivo', '$adm','$cidade','$estado','$cep','$endereco','$id')";
                 if($conn->query($sql_pessoa) == TRUE){
                     $sql_select = "SELECT * FROM pessoa WHERE cpf ='" . $cpf . "' AND email ='" . $email . "'";
                     $resultado = $conn->query($sql_select);
@@ -136,9 +139,9 @@
     }
 
     if($_SESSION['erro_cadastro'] == ""){
-        header('Location: ../HTML/index.php');
+        header('Location: ../index.php');
     }
     else{
-        header('Location: ../HTML/cadastro.php');
+        header('Location: ../cadastro.php');
     }
 ?>

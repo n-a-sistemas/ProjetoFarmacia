@@ -3,6 +3,8 @@
     require('conn.php');
     require('phpqrcode/qrlib.php');
     date_default_timezone_set('America/Sao_Paulo');
+    $_SESSION['erro_atualizar'] = "";
+    $_SESSION['alert_imagem'] = "";
 
     if(isset($_POST['nome']) && isset($_POST['email'])
     && isset($_POST['data_nascimento']) && isset($_POST['cpf'])
@@ -57,7 +59,7 @@
                         $email_antigo = $linha['email'];
                     }
                 }
-
+                $altura = str_replace(',','.', $altura);
                 $diretorio = "uploads/";
                 $arquivo = "";
                 if($_FILES['imagemUpload']['name'] != ""){
@@ -103,5 +105,5 @@
         $erro = "Erro ao cadastrar, preencha todos os campos do formulário corretamente. Se o erro persistir verifique no seu navegador se está ativo o javascript";
         $_SESSION['erro_atualizar'] = $erro;
     }
-    header('Location: ../HTML/meuperfil.php');
+    header('Location: ../meuperfil.php');
 ?>

@@ -1,9 +1,9 @@
 <?php
 
 $servidor = "localhost";
-$usuario = "root";
-$senha = "";
-$banco = "projeto_farmacia";
+$usuario = "id12578151_projeto_farmacia";
+$senha = "senac123";
+$banco = "id12578151_projeto_farmacia";
 
 $conn = new mysqli($servidor, $usuario , $senha, $banco);
 

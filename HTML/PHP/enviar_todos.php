@@ -67,6 +67,5 @@
         $erro = "Erro ao enviar email. Preencha todos os campos";
         $_SESSION['erro_contato_adm'] = $erro;
     }
-    header("location: ../HTML/contato_adm.php");
-                    
-                
+    header("location: ../contato_adm.php");
+?>

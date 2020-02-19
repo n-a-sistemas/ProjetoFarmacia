@@ -1,12 +1,16 @@
 <?php
     session_start();
-    require("../PHP/conn.php");
+    unset($_SESSION["id_qrcode"]);
+    require("PHP/conn.php");
     $id = "";
     $adm = false;
     $foto_perfil = "";
     if(isset($_SESSION['adm']) && isset($_SESSION['id'])){
         $id = $_SESSION['id'];
         $adm = $_SESSION['adm'];
+    }
+    else{
+        header('Location: index.php');
     }
     $erro = "";
     if(isset($_SESSION['erro'])){
@@ -29,7 +33,8 @@
                 $tiposanguineo = $linha['tipo_sanguineo'];
                 $contatoemergencia = $linha['telefone_emergencia'];
                 $planodesaude = $linha['plano_saude'];
-                $altura = $linha['altura']; 
+                $altura = $linha['altura'];
+                $altura = str_replace(',','.', $altura);
                 $endereco = $linha['endereco'];
                 $cidade = $linha['id_cidade'];
                 $estado = $linha['id_estado'];
@@ -53,6 +58,8 @@
             }
         }
     }
+    $session = "erro";
+    $page = 'meuperfil.php';
 ?>
 
 <!DOCTYPE html>
@@ -70,11 +77,11 @@
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
     <script src="JS/login.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script type="text/javascript" src="JS/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="CSS/bootstrap.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/estilos.css" />
+    <link rel="stylesheet" href="CSS/estilos.css" />
     <link rel="stylesheet" href="CSS/cadastro.css">
     <script src="JS/cadastro.js"></script>
 </head>
@@ -102,7 +109,7 @@
                                     <?php include("./parts/header_login.php"); ?>
                                     <div class="p-5 text-center">
                                         <a href="atualizar.php">
-                                            <button type="submit" class="btn btn-primary">Atualizar Dados</button>
+                                            <button type="submit" class="btn btn-primary my-3">Atualizar Dados</button>
                                         </a>
                                         <button class="btn btn-danger" type="button" onclick="impressao();">Imprimir
                                             Qrcode</button>
@@ -147,7 +154,7 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body mx-3">
-                                                <form action="../PHP/insert_peso.php" method="post">
+                                                <form action="PHP/insert_peso.php" method="post">
                                                     <div class="md-form mb-5">
                                                         <label for="peso" data-error="wrong" data-success="right"
                                                             class="col-auto control-label">Peso:</label>
@@ -186,7 +193,7 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body mx-3">
-                                                <form action="../PHP/insert_pressao.php" method="post">
+                                                <form action="PHP/insert_pressao.php" method="post">
                                                     <div class="md-form mb-5">
                                                         <label for="pressao" data-error="wrong" data-success="right"
                                                             class="col-auto control-label">Pressão:</label>

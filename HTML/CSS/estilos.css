@@ -22,4 +22,5 @@ table {
 .form-group.required .control-label:after{
   color: red;
   content: "*";
+  
 }

@@ -1,10 +1,12 @@
 <?php
     session_start();
-
+    unset($_SESSION["id_qrcode"]);
     $erro = "";
     if(isset($_SESSION['erro_contato'])){
         $erro = $_SESSION['erro_contato'];
     }
+    $session = "erro_contato";
+    $page = 'contato.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -18,8 +20,8 @@
     <script src="JS/login.js"></script>
     <script type="text/javascript" src="JS/bootstrap.min.js"></script>
     <link rel="stylesheet" href="CSS/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/estilos.css" />
-    <link rel="stylesheet" href="css/contato.css" />
+    <link rel="stylesheet" href="CSS/estilos.css" />
+    <link rel="stylesheet" href="CSS/contato.css" />
 </head>
 
 <body>
@@ -35,7 +37,7 @@
                 }
             ?>
             <div class="col-6">
-                <form class="form-horizontal" action="../PHP/enviar_email.php" method="post">
+                <form class="form-horizontal" action="PHP/enviar_email.php" method="post">
                     <div class="text-center">
                         <h1>Contato</h1>
                     </div>

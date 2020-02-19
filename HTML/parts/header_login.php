@@ -1,10 +1,11 @@
 <?php
-    require("../PHP/conn.php");
+    require("PHP/conn.php");
     $id = "";
+    
     if(isset($_SESSION['id'])){
         $id = $_SESSION['id'];
     }
-    else if(isset($_SESSION['id_qrcode'])){
+    if(isset($_SESSION['id_qrcode'])){
         $id_qrcode = $_SESSION['id_qrcode'];
         $sql = "SELECT * FROM pessoa WHERE id_qrcode ='". $id_qrcode . "'";
         $resultado = $conn->query($sql);
@@ -14,6 +15,7 @@
             }
         }
     }
+    
     $nome = "";
     if($id != ""){
         $sql = "SELECT `nome`, `foto_perfil` FROM pessoa WHERE id_nome = $id";
@@ -26,10 +28,10 @@
         }
     }
     if($nome != ""){
-        echo "<div class='d-flex justify-content-center'>
-                <img id='foto_perfil' class='rounded-circle' src='../PHP/" . $foto_perfil ."' alt='Foto de perfil' width='200' height='200'>
+        echo "<div class='d-flex justify-content-center mt-5'>
+                <img id='foto_perfil' class='rounded-circle' src='PHP/" . $foto_perfil ."' alt='Foto de perfil' width='200' height='200'>
               </div>
-              <div class='d-flex justify-content-center'>
+              <div class='d-flex justify-content-center mt-4'>
                 <h2>$nome</h2>
              </div>";
     }

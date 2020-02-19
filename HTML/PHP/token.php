@@ -19,6 +19,7 @@
             $valido = true;
 
             $mail = new PHPMailer(); //instancia do objeto do tipo PHPMailer
+            //$mail->SMTPDebug  = 1; 
             $mail->isSMTP();
             $mail->Charset = 'UTF-8';
             $mail->Host = 'smtp.gmail.com';
@@ -27,6 +28,13 @@
             $mail->Username = 'projetofarmaciati33@gmail.com';
             $mail->Password = 'senac123';
             $mail->Port = 587;
+            $mail->SMTPOptions = array(
+                    'ssl' => array(
+                        'verify_peer' => false,
+                        'verify_peer_name' => false,
+                        'allow_self_signed' => true
+                    )
+                );
                 
             $mail->setFrom('projetofarmaciati33@gmail.com');
             $mail->addReplyTo('projetofarmaciati33@gmail.com');
@@ -61,5 +69,5 @@
         $erro = "Envie um email para prosseguir";
         $_SESSION['erro_senha'] = $erro;
     }
-    header('Location: ../HTML/recuperar_senha.php');
+    header('Location: ../recuperar_senha.php');
 ?>

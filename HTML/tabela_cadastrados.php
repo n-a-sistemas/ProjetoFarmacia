@@ -1,12 +1,23 @@
 <?php
     session_start();
+    unset($_SESSION["id_qrcode"]);
     $erro = "";
+    $tipo = "";
     if(isset($_SESSION['erro_reset'])){
         $erro = $_SESSION['erro_reset'];
+        $tipo = "erro_reset";
     }
     if(isset($_SESSION['erro_delete'])){
         $erro = $_SESSION['erro_delete'];
+        $tipo = "erro_delete";
     }
+    if(!isset($_SESSION['id'])){
+        header('Location: index.php');
+    }
+    if($tipo != ""){
+        $session = $tipo;   
+    }
+    $page = 'tabela_cadastrados.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -21,12 +32,12 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="JS/bootstrap.min.js"></script>
     <script type="text/javascript" src="JS/confirmacao.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="CSS/bootstrap.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/estilos.css" />
+    <link rel="stylesheet" href="CSS/estilos.css" />
 </head>
 
 <body>
@@ -51,11 +62,12 @@
                                     <table class="table table-bordered table-hover">
                                         <thead class="thead-light">
                                             <tr>
-                                                <th>ID</th>
+                                                <th></th>
                                                 <th>Nome</th>
                                                 <th>Email</th>
                                                 <th>Telefone</th>
                                                 <th>Contato de Emergência</th>
+                                                <th colspan="3"></th>
                                             </tr>
                                         </thead>
                                         <tbody>

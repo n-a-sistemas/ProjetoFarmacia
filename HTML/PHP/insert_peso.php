@@ -40,5 +40,5 @@
         $erro = "Insira um peso para prosseguir";
         $_SESSION['erro'] = $erro;
     }
-    header('Location: ../HTML/meuperfil.php');
+    header('Location: ../meuperfil.php');
 ?>
