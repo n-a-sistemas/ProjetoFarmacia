@@ -41,6 +41,7 @@
                 $cep = $linha['cep'];
                 $foto_perfil = $linha['foto_perfil'];
                 $img = $linha['foto_qrcode'];
+                $qrcode = $linha['id_qrcode'];
             }
             $sql_cidade = "SELECT `id`, `nome` FROM cidade WHERE id = $cidade ORDER BY nome ASC";
             $resultado = $conn->query($sql_cidade);
@@ -113,8 +114,15 @@
                                         </a>
                                         <button class="btn btn-danger" type="button" onclick="impressao();">Imprimir
                                             Qrcode</button>
+                                        <a href="PHP/imprimir_pdf.php"><button class="btn btn-success"
+                                                type="button">Imprimir
+                                                PDF</button></a>
+                                        <!--
+                                        <a href="perfil.php?id=<?php echo $qrcode;?>&print=true"><button class="btn btn-success" type="button">Imprimir
+                                            PDF</button></a>
+                                        -->
                                         <div id="printable">
-                                            <img src="../PHP/<?php echo $img;?>">
+                                            <img src="PHP/<?php echo $img;?>">
                                         </div>
                                     </div>
                                 </div>

@@ -1,0 +1,31 @@
+About
+-----
+A PHP class which helps working with WKHTMLTOPDF <http://code.google.com/p/wkhtmltopdf/>
+
+This class is based on <http://code.google.com/p/wkhtmltopdf/wiki/IntegrationWithPhp>
+class.
+
+I have removed $_GLOBALS & other static configuration options.
+
+Author
+------
+Aurimas Baubkus aka aur1mas <aur1mas@devnet.lt>
+Released under "New BSD license"
+
+Usage
+-----
+<?php
+    try {
+        $wkhtmltopdf = new Wkhtmltopdf(array('path' => APPLICATION_PATH . '/../public/uploads/'));
+        $wkhtmltopdf->setTitle("Title");
+        $wkhtmltopdf->setHtml("Content");
+        $wkhtmltopdf->output(Wkhtmltopdf::MODE_DOWNLOAD, "file.pdf");
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+?>
+On Gist: https://gist.github.com/733109
+
+Feedback
+--------
+Issue tracker: https://github.com/aur1mas/Wkhtmltopdf/issues

@@ -6,6 +6,10 @@
         $id_qrcode = $_GET['id'];
         $_SESSION['id_qrcode'] = $id_qrcode;
     }
+    $print = "";
+    if(isset($_GET['print'])){
+        $print = $_GET['print'];
+    }
     if($id_qrcode != ""){
         $sql = "SELECT * FROM pessoa WHERE id_qrcode ='". $id_qrcode . "'";
         $resultado = $conn->query($sql);
@@ -57,7 +61,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Meu Perfil</title>
-    <link rel="stylesheet" href="./CSS/meu_perfil.css">
     <script src="JS/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
@@ -107,8 +110,8 @@
                                     <p><strong>Plano de Saúde:</strong> <?php echo $planodesaude; ?></p>
                                 </div>
                                 <div>
-                                    <img class="img-fluid" src="./parts/grafico_peso.php" alt="Gráfico do seu peso">
-                                    <img class="img-fluid" src="./parts/grafico_pressao.php"
+                                    <img class="img-fluid grafico" src="./parts/grafico_peso.php" alt="Gráfico do seu peso">
+                                    <img class="img-fluid grafico" src="./parts/grafico_pressao.php"
                                         alt="Gráfico da sua pressão">
                                 </div>
                             </div>

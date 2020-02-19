@@ -12,7 +12,6 @@
     }
     if(isset($_SESSION['id_qrcode'])){
         $id = $_SESSION['id_qrcode'];
-        $_SESSION['qrcode']++;
         $sql_select = "SELECT * FROM pessoa WHERE id_qrcode ='". $id . "'";
         $resultado = $conn->query($sql_select);
         if($resultado->num_rows == 1){
@@ -49,7 +48,6 @@
             $tabela_pressao = array(array('data'=>date("d-m-Y"), 'sistolica'=>0, 'diastolica'=>0));
         }
         $legenda = array('Sistólica', 'Diastólica');
-        //$legenda = 'sistólica';
         $plot = new PHPlot(500 , 500);
         $plot->SetTitle('Gráfico da sua pressão');
         $plot->SetXTitle("Datas");
@@ -62,7 +60,6 @@
         $plot->SetYTickPos('none');
         $plot->SetXLabelFontSize(2);
         $plot->SetAxisFontSize(2);
-        //$plot->SetLegendPosition(0, 0, 'image', 0, 0, 5, 5);
         $plot->DrawGraph();
     }
 ?>
