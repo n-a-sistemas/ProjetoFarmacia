@@ -1,9 +1,4 @@
 <?php
-    session_start();
-    require('../PHP/phplot-6.2.0/phplot.php');
-    require('../PHP/conn.php');
-    date_default_timezone_set('America/Sao_Paulo');
-    
     $sql_peso = "";
     $id = "";
     
@@ -22,6 +17,13 @@
     }
     
     if($id != ""){
+        $sql_select = "SELECT * FROM pessoa WHERE id_nome ='". $id . "'";
+        $resultado = $conn->query($sql_select);
+        if($resultado->num_rows == 1){
+            while($linha = $resultado->fetch_assoc()){
+                $cpf = $linha['cpf'];
+            }
+        }
         $sql_peso = "SELECT * FROM peso WHERE id_nome = ".$id." ORDER BY data ASC";
     }
     
@@ -57,6 +59,8 @@
         $plot->SetYTickPos('none');
         $plot->SetXLabelFontSize(2);
         $plot->SetAxisFontSize(2);
+        $plot->SetIsInline(true);
+        $plot->SetOutputFile('../PHP/grafico/grafico_peso_'.$cpf.'.png');
         $plot->DrawGraph();
     }
 ?>

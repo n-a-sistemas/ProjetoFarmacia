@@ -116,9 +116,7 @@
                                             Qrcode</button>
                                         <button class="btn btn-success" type="button" onclick="dados('dados');">Imprimir
                                             PDF</button>
-                                        <!--
-                                        <a href="PHP/imprimir_pdf.php"><button class="btn btn-success" type="button">Imprimir PDF</button></a>
-                                        -->
+                                        <a href="PHP/imprimir_pdf.php"><button class="btn btn-primary" type="button">Imprimir PDF</button></a>
                                         <!--
                                         <a href="perfil.php?id=<?php //echo $qrcode;?>&print=true"><button class="btn btn-success" type="button">Imprimir
                                             PDF</button></a>
@@ -150,8 +148,7 @@
                                     </div>
                                     <div>
                                         <img class='img-fluid' src='./parts/grafico_peso.php' alt='Gráfico do seu peso'>
-                                        <img class='img-fluid' src='./parts/grafico_pressao.php'
-                                            alt='Gráfico da sua pressão'>
+                                        <img class='img-fluid' src='./parts/grafico_pressao.php' alt='Gráfico da sua pressão'>
                                     </div>
                                 </div>
                                 <div class="modal fade" id="modalPesoForm" tabindex="-1" role="dialog"
