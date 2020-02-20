@@ -2,9 +2,6 @@
     visibility: hidden;
 }
 @media print{
-    body *{
-        visibility: hidden;
-    }
     #printable, #printable *{
         visibility: visible;
     }

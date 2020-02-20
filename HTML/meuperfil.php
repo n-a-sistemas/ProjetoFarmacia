@@ -114,11 +114,13 @@
                                         </a>
                                         <button class="btn btn-danger" type="button" onclick="impressao();">Imprimir
                                             Qrcode</button>
-                                        <a href="PHP/imprimir_pdf.php"><button class="btn btn-success"
-                                                type="button">Imprimir
-                                                PDF</button></a>
+                                        <button class="btn btn-success" type="button" onclick="dados('dados');">Imprimir
+                                            PDF</button>
                                         <!--
-                                        <a href="perfil.php?id=<?php echo $qrcode;?>&print=true"><button class="btn btn-success" type="button">Imprimir
+                                        <a href="PHP/imprimir_pdf.php"><button class="btn btn-success" type="button">Imprimir PDF</button></a>
+                                        -->
+                                        <!--
+                                        <a href="perfil.php?id=<?php //echo $qrcode;?>&print=true"><button class="btn btn-success" type="button">Imprimir
                                             PDF</button></a>
                                         -->
                                         <div id="printable">
@@ -126,29 +128,31 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="input-group form-group text-center">
-                                        <h2>Dados Pessoais</h2>
+                                <div id='dados'>
+                                    <div class="form-group">
+                                        <div class="input-group form-group text-center">
+                                            <h2>Dados Pessoais</h2>
+                                        </div>
+                                        <p><strong>Email:</strong> <?php echo $email; ?></p>
+                                        <p><strong>Sexo:</strong> <?php echo $sexo; ?></p>
+                                        <p><strong>Data de Nascimento:</strong>
+                                            <?php echo $datanascimento->format("d/m/Y"); ?></p>
+                                        <p><strong>Altura:</strong> <?php echo $altura . "m"; ?></p>
+                                        <p><strong>CPF:</strong> <?php echo $cpf; ?></p>
+                                        <p><strong>CEP:</strong> <?php echo $cep; ?></p>
+                                        <p><strong>Cidade/Estado:</strong> <?php echo $cidade . "/" . $estado; ?></p>
+                                        <p><strong>Endereço:</strong> <?php echo $endereco; ?></p>
+                                        <p><strong>Telefone:</strong> <?php echo $telefone; ?></p>
+                                        <p><strong>Contato de Emergência:</strong> <?php echo $contatoemergencia; ?></p>
+                                        <p><strong>Tipo Sanguíneo:</strong> <?php echo $tiposanguineo; ?></p>
+                                        <p><strong>Alergias ou Doenças:</strong> <?php echo $alergiadoencas; ?></p>
+                                        <p><strong>Plano de Saúde:</strong> <?php echo $planodesaude; ?></p>
                                     </div>
-                                    <p><strong>Email:</strong> <?php echo $email; ?></p>
-                                    <p><strong>Sexo:</strong> <?php echo $sexo; ?></p>
-                                    <p><strong>Data de Nascimento:</strong>
-                                        <?php echo $datanascimento->format("d/m/Y"); ?></p>
-                                    <p><strong>Altura:</strong> <?php echo $altura . "m"; ?></p>
-                                    <p><strong>CPF:</strong> <?php echo $cpf; ?></p>
-                                    <p><strong>CEP:</strong> <?php echo $cep; ?></p>
-                                    <p><strong>Cidade/Estado:</strong> <?php echo $cidade . "/" . $estado; ?></p>
-                                    <p><strong>Endereço:</strong> <?php echo $endereco; ?></p>
-                                    <p><strong>Telefone:</strong> <?php echo $telefone; ?></p>
-                                    <p><strong>Contato de Emergência:</strong> <?php echo $contatoemergencia; ?></p>
-                                    <p><strong>Tipo Sanguíneo:</strong> <?php echo $tiposanguineo; ?></p>
-                                    <p><strong>Alergias ou Doenças:</strong> <?php echo $alergiadoencas; ?></p>
-                                    <p><strong>Plano de Saúde:</strong> <?php echo $planodesaude; ?></p>
-                                </div>
-                                <div>
-                                    <img class='img-fluid' src='./parts/grafico_peso.php' alt='Gráfico do seu peso'>
-                                    <img class='img-fluid' src='./parts/grafico_pressao.php'
-                                        alt='Gráfico da sua pressão'>
+                                    <div>
+                                        <img class='img-fluid' src='./parts/grafico_peso.php' alt='Gráfico do seu peso'>
+                                        <img class='img-fluid' src='./parts/grafico_pressao.php'
+                                            alt='Gráfico da sua pressão'>
+                                    </div>
                                 </div>
                                 <div class="modal fade" id="modalPesoForm" tabindex="-1" role="dialog"
                                     aria-labelledby="myModalLabel" aria-hidden="true">
