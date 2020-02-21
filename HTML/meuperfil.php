@@ -117,10 +117,6 @@
                                         
                                         <a href="PHP/imprimir_pdf.php"><button class="btn btn-success"
                                                 type="button">Imprimir PDF</button></a>
-                                        <!--
-                                        <a href="perfil.php?id=<?php //echo $qrcode;?>&print=true"><button class="btn btn-success" type="button">Imprimir
-                                            PDF</button></a>
-                                        -->
                                         <div id="printable">
                                             <img src="PHP/<?php echo $img;?>">
                                         </div>
