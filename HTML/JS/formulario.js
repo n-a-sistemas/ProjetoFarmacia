@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $.ajax({
         type: 'POST',
-        url: 'https://projetofarmacia.000webhostapp.com/PHP/estado.php',
+        url: 'http://localhost:8080/ProjetoFarmacia/HTML/PHP/estado.php',
         dataType: 'html',
         // Antes de carregar os registros, mostra para o usuário que está
         // sendo carregado.
@@ -19,7 +19,7 @@ $(document).ready(function () {
     });
     $.ajax({
         type: 'POST',
-        url: 'https://projetofarmacia.000webhostapp.com/PHP/cidade.php',
+        url: 'http://localhost:8080/ProjetoFarmacia/HTML/PHP/cidade.php',
         dataType: 'html',
         // Antes de carregar os registros, mostra para o usuário que está
         // sendo carregado.
@@ -38,7 +38,7 @@ $(document).ready(function () {
     $('#estados').change(function () {
         $.ajax({
             type: 'POST',
-            url: 'https://projetofarmacia.000webhostapp.com/PHP/cidade.php',
+            url: 'http://localhost:8080/ProjetoFarmacia/HTML/PHP/cidade.php',
             dataType: 'html',
             data: { 'estado': $('#estados').val() },
             // Antes de carregar os registros, mostra para o usuário que está

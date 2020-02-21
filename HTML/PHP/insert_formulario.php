@@ -90,7 +90,7 @@
                 // how to configure pixel "zoom" factor
                 $tempDir = "qrcodes/";
                 $nomeqrcode = 'qrcode_'. $cpf . '.png';
-                $codeContents = 'perfil.php?id=' . $id;
+                $codeContents = 'http://localhost:8080/perfil.php?id=' . $id;
                 // generating
                 QRcode::png($codeContents, $tempDir. $nomeqrcode, QR_ECLEVEL_L, 2);  
 

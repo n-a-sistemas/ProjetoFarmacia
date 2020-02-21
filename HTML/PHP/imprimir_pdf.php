@@ -97,16 +97,21 @@
                 // Line break
                 $this->Ln(30);
             }
-            function FancyTable($header, $data)
+            function FancyTable($header, $data, $texto)
             {
                 // Colors, line width and bold font
+                $this->SetLeftMargin(70);
+                //$this->SetTopMargin(20);
+                //$this->SetAutoPageBreak(70);
                 $this->SetFillColor(255,0,0);
-                $this->SetTextColor(255);
+                $this->SetTextColor(0);
                 $this->SetDrawColor(128,0,0);
                 $this->SetLineWidth(.3);
                 $this->SetFont('','B');
+                $this->Cell(75,10,$texto, 1, 1, 'C');
                 // Header
-                $w = array(20, 50);
+                $w = array(25, 50);
+                $this->SetTextColor(255);
                 for($i=0;$i<count($header);$i++)
                     $this->Cell($w[$i],7,$header[$i],1,0,'C',true);
                 $this->Ln();
@@ -118,8 +123,8 @@
                 $fill = false;
                 foreach($data as $row)
                 {
-                    $this->Cell($w[0],6,$row['valor'],'LR',0,'L',$fill);
-                    $this->Cell($w[1],6,$row['data'],'LR',0,'L',$fill);
+                    $this->Cell($w[0],6,$row['valor'],'LR',0,'C',$fill);
+                    $this->Cell($w[1],6,$row['data'],'LR',0,'C',$fill);
                     $this->Ln();
                     $fill = !$fill;
                 }
@@ -129,7 +134,6 @@
         }
 
         $pdf = new PDF();
-        $pdf->AliasNbPages();
         $pdf->AddPage();
 
         $pdf->SetFont('Arial','B',12);
@@ -219,18 +223,20 @@
         $pdf->Cell(25,10,$alergiadoencas, 0, 1);
         $pdf->SetFont('Arial','',16);
 
-        $pdf->Image('../PHP/grafico/grafico_peso_'.$cpf.'.png', 5,150,100);
-        $pdf->Image('../PHP/grafico/grafico_pressao_'.$cpf.'.png', 105,150,100);
+        $pdf->Image('grafico/grafico_peso_'.$cpf.'.png', 5,150,100);
+        $pdf->Image('grafico/grafico_pressao_'.$cpf.'.png', 105,150,100);
 
         $header_peso = array('Peso', 'Data da Pesagem');
         $header_pressao = array('Pressão', 'Data da Pressão');
 
-        // Data loading
-        $pdf->SetFont('Arial','',14);
         $pdf->AddPage();
-        $pdf->FancyTable($header_peso,$tabela_pesos);
-        $pdf->Ln();
-        $pdf->FancyTable($header_pressao,$tabela_pressoes);
+        $pdf->SetFont('Arial','',14);
+        //$pdf->Image('uploads/peso.png',35,63,30);
+        $pdf->FancyTable($header_peso,$tabela_pesos,'Tabela de pesagem');
+
+        $pdf->Ln(30);
+        //$pdf->Image('uploads/pressao.png',35,130,30);
+        $pdf->FancyTable($header_pressao,$tabela_pressoes,'Tabela de pressões');
 
         $pdf->Output();
     }
