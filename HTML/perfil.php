@@ -6,10 +6,6 @@
         $id_qrcode = $_GET['id'];
         $_SESSION['id_qrcode'] = $id_qrcode;
     }
-    $print = "";
-    if(isset($_GET['print'])){
-        $print = $_GET['print'];
-    }
     if($id_qrcode != ""){
         $sql = "SELECT * FROM pessoa WHERE id_qrcode ='". $id_qrcode . "'";
         $resultado = $conn->query($sql);

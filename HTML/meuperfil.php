@@ -110,11 +110,13 @@
                                     <?php include("./parts/header_login.php"); ?>
                                     <div class="p-5 text-center">
                                         <a href="atualizar.php">
-                                            <button type="submit" class="btn btn-primary my-3">Atualizar Dados</button>
+                                            <button type="button" class="btn btn-primary my-3">Atualizar Dados</button>
                                         </a>
+                                        <a href="imprimir_qrcode.php?id=<?php echo $qrcode;?>"><button class="btn btn-danger" type="button">Imprimir Qrcode</button></a>
+                                        <!--
                                         <button class="btn btn-danger" type="button" onclick="impressao();">Imprimir
-                                            Qrcode</button>
-                                        
+                                            Qrcode</button>-->
+
                                         <a href="PHP/imprimir_pdf.php"><button class="btn btn-success"
                                                 type="button">Imprimir PDF</button></a>
                                         <div id="printable">
