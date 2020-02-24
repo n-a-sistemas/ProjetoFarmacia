@@ -52,10 +52,11 @@
         $plot->SetTitle('Gráfico da sua pressão');
         $plot->SetXTitle("Datas");
         $plot->SetYTitle("Pressão");
+        $plot->SetLegend($legenda);
+        $plot->SetLegendPosition(-4.9, 0.02, 'image', 0, 0, 0, 0);
         $plot->SetPrecisionY(1);
         $plot->SetPlotType("linepoints");
         $plot->SetDataValues($tabela_pressao);
-        $plot->SetLegend($legenda);
         $plot->SetXTickPos('none');
         $plot->SetYTickPos('none');
         $plot->SetXLabelFontSize(2);

@@ -32,21 +32,21 @@
         if($resultado->num_rows > 0){
             while($linha = $resultado->fetch_assoc()){
                 $data = $linha['data'];
-                $data_peso = DateTime::createFromFormat("Y-m-d", $data);
-                $informacoes = array('data'=>$data_peso->format("d-m-Y"), 'peso'=>$linha['peso']);
+                $data_peso = new DateTime($data);;
+                $informacoes = array('data'=>$data_peso->format("d/m/Y"), 'valor'=>$linha['peso']);
                 $pesos[] = $informacoes;
             }
             $pesos = array_reverse($pesos);
             for($i=0; $i<count($pesos); $i++){
                 if($i<=5){
-                    $informacoes = array('data'=>$pesos[$i]['data'], 'peso'=>$pesos[$i]['peso']);
+                    $informacoes = array('data'=>$pesos[$i]['data'], 'peso'=>$pesos[$i]['valor']);
                     $tabela_peso[] = $informacoes;
                 }
             }
             $tabela_peso = array_reverse($tabela_peso);
         }
         else{
-            $tabela_peso = array(array('data'=>date("d-m-Y"), 'peso'=>0));
+            $tabela_peso = array(array('data'=>date("d/m/Y"), 'peso'=>0));
         }
         $plot = new PHPlot(500 , 500);
         $plot->SetTitle('Gráfico do seu peso');

@@ -48,36 +48,21 @@
             }
         }
 
-        $sql_peso = "SELECT * FROM peso WHERE id_nome = ".$id." ORDER BY data ASC";
-        $resultado = $conn->query($sql_peso);
-        if($resultado->num_rows > 0){
-            while($linha = $resultado->fetch_assoc()){
-                $data = $linha['data'];
-                $data_peso = DateTime::createFromFormat("Y-m-d", $data);
-                $informacoes = array('data'=>$data_peso->format("d/m/Y"), 'valor'=>$linha['peso']);
-                $tabela_pesos[] = $informacoes;
-            }
-        }
-        else{
-            $tabela_pesos = array(array('data'=>date("d/m/Y"), 'valor'=>0));
-        }
-
-        $sql_pressao = "SELECT * FROM pressao WHERE id_nome = ".$id." ORDER BY data ASC";
-        $resultado = $conn->query($sql_pressao);
-        if($resultado->num_rows > 0){
-            while($linha = $resultado->fetch_assoc()){
-                $data = $linha['data'];
-                $data_pressao = DateTime::createFromFormat("Y-m-d", $data);
-                $informacoes = array('data'=>$data_pressao->format("d/m/Y"), 'valor'=>$linha['pressao']);
-                $tabela_pressoes[] = $informacoes;
-            }
-        }
-        else{
-            $tabela_pressoes = array(array('data'=>date("d/m/Y"), 'valor'=>0));
-        }
-
         require('../parts/grafico_peso_pdf.php');
         require('../parts/grafico_pressao_pdf.php');
+        
+        if(count($pesos) != 0){
+            $pesos = array_reverse($pesos);
+        }
+        else{
+            $pesos = array(array('data'=>date("d/m/Y"), 'valor'=>0));
+        }
+        if(count($pressoes) != 0){
+            $pressoes = array_reverse($pressoes);
+        }
+        else{
+            $pressoes = array(array('data'=>date("d/m/Y"), 'valor'=>0));
+        }
 
         class PDF extends FPDF
         {
@@ -232,11 +217,11 @@
         $pdf->AddPage();
         $pdf->SetFont('Arial','',14);
         //$pdf->Image('uploads/peso.png',35,63,30);
-        $pdf->FancyTable($header_peso,$tabela_pesos,'Tabela de pesagem');
+        $pdf->FancyTable($header_peso,$pesos,'Tabela de pesagem');
 
         $pdf->Ln(30);
         //$pdf->Image('uploads/pressao.png',35,130,30);
-        $pdf->FancyTable($header_pressao,$tabela_pressoes,'Tabela de pressões');
+        $pdf->FancyTable($header_pressao,$pressoes,'Tabela de pressões');
 
         $pdf->Output();
     }

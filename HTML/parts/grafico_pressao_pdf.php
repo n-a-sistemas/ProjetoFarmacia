@@ -32,32 +32,34 @@
         if($resultado->num_rows > 0){
             while($linha = $resultado->fetch_assoc()){
                 $data = $linha['data'];
-                $data_pressao = DateTime::createFromFormat("Y-m-d", $data);
-                list($sistolica, $diastolica) = explode("/", $linha['pressao']);
-                $informacoes = array('data'=>$data_pressao->format("d-m-Y"), 'sistolica'=>(int)$sistolica, 'diastolica'=>(int)$diastolica);
+                $data_pressao = new DateTime($data);
+                $informacoes = array('data'=>$data_pressao->format("d/m/Y"), 'valor'=>$linha['pressao']);
                 $pressoes[] = $informacoes;
             }
             $pressoes = array_reverse($pressoes);
             for($i=0; $i<count($pressoes); $i++){
                 if($i<=5){
-                    $informacoes = array('data'=>$pressoes[$i]['data'], 'sistolica'=>$pressoes[$i]['sistolica'], 'diastolica'=>$pressoes[$i]['diastolica']);
+                    list($sistolica, $diastolica) = explode("/", $pressoes[$i]['valor']);
+                    $informacoes = array('data'=>$pressoes[$i]['data'], 'sistolica'=>(int)$sistolica, 'diastolica'=>(int)$diastolica);
                     $tabela_pressao[] = $informacoes;
                 }
             }
             $tabela_pressao = array_reverse($tabela_pressao);
         }
         else{
-            $tabela_pressao = array(array('data'=>date("d-m-Y"), 'sistolica'=>0, 'diastolica'=>0));
+            $tabela_pressao = array(array('data'=>date("d/m/Y"), 'sistolica'=>0, 'diastolica'=>0));
         }
         $legenda = array('Sistólica', 'Diastólica');
+        $plot = new PHPlot(500 , 500);
         $plot = new PHPlot(500 , 500);
         $plot->SetTitle('Gráfico da sua pressão');
         $plot->SetXTitle("Datas");
         $plot->SetYTitle("Pressão");
+        $plot->SetLegend($legenda);
+        $plot->SetLegendPosition(-4.9, 0.02, 'image', 0, 0, 0, 0);
         $plot->SetPrecisionY(1);
         $plot->SetPlotType("linepoints");
         $plot->SetDataValues($tabela_pressao);
-        $plot->SetLegend($legenda);
         $plot->SetXTickPos('none');
         $plot->SetYTickPos('none');
         $plot->SetXLabelFontSize(2);
