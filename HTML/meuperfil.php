@@ -1,7 +1,7 @@
 <?php
     session_start();
     unset($_SESSION["id_qrcode"]);
-    require("PHP/conn.php");
+    require_once("PHP/conn.php");
     $id = "";
     $adm = false;
     $foto_perfil = "";
@@ -89,7 +89,7 @@
 
 <body>
 
-    <?php include("./parts/navegacao.php"); ?>
+    <?php require("./parts/navegacao.php"); ?>
 
     <div class="container mt-5">
         <div class="row">
@@ -107,12 +107,13 @@
                         <div class="px-4 pt-0 pb-4">
                             <div class="card-body">
                                 <div>
-                                    <?php include("./parts/header_login.php"); ?>
+                                    <?php require("./parts/header_login.php"); ?>
                                     <div class="p-5 text-center">
                                         <a href="atualizar.php">
                                             <button type="button" class="btn btn-primary my-3">Atualizar Dados</button>
                                         </a>
-                                        <a href="imprimir_qrcode.php?id=<?php echo $qrcode;?>"><button class="btn btn-danger" type="button">Imprimir Qrcode</button></a>
+                                        <a href="imprimir_qrcode.php?id=<?php echo $qrcode;?>"><button
+                                                class="btn btn-danger" type="button">Imprimir Qrcode</button></a>
                                         <!--
                                         <button class="btn btn-danger" type="button" onclick="impressao();">Imprimir
                                             Qrcode</button>-->
@@ -227,12 +228,76 @@
                                     </div>
                                 </div>
 
+                                <div class="modal fade" id="modalPesoTable" tabindex="-1" role="dialog"
+                                    aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header text-center">
+                                                <h4 class="modal-title w-100 font-weight-bold">Tabela de Pesagem
+                                                </h4>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body mx-3">
+                                                <table class="table table-bordered table-hover">
+                                                    <thead class="thead-light">
+                                                        <tr>
+                                                            <th>Peso</th>
+                                                            <th>Data da Pesagem</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php require('parts/tabela_peso.php');?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal fade" id="modalPressaoTable" tabindex="-1" role="dialog"
+                                    aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header text-center">
+                                                <h4 class="modal-title w-100 font-weight-bold">Tabela de Pressões
+                                                </h4>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body mx-3">
+                                                <table class="table table-bordered table-hover">
+                                                    <thead class="thead-light">
+                                                        <tr>
+                                                            <th>Pressão</th>
+                                                            <th>Data da Pressão</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php require('parts/tabela_pressao.php');?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="d-flex justify-content-md-start justify-content-xl-around">
                                     <a href="" class="btn btn-danger btn-rounded btn-block m-3" data-toggle="modal"
                                         data-target="#modalPesoForm">Atualizar Peso</a>
 
                                     <a href="" class="btn btn-danger btn-rounded btn-block m-3" data-toggle="modal"
                                         data-target="#modalPressaoForm">Atualizar Pressão</a>
+                                </div>
+                                <div class="d-flex justify-content-md-start justify-content-xl-around">
+                                    <a href="" class="btn btn-danger btn-rounded btn-block m-3" data-toggle="modal"
+                                        data-target="#modalPesoTable">Mostra Tabela de Pesagem</a>
+                                    <a href="" class="btn btn-danger btn-rounded btn-block m-3" data-toggle="modal"
+                                        data-target="#modalPressaoTable">Mostra Tabela de Pressões</a>
                                 </div>
                             </div>
                         </div>

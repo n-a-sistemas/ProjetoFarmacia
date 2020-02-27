@@ -41,7 +41,7 @@
 </head>
 
 <body>
-    <?php include("./parts/navegacao.php");?>
+    <?php require("./parts/navegacao.php");?>
 
     <?php
         if($erro != ""){

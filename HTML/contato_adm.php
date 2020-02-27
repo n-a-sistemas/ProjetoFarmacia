@@ -33,8 +33,8 @@
 
 <body>
 
-    <?php include("./parts/navegacao.php"); ?>
-    <?php include("./parts/header_login.php"); ?>
+    <?php require("./parts/navegacao.php"); ?>
+    <?php require("./parts/header_login.php"); ?>
 
     <div class="container d-flex justify-content-center text-left p-5">
         <div class="row">

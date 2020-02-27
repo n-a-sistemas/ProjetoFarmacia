@@ -71,7 +71,7 @@
 
 <body>
 
-    <?php include("./parts/navegacao.php"); ?>
+    <?php require("./parts/navegacao.php"); ?>
 
     <div class="container mt-5">
         <div class="row">
@@ -84,7 +84,7 @@
                         <div class="px-4 pt-0 pb-4">
                             <div class="card-body">
                                 <div class="pb-2">
-                                    <?php include("./parts/header_login.php"); ?>
+                                    <?php require("./parts/header_login.php"); ?>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group form-group text-center">

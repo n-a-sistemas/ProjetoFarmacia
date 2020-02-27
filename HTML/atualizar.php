@@ -82,7 +82,7 @@
 </head>
 
 <body>
-    <?php include("./parts/navegacao.php"); ?>
+    <?php require("./parts/navegacao.php"); ?>
     <div class="container d-flex justify-content-center">
         <div class="row">
             <main>
