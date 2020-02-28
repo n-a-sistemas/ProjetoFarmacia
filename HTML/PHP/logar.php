@@ -14,14 +14,21 @@
                     $senha_bd = $linha['senha'];
                     $adm = $linha['adm'];
                     $id = $linha['id_nome'];
+                    $ativo = $linha['ativo'];
                 }
-                if($senha_bd == $senha){
-                    $_SESSION['adm'] = $adm;
-                    $_SESSION['id'] = $id;
-                    $_SESSION['erro_login'] = "";
+                if($ativo){
+                    if($senha_bd == $senha){
+                        $_SESSION['adm'] = $adm;
+                        $_SESSION['id'] = $id;
+                        $_SESSION['erro_login'] = "";
+                    }
+                    else{
+                        $erro = "Erro ao tentar logar no site, email e/ou senha incorretos";
+                        $_SESSION['erro_login'] = $erro;
+                    }
                 }
                 else{
-                    $erro = "Erro ao tentar logar no site, email e/ou senha incorretos";
+                    $erro = "Conta desabilitada, entre em contato conosco para reativá-la";
                     $_SESSION['erro_login'] = $erro;
                 }
             }

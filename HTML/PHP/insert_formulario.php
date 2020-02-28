@@ -63,6 +63,7 @@
             $arquivo = "";
             $senha = hash('sha256', $senha);
             $altura = str_replace(',','.', $altura);
+            $ativo = 1;
 
             $diretorio = "uploads/";
             if($_FILES['imagemUpload']['name'] != ""){
@@ -91,11 +92,12 @@
                 $tempDir = "qrcodes/";
                 $nomeqrcode = 'qrcode_'. $cpf . '.png';
                 $codeContents = 'http://localhost:8080/perfil.php?id=' . $id;
+                //$codeContents = 'https://projetofarmacia.000webhostapp.com/perfil.php?id=' . $id;
                 // generating
                 QRcode::png($codeContents, $tempDir. $nomeqrcode, QR_ECLEVEL_L, 2);  
 
-                $sql_pessoa = "INSERT INTO pessoa (nome,email,data_nascimento,cpf,sexo,telefone,alergia_doencas,tipo_sanguineo,telefone_emergencia,plano_saude,senha,altura,foto_qrcode,foto_perfil,adm,id_cidade,id_estado,cep,endereco,id_qrcode) 
-                        VALUES ('$nome', '$email','$datanascimento','$cpf','$sexo','$telefone','$alergiadoencas','$tiposanguineo','$contatoemergencia','$planodesaude','$senha','$altura','$tempDir$nomeqrcode','$arquivo', '$adm','$cidade','$estado','$cep','$endereco','$id')";
+                $sql_pessoa = "INSERT INTO pessoa (nome,email,data_nascimento,cpf,sexo,telefone,alergia_doencas,tipo_sanguineo,telefone_emergencia,plano_saude,senha,altura,foto_qrcode,foto_perfil,adm,id_cidade,id_estado,cep,endereco,id_qrcode,ativo) 
+                        VALUES ('$nome', '$email','$datanascimento','$cpf','$sexo','$telefone','$alergiadoencas','$tiposanguineo','$contatoemergencia','$planodesaude','$senha','$altura','$tempDir$nomeqrcode','$arquivo', '$adm','$cidade','$estado','$cep','$endereco','$id', '$ativo')";
                 if($conn->query($sql_pessoa) == TRUE){
                     $sql_select = "SELECT * FROM pessoa WHERE cpf ='" . $cpf . "' AND email ='" . $email . "'";
                     $resultado = $conn->query($sql_select);
