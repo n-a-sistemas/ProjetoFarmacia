@@ -16,6 +16,9 @@
                 $img = $linha['foto_qrcode'];
             }
         }
+        else{
+            header('Location: meuperfil.php');
+        }
     }
 ?>
 
@@ -26,7 +29,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Imprimir QRCode</title>
-    <script src="JS/jquery-3.4.1.min.js"></script>
 </head>
 
 <body>

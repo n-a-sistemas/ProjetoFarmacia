@@ -7,7 +7,7 @@
         $senha = $_POST['senha'];
         if($email != "" && $senha != ""){
             $senha = hash('sha256', $senha);
-            $sql = "SELECT `senha`, `id_nome`, `adm` FROM pessoa WHERE email ='" . $email . "'";
+            $sql = "SELECT `senha`, `id_nome`, `adm`, `ativo` FROM pessoa WHERE email ='" . $email . "'";
             $resultado = $conn->query($sql);
             if($resultado->num_rows == 1){
                 while($linha = $resultado->fetch_assoc()){

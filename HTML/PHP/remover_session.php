@@ -14,6 +14,6 @@
         $_SESSION[$session] = "";
     }
     if($page != ""){
-        header('Location: https://projetofarmacia.000webhostapp.com/'.$page);
+        header('Location: ../'.$page);
     }
 ?>
