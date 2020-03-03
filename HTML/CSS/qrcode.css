@@ -1,11 +1,6 @@
 body{
-    background:#ccc url(http://localhost:8080/ProjetoFarmacia/Documentação/pulseiraTeste.png) center center no-repeat;
+    background:#ccc url(http://localhost:8080/ProjetoFarmacia/Documentação/pulseiraTeste.png) top center no-repeat;
 }
 img {
-    top: 50%;
-    left: 50%;
-    width: 500px;
-    height: 500px;
-    margin-top: -250px; /* Half the height */
-    margin-left: -250px; /* Half the width */
- }
+    margin-top: 600px; 
+}
