@@ -259,14 +259,12 @@
                                     id="altura" data-mask="0.00" required>
                             </div>
                         </div>
-                    </fieldset>
-                    <div class="container form-group required">
-                        <label class="col-auto control-label font-weight-bold" for="imagemUpload">Foto de Perfil</label>
+                        <div class="container form-group required">
+                        <label class="col-auto control-label font-weight-bold p-0" for="imagemUpload">Foto de Perfil</label>
                         <div class="col-auto custom-file">
                             <input class="form-control custom-file-input" type="file" name="imagemUpload"
                                 value="Procurar..." accept="image/png ,image/jpeg">
-                            <label class="custom-file-label" for="customFile">Escolha a foto, de preferência com seu
-                                rosto</label>
+                            <label class="custom-file-label" for="customFile">Alterar imagem de perfil</label>
                         </div>
                     </div>
                     <div class="form-group">
@@ -274,6 +272,7 @@
                             <button type="submit" class="btn btn-danger btn-block">Atualizar</button>
                         </div>
                     </div>
+                    </fieldset>
                 </form>
             </main>
         </div>

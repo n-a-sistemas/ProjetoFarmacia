@@ -1,11 +1,3 @@
-$(document).ready(function () {
-    $("#mostra-pressao").click(function () {
-        $("#label_pressao").toggle();
-    });
-    $("#mostra-peso").click(function () {
-        $("#label_peso").toggle();
-    });
-});
 
 function confirmaSenha() {
     var errorSenha = document.getElementById("errorSenha");

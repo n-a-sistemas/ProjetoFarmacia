@@ -77,7 +77,8 @@
                             </div>
                         </div>
                         <div class="form-group required">
-                            <label for="confirmacao" class="col-auto control-label font-weight-bold">Confirmar senha</label>
+                            <label for="confirmacao" class="col-auto control-label font-weight-bold">Confirmar
+                                senha</label>
                             <div class="col-auto">
                                 <input type="password" name="confirmacao" id="confirmacao" minlength="5"
                                     onblur="confirmaSenha()" class="form-control"
@@ -106,7 +107,8 @@
                             </div>
                         </fieldset>
                         <div class="form-group required">
-                            <label for="data_nascimento" class="col-auto control-label font-weight-bold">Data de Nascimento</label>
+                            <label for="data_nascimento" class="col-auto control-label font-weight-bold">Data de
+                                Nascimento</label>
                             <div class="col-auto">
                                 <input type="date" name="data_nascimento" id="data_nascimento" class="form-control"
                                     required>
@@ -132,7 +134,8 @@
                             <label for="tel" class="col-auto text-muted">ex:(16)91111-4444</label>
                         </div>
                         <div class="form-group required">
-                            <label for="contato_emergencia" class="col-auto control-label font-weight-bold">Contato de Emergência</label>
+                            <label for="contato_emergencia" class="col-auto control-label font-weight-bold">Contato de
+                                Emergência</label>
                             <div class="col-auto">
                                 <input type="tel" name="contato_emergencia" id="contato_emergencia" minlength="14"
                                     maxlength="14" onblur="confirmaTelefone('contato_emergencia')" class="form-control"
@@ -179,7 +182,8 @@
                     <fieldset>
                         <legend>Dados sobre sua saúde</legend>
                         <div class="form-group required">
-                            <label for="tipo_sanguineo" class="col-auto control-label font-weight-bold">Tipo Sanguíneo</label>
+                            <label for="tipo_sanguineo" class="col-auto control-label font-weight-bold">Tipo
+                                Sanguíneo</label>
                             <div class="col-auto">
                                 <select class="form-control col-auto control-label" name="tipo_sanguineo"
                                     id="tipo_sanguineo" required>
@@ -196,7 +200,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-auto control-label font-weight-bold" for="alergias_doencas">Alergias ou Doenças</label>
+                            <label class="col-auto control-label font-weight-bold" for="alergias_doencas">Alergias ou
+                                Doenças</label>
                             <div class="col-auto">
                                 <textarea class="form-control" name="alergias_doencas" id="alergias_doencas" cols="30"
                                     rows="10"></textarea>
@@ -204,7 +209,8 @@
                             <label class="col-auto control-label text-muted" for="alergias_doencas">Opcional</label>
                         </div>
                         <div class="form-group">
-                            <label class="col-auto control-label font-weight-bold" for="plano_de_saude">Plano de saúde</label>
+                            <label class="col-auto control-label font-weight-bold" for="plano_de_saude">Plano de
+                                saúde</label>
                             <div class="col-auto">
                                 <input class="form-control" type="text" name="plano_de_saude" id="plano_de_saude">
                             </div>
@@ -225,7 +231,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-auto control-label font-weight-bold" for="data_peso">Data da Pesagem</label>
+                            <label class="col-auto control-label font-weight-bold" for="data_peso">Data da
+                                Pesagem</label>
                             <div class="col-auto">
                                 <input class="form-control" type="date" name="data_peso" id="data_peso">
                             </div>
@@ -239,27 +246,28 @@
                             <label class="col-auto control-label text-muted" for="pressao">Opcional, ex:120/60</label>
                         </div>
                         <div class="form-group">
-                            <label class="col-auto control-label font-weight-bold" for="data_pressao">Data da Pressão</label>
+                            <label class="col-auto control-label font-weight-bold" for="data_pressao">Data da
+                                Pressão</label>
                             <div class="col-sm-9">
                                 <input class="form-control" type="date" name="data_pressao" id="data_pressao">
                             </div>
                             <label class="col-auto control-label text-muted" for="data_peso">Opcional</label>
                         </div>
+                        <div class="container form-group">
+                        <label class="col-auto control-label font-weight-bold p-0" for="imagemUpload">Foto de
+                                Perfil</label>
+                            <div class="col-auto custom-file">
+                                <input class="form-control custom-file-input" type="file" name="imagemUpload"
+                                    value="Procurar..." accept="image/png ,image/jpeg">
+                                <label class="custom-file-label" for="customFile">Envie uma imagem de perfil</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+                            </div>
+                        </div>
                     </fieldset>
-                    <div class="container form-group">
-                        <label class="col-auto control-label font-weight-bold" for="imagemUpload">Foto de Perfil</label>
-                        <div class="col-auto custom-file">
-                            <input class="form-control custom-file-input" type="file" name="imagemUpload"
-                                value="Procurar..." accept="image/png ,image/jpeg">
-                            <label class="custom-file-label" for="customFile">Escolha a foto, de preferência com seu
-                                rosto</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-auto">
-                            <button type="submit" class="btn btn-primary btn-block">Enviar</button>
-                        </div>
-                    </div>
                 </form>
             </main>
         </div>
