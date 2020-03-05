@@ -41,12 +41,16 @@
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
     <link rel="stylesheet" href="CSS/qrcode.css" />
 </head>
+<!---->
 
-<body>
+<body onload="window.print();window.close();">
     <div class="container d-flex justify-content-center">
         <div class="row">
-            <div class="d-flex justify-content-center">
-                <img src="PHP/<?php echo $img;?>" class="">
+            <div>
+                <img src="IMG/pulseiraTeste.png" class="img-fluid" id="fita" >
+            </div>
+            <div>
+                <img src="PHP/<?php echo $img;?>" id="qrcode" class="img-fluid">
             </div>
         </div>
     </div>

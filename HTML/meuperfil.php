@@ -113,16 +113,13 @@
                                             <button type="button" class="btn btn-primary my-3">Atualizar Dados</button>
                                         </a>
                                         <a href="imprimir_qrcode.php?id=<?php echo $qrcode;?>"><button
-                                                class="btn btn-danger" type="button" onClick="window.print()">Imprimir Qrcode</button></a>
+                                                class="btn btn-danger" type="button">Imprimir Qrcode</button></a>
                                         <!--
                                         <button class="btn btn-danger" type="button" onclick="impressao();">Imprimir
                                             Qrcode</button>-->
 
                                         <a href="PHP/imprimir_pdf.php"><button class="btn btn-success"
                                                 type="button">Imprimir PDF</button></a>
-                                        <div id="printable">
-                                            <img src="PHP/<?php echo $img;?>">
-                                        </div>
                                     </div>
                                 </div>
                                 <div id='dados'>
