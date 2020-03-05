@@ -1,18 +1,8 @@
-body{
-    background-color: #ccc;
+#container, #fita{
+    position: relative;
 }
-#fita{
-    min-width: 600px;
-}
-
-@media print{
-    body{
-        background: #ccc url(http://localhost:8080/ProjetoFarmacia/HTML/IMG/pulseiraTeste.png) top center no-repeat;
-    }
-    #fita{
-        display: none;
-    }
-    #qrcode{
-        margin-top: 600px;
-    }
+#qrcode{
+    position: absolute;
+    top: 600px; 
+    left: 412px;
 }

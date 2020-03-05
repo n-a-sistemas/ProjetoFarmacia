@@ -79,6 +79,7 @@
     <script src="JS/jquery-3.4.1.min.js"></script>
     <script src="JS/cadastro.js"></script>
     <script type="text/javascript" src="JS/bootstrap.min.js"></script>
+    <link rel="icon" href="PHP/uploads/logo.png">
 </head>
 
 <body>

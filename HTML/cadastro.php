@@ -30,11 +30,13 @@
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
     <script src="JS/jquery-3.4.1.min.js"></script>
+    <script src="JS/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script src="JS/cadastro.js"></script>
     <script type="text/javascript" src="JS/bootstrap.min.js"></script>
     <link rel="stylesheet" href="CSS/bootstrap.min.css" />
     <link rel="stylesheet" href="CSS/estilos.css" />
     <link rel="stylesheet" href="CSS/cadastro.css">
+    <link rel="icon" href="PHP/uploads/logo.png">
 </head>
 
 <body>

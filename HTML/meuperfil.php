@@ -85,6 +85,7 @@
     <link rel="stylesheet" href="CSS/estilos.css" />
     <link rel="stylesheet" href="CSS/cadastro.css">
     <script src="JS/cadastro.js"></script>
+    <link rel="icon" href="PHP/uploads/logo.png">
 </head>
 
 <body>

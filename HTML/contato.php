@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="CSS/bootstrap.min.css" />
     <link rel="stylesheet" href="CSS/estilos.css" />
     <link rel="stylesheet" href="CSS/contato.css" />
+    <link rel="icon" href="PHP/uploads/logo.png">
 </head>
 
 <body>
