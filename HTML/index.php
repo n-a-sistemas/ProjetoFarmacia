@@ -90,7 +90,7 @@
                                 <a href="recuperar_senha.php">Redefina sua senha</a>
                             </div>
                             <div class="d-flex justify-content-center links">
-                                Não é Cadastrado?<a href="cadastro.php">Cadastre-se</a>
+                                <pre>Não é Cadastrado?<a href="cadastro.php">Cadastre-se</a></pre>
                             </div>
                         </div>
                     </div>

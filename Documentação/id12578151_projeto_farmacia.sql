@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.4
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Tempo de geração: 19-Fev-2020 às 16:58
--- Versão do servidor: 10.3.16-MariaDB
--- versão do PHP: 7.3.12
+-- Host: 127.0.0.1
+-- Tempo de geração: 06-Mar-2020 às 20:45
+-- Versão do servidor: 10.4.11-MariaDB
+-- versão do PHP: 7.2.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -5684,23 +5684,6 @@ CREATE TABLE `peso` (
   `data` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Extraindo dados da tabela `peso`
---
-
-INSERT INTO `peso` (`id_peso`, `id_nome`, `peso`, `data`) VALUES
-(1, 1, 60, '2020-02-14'),
-(2, 2, 60, '2020-02-14'),
-(3, 3, 60, '2020-02-14'),
-(4, 4, 500, '2020-02-14'),
-(5, 5, 60, '2020-02-14'),
-(6, 6, 60, '2020-02-14'),
-(7, 7, 100, '2020-02-14'),
-(8, 8, 64, '2020-02-14'),
-(9, 8, 63, '2020-02-13'),
-(10, 2, 50, '2020-02-17'),
-(11, 2, 75, '2020-02-17');
-
 -- --------------------------------------------------------
 
 --
@@ -5732,18 +5715,6 @@ CREATE TABLE `pessoa` (
   `plano_saude` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Extraindo dados da tabela `pessoa`
---
-
-INSERT INTO `pessoa` (`id_nome`, `nome`, `senha`, `email`, `endereco`, `id_estado`, `id_cidade`, `cep`, `foto_perfil`, `foto_qrcode`, `id_qrcode`, `data_nascimento`, `sexo`, `cpf`, `telefone`, `telefone_emergencia`, `altura`, `adm`, `ativo`, `tipo_sanguineo`, `alergia_doencas`, `plano_saude`) VALUES
-(2, 'Kevyn Aparecido de Oliveira Bispo', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', 'kaparecido483@gmail.com', 'Rua 15', 26, 5254, '11111-111', 'uploads/user.png', 'qrcodes/qrcode_111.111.111-11.png', '70601ec4abd36e052ff5a57f85d11849641d1caebe88135025067808c5a5d6d4', '2001-11-02', 'Masculino', '111.111.111-11', '(16)91111-4444', '(16)94444-2222', 2.00, 1, 1, 'A+', 'Nenhum', 'Nenhum'),
-(4, 'Gaduh Boi de Ouro', '46070d4bf934fb0d4b06d9e2c46e346944e322444900a435d7d9a95e6d7435f5', 'boi.d.ouro@gmail.com', 'Paulistano', 26, 5254, '13575-400', 'uploads/Boi_de_ouro.jpg', 'qrcodes/qrcode_599.281.900-20.png', '24cc93065fb90851122d689dd9221a93f6adb76f6dc228ead3a9d700dd16c0d4', '2001-02-14', 'Outros', '599.281.900-20', '(59)92819-0020', '(59)92819-0020', 2.00, 0, 1, 'AB-', 'Alergia a vegano.', 'Nenhum'),
-(5, 'Kevyn Aparecido de Oliveira Bispo', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', 'kaparecido@gmail.com', 'Rua 15', 26, 5254, '11111-111', 'uploads/user.png', 'qrcodes/qrcode_570.837.370-96.png', 'f754dfe852c8314077ff52b0b18895a5c259ba61e927371e7bc91fcd90837e48', '2001-11-02', 'Masculino', '570.837.370-96', '(16)91111-4444', '(16)94444-2222', 1.50, 0, 0, 'A+', 'Nenhum', 'Nenhum'),
-(6, 'Kevyn Aparecido de Oliveira Bispo', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', 'kaparecido6@gmail.com', 'Rua 15', 26, 5254, '11111-111', 'uploads/user.png', 'qrcodes/qrcode_454.154.160-21.png', '649fd6162ff95d248d73b3abee0802bcfe21e41b593b40844e8da9ebd88bbfd1', '2001-11-02', 'Masculino', '454.154.160-21', '(16)91111-4444', '(16)94444-2222', 1.50, 0, 0, 'A+', 'Nenhum', 'Nenhum'),
-(7, 'Ciclope', '46070d4bf934fb0d4b06d9e2c46e346944e322444900a435d7d9a95e6d7435f5', 'crobra.sega@gmail.com', 'Paulistano', 26, 5254, '13575-400', 'uploads/Bestiário-Criativo-Tomo-4-Enéias-Tavares-cosmonerd-capa-post.jpg', 'qrcodes/qrcode_486.337.310-45.png', 'e974f6ac069b538bbfb0a3439008b5f2ba2a8de13c0c5d9e61a370d61943d433', '1998-02-14', 'Outros', '486.337.310-45', '(48)63373-1045', '(48)63373-1045', 1.70, 0, 1, 'AB-', 'RGB', 'Nenhum'),
-(8, 'Leonardo Henrique Tochio', '46070d4bf934fb0d4b06d9e2c46e346944e322444900a435d7d9a95e6d7435f5', 'leozin.h.t@gmail.com', 'Paulistano', 26, 5242, '13575-400', 'uploads/logo.png', 'qrcodes/qrcode_839.214.460-07.png', 'e5b8ef5aac7cbab8a9ca3d205a245f8e4633eec746718d1f403e69fd4dd522ae', '2002-02-20', 'Masculino', '839.214.460-07', '(83)92144-6007', '(83)92144-6007', 1.76, 1, 1, 'O+', 'Alergia a Gado.', 'Nenhum');
-
 -- --------------------------------------------------------
 
 --
@@ -5756,18 +5727,6 @@ CREATE TABLE `pressao` (
   `pressao` varchar(20) NOT NULL,
   `data` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `pressao`
---
-
-INSERT INTO `pressao` (`id_pressao`, `id_nome`, `pressao`, `data`) VALUES
-(1, 4, '060/060', '2020-02-14'),
-(2, 7, '040/060', '2020-02-14'),
-(3, 8, '120/060', '2020-02-14'),
-(4, 2, '100/60', '2020-02-17'),
-(5, 2, '120/60', '2020-02-17'),
-(6, 2, '150/90', '2020-02-18');
 
 -- --------------------------------------------------------
 
@@ -5782,48 +5741,6 @@ CREATE TABLE `token` (
   `data_criacao` datetime NOT NULL,
   `valido` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `token`
---
-
-INSERT INTO `token` (`id_token`, `token`, `email`, `data_criacao`, `valido`) VALUES
-(1, 'ae8703d2521b33179f84f6ffef337269', 'kaparecido483@gmail.com', '2020-02-14 15:57:02', 0),
-(2, 'd060fe0b93c5eda30f13154d8e1bbd61', 'kaparecido483@gmail.com', '2020-02-14 16:01:46', 0),
-(3, 'd6a4234c743abf0bb4ca26bc81e3ee27', 'kaparecido483@gmail.com', '2020-02-14 16:07:26', 0),
-(4, 'ed6747a450d3bf76ac3999741e39d680', 'kaparecido483@gmail.com', '2020-02-14 16:11:25', 0),
-(5, 'ff308913b714d62cd902b52d47c71ce8', 'kaparecido483@gmail.com', '2020-02-14 16:15:19', 0),
-(6, '804711362adcf21c37c36e4ccb3e30d5', 'kaparecido483@gmail.com', '2020-02-14 16:16:15', 0),
-(7, '256825d5f00465c53600ca4e7ee2085d', 'kaparecido483@gmail.com', '2020-02-14 16:17:25', 0),
-(8, 'e5a4e060c27cdbd2bb75c7ca57ffedc3', 'kaparecido483@gmail.com', '2020-02-14 16:19:33', 0),
-(9, '833aa36d1368e1cd46bb967821d18c46', 'kaparecido483@gmail.com', '2020-02-14 16:21:03', 0),
-(10, 'b376f8e5e7cad074e32d192e69395a75', 'kaparecido483@gmail.com', '2020-02-14 16:21:23', 0),
-(11, '54864e06456cd244cb71a298e8a4a6e9', 'kaparecido483@gmail.com', '2020-02-14 16:22:38', 0),
-(12, 'd226cb484c9b5b733e5c0d1a1a5d9947', 'kaparecido483@gmail.com', '2020-02-14 16:24:36', 0),
-(13, '6d06819fbab62e69c30c8c9027e4c087', 'kaparecido483@gmail.com', '2020-02-14 16:26:38', 0),
-(14, '73dd74a73bbf893e30a24d122c0bf494', 'kaparecido483@gmail.com', '2020-02-14 16:26:44', 0),
-(15, '0a745103007f26b55c16c6fa05c3f072', 'kaparecido483@gmail.com', '2020-02-14 16:26:48', 0),
-(16, '05fbf210f339b73fc4e95eee6610254e', 'kaparecido483@gmail.com', '2020-02-14 16:28:04', 0),
-(17, '99d30f8ecd1d55de900cdaeef3726906', 'kaparecido483@gmail.com', '2020-02-14 16:28:48', 0),
-(18, 'b98352e53c098b72766b0698def9f7f6', 'kaparecido483@gmail.com', '2020-02-14 16:32:22', 0),
-(19, '0adf82764e9d672fabacaae1876f1f25', 'kaparecido483@gmail.com', '2020-02-14 16:33:49', 0),
-(20, '39a966f05324704f97c70c2ad6f77ce8', 'kaparecido483@gmail.com', '2020-02-14 16:34:05', 0),
-(21, '87cd9146d0e727fb93934e81a4275710', 'kaparecido483@gmail.com', '2020-02-14 16:35:55', 0),
-(22, 'c3a3d0f3562e85e14e4ffda099f9d605', 'kaparecido483@gmail.com', '2020-02-14 16:36:26', 0),
-(23, '61e9e338b36e63df1e79c0a47bc98142', 'kaparecido483@gmail.com', '2020-02-14 17:58:18', 0),
-(24, 'fdae15a1ede86b828a418007b825bfa1', 'kaparecido483@gmail.com', '2020-02-14 18:01:05', 0),
-(25, '2e9636b8ad2699946b5cb7cc375dca1b', 'kaparecido483@gmail.com', '2020-02-14 18:02:50', 0),
-(26, '597cf7acf9e7e683a9b1d9c5c8019039', 'kaparecido483@gmail.com', '2020-02-14 18:03:42', 0),
-(27, '792a6471ea69b6d2b4feecca443320ad', 'kaparecido483@gmail.com', '2020-02-14 18:05:03', 0),
-(28, 'bdc43281893d8a11399c555fed7ab5a6', 'kaparecido483@gmail.com', '2020-02-14 18:05:06', 0),
-(29, 'b4cfdfdac2bb4f3e18ae11cab804c84e', 'kaparecido483@gmail.com', '2020-02-14 18:07:15', 0),
-(30, '6c901b82331f383938cd97bff3b83638', 'kaparecido483@gmail.com', '2020-02-14 18:07:35', 0),
-(31, '9bdf9cde85fab964d2efbb3fce4d98dd', 'kaparecido483@gmail.com', '2020-02-14 18:12:42', 0),
-(32, '55e0c5ba73d1ec00f8a07e4f691c28fb', 'kaparecido483@gmail.com', '2020-02-14 18:15:15', 0),
-(33, '816762a3c3cdbf9d2cea5fad0ecbaf2c', 'kaparecido483@gmail.com', '2020-02-14 18:17:43', 0),
-(34, '57b60b9b931d7539390e54f2c027ac57', 'kaparecido483@gmail.com', '2020-02-14 18:18:54', 0),
-(35, 'b060d92142427e16c0d9987c66aac564', 'kaparecido483@gmail.com', '2020-02-16 14:10:20', 0),
-(36, '1cf02dfe2b604234607df2847b3c364f', 'kaparecido483@gmail.com', '2020-02-17 14:04:57', 0);
 
 --
 -- Índices para tabelas despejadas
@@ -5899,25 +5816,25 @@ ALTER TABLE `pais`
 -- AUTO_INCREMENT de tabela `peso`
 --
 ALTER TABLE `peso`
-  MODIFY `id_peso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_peso` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `pessoa`
 --
 ALTER TABLE `pessoa`
-  MODIFY `id_nome` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_nome` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `pressao`
 --
 ALTER TABLE `pressao`
-  MODIFY `id_pressao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_pressao` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `token`
 --
 ALTER TABLE `token`
-  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
