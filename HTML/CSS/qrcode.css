@@ -6,3 +6,8 @@
     top: 600px; 
     left: 412px;
 }
+@media print{
+    a{
+        display: none;
+    }
+}

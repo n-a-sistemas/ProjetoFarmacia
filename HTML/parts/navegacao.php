@@ -39,7 +39,7 @@
         <div class="navbar navbar-dark shadows-sm">
             <div class="container d-flex justify-content-between">
                 <a href="index.php" class="navbar-brand d-flex align-items-center">
-                    <img src="IMG/logo.svg" alt="logo" width="50" height="50" class="d-inline-block align-top">
+                    <img src="IMG/logo.png" alt="logo" width="50" height="50" class="d-inline-block align-top">
                     <strong id="fmc">Fármacia</strong>
                 </a>
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"

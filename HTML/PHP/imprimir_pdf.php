@@ -69,7 +69,7 @@
             function Header()
             {
                 // Logo
-                $this->Image('./uploads/logo.png',10,6,30);
+                $this->Image('../IMG/logo.png',10,6,30);
                 // Arial bold 15
                 $this->SetFont('Arial','B',15);
                 // Move to the right

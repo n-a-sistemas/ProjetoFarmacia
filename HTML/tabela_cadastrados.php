@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require('PHP/conn.php');
     unset($_SESSION["id_qrcode"]);
     $erro = "";
     $tipo = "";
@@ -26,8 +27,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabela de emails cadastrados</title>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    <script src="JS/jquery-3.4.1.min.js"></script>
     </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
@@ -59,6 +59,12 @@
                     <div class="bg-white shadow rounded overflow-hidden">
                         <div class="px-4 pt-0 pb-4">
                             <div class="card-body">
+                                <div>
+                                    <select id="ativo">
+                                        <option value="0">Mostrar emails desabilitados</option>
+                                        <option value="1" selected >Mostrar emails ativos</option>
+                                    </select>
+                                </div>
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-hover">
                                         <thead class="thead-light">
@@ -71,8 +77,7 @@
                                                 <th colspan="3"></th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <?php require('./parts/tabela_emails.php'); ?>
+                                        <tbody id="tbody">
                                         </tbody>
                                     </table>
                                 </div>
@@ -83,6 +88,7 @@
             </main>
         </div>
     </div>
+    <script src="JS/tabela.js"></script>
 </body>
 
 </html>

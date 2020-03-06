@@ -1,11 +1,12 @@
 <?php
-    require('PHP/conn.php');
-    $id = "";
-    if(isset($_SESSION['id'])){
-        $id = $_SESSION['id'];
+    require('../PHP/conn.php');
+    
+    $ativo = "1";
+    if(isset($_POST['ativo'])){
+        $ativo = $_POST['ativo'];
     }
 
-    $sql = "SELECT * FROM pessoa WHERE ativo = 1";
+    $sql = "SELECT * FROM pessoa WHERE ativo = '$ativo'";
     $resultado = $conn->query($sql);
 
     if($resultado->num_rows > 0){
@@ -25,7 +26,12 @@
             echo "<td><a href='perfil.php?id=".$linha['id_qrcode']."'>Ver usuário</a></td>";
             echo "<td><a href='PHP/reset_senha.php?id=".$linha['id_nome']."'>Resetar senha</a></td>";
             if(!$linha['adm']){
-                echo "<td><a href='PHP/desabilitar_usuario.php?id=".$linha['id_nome']."'>Desabilitar usuário</a></td>";
+                if($ativo == "1"){
+                    echo "<td><a href='PHP/alterar_ativo.php?id=".$linha['id_nome']."&ativo=0'>Desabilitar usuário</a></td>";
+                }
+                else{
+                    echo "<td><a href='PHP/alterar_ativo.php?id=".$linha['id_nome']."&ativo=1'>Habilitar usuário</a></td>";
+                }
             }
             else{
                 echo "<td></td>";
