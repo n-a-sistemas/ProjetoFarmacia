@@ -47,7 +47,7 @@
     <div class="container d-flex justify-content-center">
         <div class="row">
             <div id="container">
-                <img src="IMG/pulseiraTeste.png" id="fita" class="img-fluid">
+                <img src="IMG/PulseiraV1.png" id="fita" class="img-fluid">
                 <img src="PHP/<?php echo $img;?>" id="qrcode" class="img-fluid">
             </div>
             <a href="meuperfil.php">Voltar</a>
