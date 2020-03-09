@@ -53,32 +53,41 @@
                             include("./parts/erro.php");
                         }
                     ?>
+
                     <div class="card-header text-center">
                         <h1>Tabela de todos email cadastrados</h1>
                     </div>
+
                     <div class="bg-white shadow rounded overflow-hidden">
                         <div class="px-4 pt-0 pb-4">
                             <div class="card-body">
                                 <div>
                                     <select id="ativo">
                                         <option value="0">Mostrar emails desabilitados</option>
-                                        <option value="1" selected >Mostrar emails ativos</option>
+
+                                        <option value="1" selected>Mostrar emails ativos</option>
                                     </select>
                                 </div>
+
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-hover">
                                         <thead class="thead-light">
                                             <tr>
                                                 <th></th>
+
                                                 <th>Nome</th>
+
                                                 <th>Email</th>
+
                                                 <th>Telefone</th>
+
                                                 <th>Contato de Emergência</th>
+
                                                 <th colspan="3"></th>
                                             </tr>
                                         </thead>
-                                        <tbody id="tbody">
-                                        </tbody>
+
+                                        <tbody id="tbody"></tbody>
                                     </table>
                                 </div>
                             </div>

@@ -81,33 +81,64 @@
                     <div class="card-header text-center">
                         <h1>Meu Perfil</h1>
                     </div>
+
                     <div class="bg-white shadow rounded overflow-hidden">
                         <div class="px-4 pt-0 pb-4">
                             <div class="card-body">
                                 <div class="pb-2">
                                     <?php require("./parts/header_login.php"); ?>
                                 </div>
+
                                 <div class="form-group">
                                     <div class="input-group form-group text-center">
                                         <h2>Dados Pessoais</h2>
                                     </div>
-                                    <p><strong>Email:</strong> <?php echo $email; ?></p>
-                                    <p><strong>Sexo:</strong> <?php echo $sexo; ?></p>
-                                    <p><strong>Data de Nascimento:</strong>
-                                        <?php echo $datanascimento->format("d/m/Y"); ?></p>
-                                    <p><strong>Altura:</strong> <?php echo $altura . "m"; ?></p>
-                                    <p><strong>CPF:</strong> <?php echo $cpf; ?></p>
-                                    <p><strong>CEP:</strong> <?php echo $cep; ?></p>
-                                    <p><strong>Cidade/Estado:</strong> <?php echo $cidade . "/" . $estado; ?></p>
-                                    <p><strong>Endereço:</strong> <?php echo $endereco; ?></p>
-                                    <p><strong>Telefone:</strong> <?php echo $telefone; ?></p>
-                                    <p><strong>Contato de Emergência:</strong> <?php echo $contatoemergencia; ?></p>
-                                    <p><strong>Tipo Sanguíneo:</strong> <?php echo $tiposanguineo; ?></p>
-                                    <p><strong>Alergias ou Doenças:</strong> <?php echo $alergiadoencas; ?></p>
-                                    <p><strong>Plano de Saúde:</strong> <?php echo $planodesaude; ?></p>
+
+                                    <div class="container">
+                                        <div class="row">
+                                            <label class="col-12"><strong>Email:</strong>
+                                                <?php echo $email; ?></label>
+
+                                            <label class="col-12"><strong>Sexo:</strong>
+                                                <?php echo $sexo; ?></label>
+                                                
+                                            <label class="col-12"><strong>Data de Nascimento:</strong>
+                                                <?php echo $datanascimento->format("d/m/Y"); ?></label>
+
+                                            <label class="col-12"><strong>Altura:</strong>
+                                                <?php echo $altura . "m"; ?></label>
+
+                                            <label class="col-12"><strong>CPF:</strong> <?php echo $cpf; ?></label>
+
+                                            <label class="col-12"><strong>CEP:</strong> <?php echo $cep; ?></label>
+
+                                            <label class="col-12"><strong>Cidade/Estado:</strong>
+                                                <?php echo $cidade . "/" . $estado; ?></label>
+
+                                            <label class="col-12"><strong>Endereço:</strong>
+                                                <?php echo $endereco; ?></label>
+
+                                            <label class="col-12"><strong>Telefone:</strong>
+                                                <?php echo $telefone; ?></label>
+
+                                            <label class="col-12"><strong>Contato de Emergência:</strong>
+                                                <?php echo $contatoemergencia; ?></label>
+
+                                            <label class="col-12"><strong>Tipo Sanguíneo:</strong>
+                                                <?php echo $tiposanguineo; ?></label>
+
+                                            <label class="col-12"><strong>Alergias ou Doenças:</strong>
+                                                <?php echo $alergiadoencas; ?></label>
+
+                                            <label class="col-12"><strong>Plano de Saúde:</strong>
+                                                <?php echo $planodesaude; ?></label>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div>
-                                    <img class="img-fluid grafico" src="./parts/grafico_peso.php" alt="Gráfico do seu peso">
+                                    <img class="img-fluid grafico" src="./parts/grafico_peso.php"
+                                        alt="Gráfico do seu peso">
+
                                     <img class="img-fluid grafico" src="./parts/grafico_pressao.php"
                                         alt="Gráfico da sua pressão">
                                 </div>
@@ -119,4 +150,5 @@
         </div>
     </div>
 </body>
+
 </html>

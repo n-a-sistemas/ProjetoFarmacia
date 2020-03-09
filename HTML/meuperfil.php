@@ -109,69 +109,107 @@
                             <div class="card-body">
                                 <div>
                                     <?php require("./parts/header_login.php"); ?>
+
                                     <div class="p-5 text-center">
                                         <a href="atualizar.php">
-                                            <button type="button" class="btn btn-primary my-3">Atualizar Dados</button>
+                                            <button type="button" class="btn btn-primary col-lg-3">Atualizar
+                                                Dados</button>
                                         </a>
-                                        <a href="imprimir_qrcode.php?id=<?php echo $qrcode;?>"><button
-                                                class="btn btn-danger" type="button">Imprimir Qrcode</button></a>
-                                        <!--
-                                        <button class="btn btn-danger" type="button" onclick="impressao();">Imprimir
-                                            Qrcode</button>-->
 
-                                        <a href="PHP/imprimir_pdf.php"><button class="btn btn-success"
-                                                type="button">Imprimir PDF</button></a>
+                                        <a href="imprimir_qrcode.php?id=<?php echo $qrcode;?>">
+                                            <button class="btn btn-danger my-3 col-lg-3" type="button">Imprimir
+                                                Qrcode</button>
+                                        </a>
+
+                                        <a href="PHP/imprimir_pdf.php">
+                                            <button class="btn btn-success col-lg-3" type="button">Imprimir PDF</button>
+                                        </a>
                                     </div>
                                 </div>
+
                                 <div id='dados'>
                                     <div class="form-group">
                                         <div class="input-group form-group text-center">
                                             <h2>Dados Pessoais</h2>
                                         </div>
-                                        <p><strong>Email:</strong> <?php echo $email; ?></p>
-                                        <p><strong>Sexo:</strong> <?php echo $sexo; ?></p>
-                                        <p><strong>Data de Nascimento:</strong>
-                                            <?php echo $datanascimento->format("d/m/Y"); ?></p>
-                                        <p><strong>Altura:</strong> <?php echo $altura . "m"; ?></p>
-                                        <p><strong>CPF:</strong> <?php echo $cpf; ?></p>
-                                        <p><strong>CEP:</strong> <?php echo $cep; ?></p>
-                                        <p><strong>Cidade/Estado:</strong> <?php echo $cidade . "/" . $estado; ?></p>
-                                        <p><strong>Endereço:</strong> <?php echo $endereco; ?></p>
-                                        <p><strong>Telefone:</strong> <?php echo $telefone; ?></p>
-                                        <p><strong>Contato de Emergência:</strong> <?php echo $contatoemergencia; ?></p>
-                                        <p><strong>Tipo Sanguíneo:</strong> <?php echo $tiposanguineo; ?></p>
-                                        <p><strong>Alergias ou Doenças:</strong> <?php echo $alergiadoencas; ?></p>
-                                        <p><strong>Plano de Saúde:</strong> <?php echo $planodesaude; ?></p>
+                                        <div class="container">
+                                            <div class="row">
+                                                <label class="col-12"><strong>Email:</strong>
+                                                    <?php echo $email; ?></label>
+
+                                                <label class="col-12"><strong>Sexo:</strong>
+                                                    <?php echo $sexo; ?></label>
+                                                    
+                                                <label class="col-12"><strong>Data de Nascimento:</strong>
+                                                    <?php echo $datanascimento->format("d/m/Y"); ?></label>
+
+                                                <label class="col-12"><strong>Altura:</strong>
+                                                    <?php echo $altura . "m"; ?></label>
+
+                                                <label class="col-12"><strong>CPF:</strong> <?php echo $cpf; ?></label>
+
+                                                <label class="col-12"><strong>CEP:</strong> <?php echo $cep; ?></label>
+
+                                                <label class="col-12"><strong>Cidade/Estado:</strong>
+                                                    <?php echo $cidade . "/" . $estado; ?></label>
+
+                                                <label class="col-12"><strong>Endereço:</strong>
+                                                    <?php echo $endereco; ?></label>
+
+                                                <label class="col-12"><strong>Telefone:</strong>
+                                                    <?php echo $telefone; ?></label>
+
+                                                <label class="col-12"><strong>Contato de Emergência:</strong>
+                                                    <?php echo $contatoemergencia; ?></label>
+
+                                                <label class="col-12"><strong>Tipo Sanguíneo:</strong>
+                                                    <?php echo $tiposanguineo; ?></label>
+
+                                                <label class="col-12"><strong>Alergias ou Doenças:</strong>
+                                                    <?php echo $alergiadoencas; ?></label>
+
+                                                <label class="col-12"><strong>Plano de Saúde:</strong>
+                                                    <?php echo $planodesaude; ?></label>
+                                            </div>
+                                        </div>
                                     </div>
+
                                     <div>
                                         <img class='img-fluid' src='./parts/grafico_peso.php' alt='Gráfico do seu peso'>
+
                                         <img class='img-fluid' src='./parts/grafico_pressao.php'
                                             alt='Gráfico da sua pressão'>
                                     </div>
                                 </div>
+
                                 <div class="modal fade" id="modalPesoForm" tabindex="-1" role="dialog"
                                     aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header text-center">
                                                 <h4 class="modal-title w-100 font-weight-bold">Atualizar Peso</h4>
+
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
+
                                             <div class="modal-body mx-3">
                                                 <form action="PHP/insert_peso.php" method="post">
                                                     <div class="md-form mb-5">
                                                         <label for="peso" data-error="wrong" data-success="right"
                                                             class="col-auto control-label">Peso:</label>
+
                                                         <input type="text" name="peso" id="peso" data-mask="0,00"
                                                             data-mask-reverse="true" class="form-control">
                                                     </div>
+
                                                     <div class="md-form mb-4">
                                                         <label data-error="wrong" data-success="right" for="data_peso"
                                                             class="col-auto control-label">Data
                                                             da Pesagem:</label>
+
                                                         <input type="date" name="data_peso" id="data_peso"
                                                             class="form-control">
 
@@ -179,6 +217,7 @@
                                                             data
                                                             atual.</label>
                                                     </div>
+
                                                     <div class="modal-footer d-flex justify-content-center">
                                                         <button type="submit" class="btn btn-danger">Atualizar</button>
                                                     </div>
@@ -194,29 +233,36 @@
                                         <div class="modal-content">
                                             <div class="modal-header text-center">
                                                 <h4 class="modal-title w-100 font-weight-bold">Atualizar Pressão</h4>
+
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
+
                                             <div class="modal-body mx-3">
                                                 <form action="PHP/insert_pressao.php" method="post">
                                                     <div class="md-form mb-5">
                                                         <label for="pressao" data-error="wrong" data-success="right"
                                                             class="col-auto control-label">Pressão:</label>
+
                                                         <input type="text" name="pressao" id="pressao"
                                                             data-mask="000/000" class=" form-control">
                                                     </div>
+
                                                     <div class="md-form mb-4">
                                                         <label data-error="wrong" data-success="right"
                                                             for="data_pressao" class="col-auto control-label">Data
                                                             da Pressão:</label>
+
                                                         <input type="date" name="data_pressao" id="data_pressao"
                                                             class=" form-control">
+
                                                         <label for="data_peso">*Se deixar vazio o campo, ele enviará a
                                                             data
                                                             atual.</label>
                                                     </div>
+
                                                     <div class="modal-footer d-flex justify-content-center">
                                                         <button class="btn btn-danger">Atualizar</button>
                                                     </div>
@@ -231,21 +277,24 @@
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header text-center">
-                                                <h4 class="modal-title w-100 font-weight-bold">Tabela de Pesagem
-                                                </h4>
+                                                <h4 class="modal-title w-100 font-weight-bold">Tabela de Pesagem</h4>
+
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
+
                                             <div class="modal-body mx-3">
                                                 <table class="table table-bordered table-hover">
                                                     <thead class="thead-light">
                                                         <tr>
                                                             <th>Peso</th>
+
                                                             <th>Data da Pesagem</th>
                                                         </tr>
                                                     </thead>
+
                                                     <tbody>
                                                         <?php require('parts/tabela_peso.php');?>
                                                     </tbody>
@@ -260,21 +309,24 @@
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header text-center">
-                                                <h4 class="modal-title w-100 font-weight-bold">Tabela de Pressões
-                                                </h4>
+                                                <h4 class="modal-title w-100 font-weight-bold">Tabela de Pressões</h4>
+
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
+
                                             <div class="modal-body mx-3">
                                                 <table class="table table-bordered table-hover">
                                                     <thead class="thead-light">
                                                         <tr>
                                                             <th>Pressão</th>
+
                                                             <th>Data da Pressão</th>
                                                         </tr>
                                                     </thead>
+
                                                     <tbody>
                                                         <?php require('parts/tabela_pressao.php');?>
                                                     </tbody>
@@ -291,9 +343,11 @@
                                     <a href="" class="btn btn-danger btn-rounded btn-block m-3" data-toggle="modal"
                                         data-target="#modalPressaoForm">Atualizar Pressão</a>
                                 </div>
+
                                 <div class="d-flex justify-content-md-start justify-content-xl-around">
                                     <a href="" class="btn btn-danger btn-rounded btn-block m-3" data-toggle="modal"
                                         data-target="#modalPesoTable">Mostra Tabela de Pesagem</a>
+
                                     <a href="" class="btn btn-danger btn-rounded btn-block m-3" data-toggle="modal"
                                         data-target="#modalPressaoTable">Mostra Tabela de Pressões</a>
                                 </div>

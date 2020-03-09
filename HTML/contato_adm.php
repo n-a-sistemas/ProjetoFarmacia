@@ -48,7 +48,7 @@
                 <form class="form-horizontal" action="PHP/enviar_todos.php" method="post">
                     <h1>Contato para dúvidas ou bugs encontrados no site</h1>
                     <div class="form-group">
-                        <label for="email">Email</label>
+                        <label for="email" class="font-weight-bold">Email</label>
                         <div class="col-auto">
                             <select class="form-control" name="email" id="email" required>
                                 <option value="all">Enviar para Todos</option>
@@ -57,15 +57,15 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="assunto">Assunto</label>
+                        <label for="assunto" class="font-weight-bold">Assunto</label>
                         <div class="col-auto">
-                            <input class="form-control" type="text" name="assunto" id="assunto" required>
+                            <input class="form-control" placeholder="Assunto" type="text" name="assunto" id="assunto" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="mensagem">Mensagem</label>
+                        <label for="mensagem" class="font-weight-bold">Mensagem</label>
                         <div class="col-auto">
-                            <textarea class="form-control" name="mensagem" id="mensagem" cols="50" rows="10"
+                            <textarea class="form-control" placeholder="Mensagem" name="mensagem" id="mensagem" cols="50" rows="10"
                                 required></textarea>
                         </div>
                     </div>

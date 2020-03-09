@@ -60,35 +60,43 @@
                         <div class="card-header text-center">
                             <h3>Login</h3>
                         </div>
+
                         <div class="card-body">
                             <form action="PHP/logar.php" method="post" onsubmit="return validaLogin();">
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                                     </div>
+
                                     <input type="email" class="form-control" placeholder="Email" name="email" id="email"
                                         required>
                                 </div>
+
                                 <div class="input-group form-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                                     </div>
+
                                     <input type="password" class="form-control" placeholder="Senha" name="senha"
                                         id="senha" required>
+
                                     <button type="button" id="btn">
                                         <img src="IMG/eye.svg" alt="eye" width="25" height="25"
                                             class="d-inline-block align-top">
                                     </button>
                                 </div>
+
                                 <div class="form-group">
                                     <button type="submit" id="logar" class="btn float-right">Logar</button>
                                 </div>
                             </form>
                         </div>
+
                         <div class="card-footer">
                             <div class="d-flex justify-content-center">
                                 <a href="recuperar_senha.php">Redefina sua senha</a>
                             </div>
+                            
                             <div class="d-flex justify-content-center links">
                                 <pre>Não é Cadastrado?<a href="cadastro.php">Cadastre-se</a></pre>
                             </div>

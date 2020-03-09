@@ -22,9 +22,9 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Cadastro</title>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
@@ -34,8 +34,8 @@
     <script type="text/javascript" src="JS/bootstrap.min.js"></script>
     <link rel="stylesheet" href="CSS/bootstrap.min.css" />
     <link rel="stylesheet" href="CSS/estilos.css" />
-    <link rel="stylesheet" href="CSS/cadastro.css">
-    <link rel="icon" href="PHP/uploads/logo.png">
+    <link rel="stylesheet" href="CSS/cadastro.css" />
+    <link rel="icon" href="PHP/uploads/logo.png" />
 </head>
 
 <body>
@@ -54,52 +54,69 @@
                 <form class="form-horizontal" role="form" action="PHP/insert_formulario.php" method="POST"
                     enctype="multipart/form-data" onsubmit="return validaFormulario();">
                     <fieldset>
+                        <label for="alerta">Campos marcados com <span class="ast font-weight-bold">*</span>
+                            são obrigatórios.</label>
+
                         <legend>Dados pessoais</legend>
+
                         <div class="form-group required">
                             <label for="nome" class="col-auto control-label font-weight-bold">Nome Completo</label>
+
                             <div class="col-auto">
                                 <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome"
                                     required>
                             </div>
                         </div>
+
                         <div class="form-group required">
                             <label for="email" class="col-auto control-label font-weight-bold">Email</label>
+
                             <div class="col-auto">
                                 <input type="email" name="email" id="email" onblur="confirmaEmail()"
                                     class="form-control" placeholder="Email" required>
                             </div>
+
                             <label for="email" id="errorEmail"></label>
                         </div>
+
                         <div class="form-group required">
                             <label for="senha" class="col-auto control-label font-weight-bold">Senha</label>
+
                             <div class="col-auto">
                                 <input type="password" name="senha" id="senha" minlength="5" class="form-control"
                                     placeholder="Senha" required>
                             </div>
                         </div>
+
                         <div class="form-group required">
                             <label for="confirmacao" class="col-auto control-label font-weight-bold">Confirmar
                                 senha</label>
+
                             <div class="col-auto">
                                 <input type="password" name="confirmacao" id="confirmacao" minlength="5"
                                     onblur="confirmaSenha()" class="form-control"
                                     placeholder="Digite novamente sua senha" required>
                             </div>
+
                             <label for="confirmacao" id="errorSenha"></label>
                         </div>
+
                         <fieldset class="form-group required mb-3">
                             <legend class="control-label font-weight-bold">Sexo</legend>
+
                             <div class="col-auto custom-control custom-radio">
                                 <div class="col-auto">
                                     <input class="custom-control-input" type="radio" name="sexo" id="Masculino"
                                         value="Masculino">
                                     <label class="custom-control-label" for="Masculino">Masculino</label>
                                 </div>
+
                                 <div class="col-auto">
                                     <input class="custom-control-input" type="radio" name="sexo" id="Feminino"
                                         value="Feminino">
                                     <label class="custom-control-label" for="Feminino">Feminino</label>
                                 </div>
+
                                 <div class="col-auto">
                                     <input class="custom-control-input" type="radio" name="sexo" id="Outros"
                                         value="Outros">
@@ -107,31 +124,38 @@
                                 </div>
                             </div>
                         </fieldset>
+
                         <div class="form-group required">
                             <label for="data_nascimento" class="col-auto control-label font-weight-bold">Data de
                                 Nascimento</label>
+
                             <div class="col-auto">
                                 <input type="date" name="data_nascimento" id="data_nascimento" class="form-control"
                                     required>
                             </div>
                         </div>
+
                         <div class="form-group required">
                             <label for="cpf" class="col-auto control-label font-weight-bold">CPF</label>
+
                             <div class="col-auto">
                                 <input type="text" name="cpf" id="cpf" minlength="14" maxlength="14"
                                     onblur="confirmaCPF()" class="form-control" placeholder="CPF"
                                     data-mask="000.000.000-00" required>
                             </div>
+
                             <label for="cpf" class="col-auto text-muted">ex:111.222.333-44</label>
                         </div>
 
                         <div class="form-group required">
                             <label for="tel" class="col-auto control-label font-weight-bold">Telefone</label>
+
                             <div class="col-auto">
                                 <input type="tel" name="tel" id="tel" minlength="14" maxlength="14"
                                     onblur="confirmaTelefone('tel')" class="form-control" placeholder="Telefone"
                                     data-mask="(00)00000-0000" required>
                             </div>
+
                             <label for="tel" class="col-auto text-muted">ex:(16)91111-4444</label>
                         </div>
                         <div class="form-group required">
@@ -255,7 +279,7 @@
                             <label class="col-auto control-label text-muted" for="data_peso">Opcional</label>
                         </div>
                         <div class="container form-group">
-                        <label class="col-auto control-label font-weight-bold p-0" for="imagemUpload">Foto de
+                            <label class="col-auto control-label font-weight-bold p-0" for="imagemUpload">Foto de
                                 Perfil</label>
                             <div class="col-auto custom-file">
                                 <input class="form-control custom-file-input" type="file" name="imagemUpload"

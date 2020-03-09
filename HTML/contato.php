@@ -58,32 +58,35 @@
                 <form class="form-horizontal" action="PHP/enviar_email.php" method="post">
                     <div class="text-center">
                         <h1>Contato</h1>
+                        <label for="alerta">Campos marcados com <span class="ast font-weight-bold text-center">*</span>
+                            são obrigatórios.</label>
                     </div>
-                    <div class="form-group">
-                        <label for="nome">Nome</label>
+                    <div class="form-group required">
+                        <label for="nome" class="control-label font-weight-bold">Nome</label>
                         <div class="col-auto">
-                            <input class="form-control" type="nome" name="nome" id="nome" value="<?php echo $nome;?>"
-                                required>
+                            <input class="form-control" placeholder="Nome" type="nome" name="nome" id="nome"
+                                value="<?php echo $nome;?>" required>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
+                    <div class="form-group required">
+                        <label for="email" class="control-label font-weight-bold">Email</label>
                         <div class="col-auto">
-                            <input class="form-control" type="email" name="email" id="email"
+                            <input class="form-control" placeholder="Email" type="email" name="email" id="email"
                                 value="<?php echo $email;?>" required>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="assunto">Assunto</label>
+                    <div class="form-group required">
+                        <label for="assunto" class="control-label font-weight-bold">Assunto</label>
                         <div class="col-auto">
-                            <input class="form-control" type="text" name="assunto" id="assunto" required>
+                            <input class="form-control" type="text" placeholder="Assunto" name="assunto" id="assunto"
+                                required>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="mensagem">Mensagem</label>
+                    <div class="form-group required">
+                        <label for="mensagem" class="control-label font-weight-bold">Mensagem</label>
                         <div class="col-auto">
-                            <textarea class="form-control" name="mensagem" id="mensagem" cols="50" rows="10"
-                                required></textarea>
+                            <textarea class="form-control" placeholder="Mensagem" name="mensagem" id="mensagem"
+                                cols="50" rows="10" required></textarea>
                         </div>
                     </div>
                     <div class="form-group">
@@ -96,8 +99,7 @@
             <div class="col-sm-12 col-md-6">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3698.6484369460777!2d-47.89359248501157!3d-22.02477761252949!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b87722afe006bb%3A0x4a8b254e7543696!2sSenac%20S%C3%A3o%20Carlos!5e0!3m2!1spt-BR!2sbr!4v1581451958431!5m2!1spt-BR!2sbr"
-                    width="100%" height="650" frameborder="0" style="border:0;"
-                    allowfullscreen=""></iframe>
+                    width="100%" height="650" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
             </div>
         </div>
     </main>
