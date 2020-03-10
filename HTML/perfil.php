@@ -24,7 +24,7 @@
                 $contatoemergencia = $linha['telefone_emergencia'];
                 $planodesaude = $linha['plano_saude'];
                 $altura = $linha['altura'];
-                $altura = str_replace(',','.', $altura);
+                $altura = str_replace('.',',', $altura);
                 $endereco = $linha['endereco'];
                 $cidade = $linha['id_cidade'];
                 $estado = $linha['id_estado'];

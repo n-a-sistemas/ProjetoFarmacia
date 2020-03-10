@@ -51,8 +51,10 @@
 
                 <img src="PHP/<?php echo $img;?>" id="qrcode" class="img-fluid">
             </div>
-            
-            <a href="meuperfil.php">Voltar</a>
+
+            <a href="meuperfil.php">
+                <button type="button" class="btn btn-primary">Voltar ao perfil</button>
+            </a>
         </div>
     </div>
 </body>

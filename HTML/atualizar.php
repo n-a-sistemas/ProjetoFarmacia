@@ -25,7 +25,8 @@
             $tiposanguineo = $linha['tipo_sanguineo'];
             $contatoemergencia = $linha['telefone_emergencia'];
             $planodesaude = $linha['plano_saude'];
-            $altura = $linha['altura']; 
+            $altura = $linha['altura'];
+            $altura = str_replace('.',',', $altura);
             $endereco = $linha['endereco'];
             $id_cidade = $linha['id_cidade'];
             $id_estado = $linha['id_estado'];
